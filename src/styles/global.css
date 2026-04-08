@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@theme {
+  --color-fenix-red-light: #FC3D03;
+  --color-fenix-red-dark: #9C1500;
+  --color-fenix-gray: #808080;
+  --color-fenix-black: #000000;
+  --color-fenix-white: #FFFFFF;
+
+  --font-outfit: "Outfit", sans-serif;
+  --font-inter: "Inter", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply font-inter bg-fenix-black text-fenix-white;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-outfit font-bold;
+  }
+}
+
+/* Custom Utilities for the "Supply" style */
+.text-monumental {
+  font-size: clamp(3rem, 12vw, 10rem);
+  line-height: 0.8;
+  letter-spacing: -0.05em;
+  user-select: none;
+  pointer-events: none;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}

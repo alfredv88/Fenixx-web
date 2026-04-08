@@ -1,0 +1,119 @@
+---
+---
+
+<section class="relative h-screen w-full overflow-hidden flex items-center">
+  <!-- Video Carousel Background -->
+  <div id="hero-carousel" class="absolute inset-0 z-0">
+    <video 
+      class="absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 opacity-100" 
+      src="/videos/hero-1.mp4" 
+      autoplay 
+      muted 
+      loop 
+      playsinline 
+    ></video>
+    <video 
+      class="absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 opacity-0" 
+      src="/videos/hero-2.mp4" 
+      muted 
+      loop 
+      playsinline 
+    ></video>
+    <video 
+      class="absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 opacity-0" 
+      src="/videos/hero-3.mp4" 
+      muted 
+      loop 
+      playsinline 
+    ></video>
+  </div>
+
+  <!-- Global Overlay -->
+  <div class="absolute inset-0 bg-black/40 z-10"></div>
+
+  <!-- Monumental Text at Bottom (Supply style: "Global Reach") -->
+  <div class="absolute bottom-4 left-0 w-full z-20 select-none pointer-events-none overflow-hidden flex justify-center">
+    <span class="text-monumental font-black text-white uppercase tracking-tighter whitespace-nowrap">
+      FENIXX LOGISTICS
+    </span>
+  </div>
+
+  <!-- Content Block (Right Aligned - Pushed Further Right) -->
+  <div class="absolute inset-0 z-30 flex justify-end items-center pr-6 md:pr-12 lg:pr-24">
+    <div class="max-w-xl text-right">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 tracking-tight leading-[0.9] uppercase animate-fade-in-up">
+        Logística <br/>
+        <span class="text-fenix-red-light">integral</span>
+      </h1>
+      <p class="text-base md:text-lg text-white mb-10 font-medium max-w-lg ml-auto animate-fade-in-up delay-200">
+        <span class="text-fenix-red-light font-bold">Fenixx C.A:</span> Su aliado estratégico en gestión aduanera, transporte multimodal y carga especializada. Optimizamos su cadena de suministro con precisión intermodal.
+      </p>
+      <div class="flex gap-4 justify-end items-center animate-fade-in-up delay-400">
+        <a 
+          href="#servicios" 
+          class="bg-fenix-red-light hover:bg-fenix-red-dark text-white px-10 py-4 rounded-full font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg shadow-fenix-red-light/30"
+        >
+          Saber más
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- IA Chat Widget (Bottom Left) Stacked Vertical -->
+  <div class="absolute bottom-10 left-10 z-30 flex flex-col-reverse items-center gap-4 animate-fade-in delay-500">
+    <button class="bg-fenix-red-light p-4 rounded-full text-white shadow-xl hover:scale-110 transition-transform">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-square-text"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M13 8H7"/><path d="M17 12H7"/></svg>
+    </button>
+    <div class="bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full hidden sm:block">
+        <span class="text-white font-bold text-sm">Asesoría: <span class="text-green-400">En línea</span></span>
+    </div>
+  </div>
+
+  <!-- Premium Scroll Indicator (Luxury Logistics style) -->
+  <div class="absolute bottom-52 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-3 animate-fade-in delay-700">
+    <span class="text-[10px] uppercase tracking-[0.3em] text-white/40 font-bold">Descubrir</span>
+    <div class="w-[22px] h-[38px] border-2 border-white/30 rounded-full relative">
+        <div class="absolute top-2 left-1/2 -translate-x-1/2 w-1 h-2 bg-fenix-red-light rounded-full animate-scroll-wheel"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const videos = document.querySelectorAll('#hero-carousel video') as NodeListOf<HTMLVideoElement>;
+  let currentVideo = 0;
+
+  function nextVideo() {
+    videos[currentVideo].classList.replace('opacity-100', 'opacity-0');
+    currentVideo = (currentVideo + 1) % videos.length;
+    videos[currentVideo].classList.replace('opacity-0', 'opacity-100');
+    videos[currentVideo].play();
+  }
+
+  setInterval(nextVideo, 6000);
+</script>
+
+<style>
+  @keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes scroll-wheel {
+    0% { transform: translateX(-50%) translateY(0); opacity: 0; }
+    30% { opacity: 1; }
+    100% { transform: translateX(-50%) translateY(15px); opacity: 0; }
+  }
+
+  .animate-fade-in-up { animation: fade-in-up 1s ease-out forwards; }
+  .animate-fade-in { animation: fade-in 1.5s ease-out forwards; }
+  .animate-scroll-wheel { animation: scroll-wheel 2s infinite ease-in-out; }
+
+  .delay-200 { animation-delay: 0.2s; }
+  .delay-400 { animation-delay: 0.4s; }
+  .delay-500 { animation-delay: 0.5s; }
+</style>
