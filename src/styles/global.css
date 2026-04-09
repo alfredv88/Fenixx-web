@@ -25,7 +25,7 @@
 
 /* Custom Utilities for the "Supply" style */
 .text-monumental {
-  font-size: clamp(3rem, 12vw, 10rem);
+  font-size: clamp(3.9rem, 15.6vw, 13rem);
   line-height: 0.8;
   letter-spacing: -0.05em;
   user-select: none;
