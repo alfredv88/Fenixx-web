@@ -1,43 +1,25 @@
-# Astro Starter Kit: Minimal
+# Fenixx Industrial Platform
 
-```sh
-npm create astro@latest -- --template minimal
+Plataforma logística e industrial de alto rendimiento construida con un enfoque en **High-Craft Cinematic Design**.
+
+## 🚀 Tecnologías
+- **Core:** [Next.js 16](https://nextjs.org/) (App Router)
+- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
+- **Animations:** [Framer Motion](https://www.framer.com/motion/)
+- **Icons:** Lucide React
+
+## ✨ Características de Diseño
+- **Hero Section:** Transiciones de video cinemáticas con efectos Ken Burns.
+- **Micro-interacciones:** Shimmer animado en el Header y efectos de luz roja dinámica.
+- **Scroll Storytelling:** Parallax agresivo (X4) y animaciones de letras tipo ola (stagger).
+- **Aesthetic:** Dark premium mode con acentos corporativos en rojo `#FC3D03`.
+
+## 🛠️ Desarrollo
+Para iniciar el servidor de desarrollo:
+```bash
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+---
+Diseñado y desarrollado para **Fenixx Logistics**.
