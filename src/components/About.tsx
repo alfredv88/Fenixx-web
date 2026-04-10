@@ -31,7 +31,7 @@ export default function About() {
                 <motion.span 
                   initial={{ y: 50, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
+                  transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] as const }}
                   className="block"
                 >
                   En un mercado global que no se detiene,
@@ -39,7 +39,7 @@ export default function About() {
                 <motion.span 
                   initial={{ y: 50, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.8, delay: 0.2, ease: [0.23, 1, 0.32, 1] }}
+                  transition={{ duration: 0.8, delay: 0.2, ease: [0.23, 1, 0.32, 1] as const }}
                   className="block"
                 >
                   su empresa necesita un <span className="relative whitespace-nowrap">aliado.<span className="absolute left-0 bottom-[6px] md:bottom-[8px] w-full h-[4px] md:h-[6px] bg-[#FC3D03] opacity-80 -z-10" /></span>
