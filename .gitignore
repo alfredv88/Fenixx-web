@@ -22,3 +22,19 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Next.js
+.next/
+out/
+build/
+
+# Turbopack
+.next/cache/turbopack/
+
+# Testing
+coverage/
+
+# Misc
+.vercel
+.turbo
+*.log
