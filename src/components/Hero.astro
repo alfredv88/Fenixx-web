@@ -28,36 +28,46 @@
     ></video>
   </div>
 
-  <!-- Global Overlay -->
+  <!-- Global Overlay (Solid to Match Supply) -->
   <div class="absolute inset-0 bg-black/40 z-10"></div>
 
   <!-- Monumental Text at Bottom (Supply style: "Global Reach") -->
   <div class="absolute bottom-12 left-0 w-full z-20 select-none pointer-events-none overflow-hidden flex justify-center">
-    <span class="text-monumental font-black text-white uppercase tracking-tighter whitespace-nowrap">
+    <span class="text-monumental font-black text-white uppercase tracking-tighter whitespace-nowrap opacity-90">
       FENIXX LOGISTICS
     </span>
   </div>
 
-  <!-- Content Block (Right Aligned - Pushed Further Right) -->
+  <!-- Content Block -->
   <div class="absolute inset-0 z-30 flex justify-end items-center pr-6 md:pr-12 lg:pr-24">
     <div class="max-w-xl text-right">
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 tracking-tight leading-[0.9] uppercase animate-fade-in-up">
-        Logística <br/>
-        <span class="text-fenix-red-light">integral</span>
-      </h1>
-      <p class="text-base md:text-lg text-gray-300 mb-10 font-medium max-w-lg ml-auto animate-fade-in-up delay-200">
-        <span class="text-fenix-red-light font-bold">Fenixx C.A:</span> Su aliado estratégico en gestión aduanera, transporte multimodal y carga especializada. Optimizamos su cadena de suministro con precisión intermodal.
-      </p>
+      
+      <div class="overflow-hidden mb-2">
+        <h1 class="text-[50px] md:text-[60px] lg:text-[70px] font-bold text-white tracking-tighter leading-[1.05] uppercase animate-mask-up">
+          Logística <br/>
+          <span class="text-[#FC3D03]">integral</span>
+        </h1>
+      </div>
+
+      <div class="overflow-hidden mb-10">
+        <p class="text-base md:text-lg text-gray-200 font-medium max-w-lg ml-auto animate-mask-up delay-200">
+          <span class="text-white font-bold decoration-fenix-red-light underline-offset-4 decoration-2">Fenixx C.A:</span> Su aliado estratégico en gestión aduanera, transporte multimodal y carga especializada.
+        </p>
+      </div>
+
       <div class="flex gap-4 justify-end items-center animate-fade-in-up delay-400">
         <a 
           href="#servicios" 
-          class="bg-gradient-to-br from-fenix-red-light to-fenix-red-dark text-white px-10 py-4 rounded-full font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg shadow-fenix-red-dark/30 hover:shadow-fenix-red-light/40"
+          class="bg-[#FC3D03] hover:bg-[#e33702] text-white px-10 py-5 rounded-full font-medium text-[16px] transition-all duration-300"
         >
           Saber más
         </a>
       </div>
     </div>
   </div>
+
+
+
 
 
   <!-- Premium Scroll Indicator (Luxury Logistics style) -->
@@ -94,12 +104,12 @@
     to { opacity: 1; }
   }
 
-  @keyframes scroll-wheel {
-    0% { transform: translateX(-50%) translateY(0); opacity: 0; }
-    30% { opacity: 1; }
-    100% { transform: translateX(-50%) translateY(15px); opacity: 0; }
+  @keyframes mask-up {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
   }
 
+  .animate-mask-up { animation: mask-up 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards; }
   .animate-fade-in-up { animation: fade-in-up 1s ease-out forwards; }
   .animate-fade-in { animation: fade-in 1.5s ease-out forwards; }
   .animate-scroll-wheel { animation: scroll-wheel 2s infinite ease-in-out; }

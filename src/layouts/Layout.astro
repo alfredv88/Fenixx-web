@@ -19,14 +19,32 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title} | Fenixx Import Export</title>
 		
-		<!-- Google Fonts: Outfit & Inter -->
+		<!-- Google Fonts: Work Sans -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 	</head>
-	<body>
+	<body class="font-['Work_Sans',sans-serif]">
 		<slot />
+
+		<script>
+			// Scroll Reveal Observer
+			const observerOptions = {
+				threshold: 0.1
+			};
+
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('active');
+					}
+				});
+			}, observerOptions);
+
+			document.querySelectorAll('.reveal-mask').forEach(el => observer.observe(el));
+		</script>
 	</body>
+
 </html>
 
 <style is:global>

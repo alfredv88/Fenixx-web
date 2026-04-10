@@ -1,0 +1,52 @@
+---
+const partners = [
+  {
+    name: "FedEx",
+    label: `<span style="font-family:'Arial Black',sans-serif;font-size:28px;font-weight:900;letter-spacing:-1px;">Fed<span style="font-style:italic;">Ex</span></span>`
+  },
+  {
+    name: "DHL",
+    label: `<span style="font-family:'Arial Black',sans-serif;font-size:32px;font-weight:900;letter-spacing:2px;">DHL</span>`
+  },
+  {
+    name: "Maersk",
+    label: `<span style="font-family:Arial,sans-serif;font-size:22px;font-weight:700;letter-spacing:4px;">MAERSK</span>`
+  },
+  {
+    name: "UPS",
+    label: `<span style="font-family:'Arial Black',sans-serif;font-size:30px;font-weight:900;letter-spacing:2px;">UPS</span>`
+  },
+  {
+    name: "MSC",
+    label: `<span style="font-family:'Arial Black',sans-serif;font-size:30px;font-weight:900;letter-spacing:2px;">MSC</span>`
+  },
+  {
+    name: "DB Schenker",
+    label: `<span style="font-family:Arial,sans-serif;font-size:15px;font-weight:800;letter-spacing:3px;line-height:1.3;text-align:center;display:block;">DB<br>SCHENKER</span>`
+  },
+];
+---
+
+<section class="py-20 bg-white">
+  <div class="w-full max-w-[1300px] mx-auto px-8 xl:px-16">
+
+    <!-- Label -->
+    <p class="text-center text-[12px] uppercase tracking-[0.3em] text-gray-500 font-semibold mb-10">
+      Nuestros Aliados Estratégicos
+    </p>
+
+    <!-- Partners pill container -->
+    <div class="border border-[#e4e4e4] rounded-[24px] overflow-hidden flex">
+      {partners.map((p, i) => (
+        <div class={`flex-1 flex items-center justify-center py-14 px-6
+          text-[#cccccc] hover:text-[#999] transition-colors duration-300 cursor-default
+          ${i < partners.length - 1 ? 'border-r border-[#e4e4e4]' : ''}
+        `}>
+          <span class="sr-only">{p.name}</span>
+          <Fragment set:html={p.label} />
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

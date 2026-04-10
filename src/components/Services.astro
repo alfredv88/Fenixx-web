@@ -2,76 +2,77 @@
 const services = [
   {
     title: "Transporte Multimodal",
-    description: "Cobertura total en todas las modalidades: marítimo, aéreo, terrestre y gestión de fletes internacionales.",
+    description: "Cobertura total y coordinación estratégica en conexiones marítimas, aéreas y terrestres.",
     image: "/images/service-transporte.png",
-    alt: "Servicios de transporte multimodal y flete marítimo, aéreo y terrestre",
-    link: "/servicios/transporte"
+    alt: "Transporte Multimodal"
   },
   {
     title: "Gestión Aduanera",
-    description: "Simplificamos la burocracia para acelerar sus tiempos de entrega con asesoría y representación integral.",
+    description: "Aceleramos tiempos con asesoría especializada y nacionalización eficiente de carga.",
     image: "/images/service-aduanas.png",
-    alt: "Asesoría experta y representación en trámites de gestión aduanera internacional",
-    link: "/servicios/aduanas"
+    alt: "Gestión Aduanera"
   },
   {
     title: "Manejo de Carga",
-    description: "Capacidad técnica para cualquier tipo de mercancía, desde bultos individuales hasta cargas sobredimensionadas.",
+    description: "Precisión técnica para carga suelta o izada de piezas y maquinaria de gran dimensión.",
     image: "/images/service-carga.png",
-    alt: "Logística y manejo especializado de carga sobredimensionada e industrial",
-    link: "/servicios/carga"
+    alt: "Manejo de Carga"
+  },
+  {
+    title: "Alquiler de Equipos",
+    description: "Flota moderna y herramientas especializadas para optimizar toda su operación.",
+    image: "/images/service-maquinaria.png",
+    alt: "Alquiler de Equipos"
   }
 ];
 ---
 
-<section id="servicios" class="py-24 md:py-32 bg-[#F5F5F0] relative">
-  <div class="w-full px-6 md:px-12 lg:px-24 relative z-10">
-    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-12">
+<section id="servicios" class="w-full bg-[#f6f6f6] font-['Work_Sans',sans-serif] pt-[150px] lg:pt-[250px] pb-[100px]">
+  <div class="w-full px-4 md:px-8 xl:px-16 mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 lg:divide-x lg:divide-y-0 divide-y divide-[#cccccc]">
       
       <!-- Info Column -->
-      <div class="flex flex-col justify-start lg:pr-6 mb-10 lg:mb-0">
-        <span class="text-xs uppercase tracking-[0.3em] text-fenix-red-light font-bold block mb-4">
-          Nuestros Servicios
+      <div class="flex flex-col justify-center pr-0 lg:pr-8 xl:pr-12 pt-[40px] pb-[80px] h-full">
+        <span class="text-[11px] uppercase tracking-[0.15em] text-[#FC3D03] font-bold block mb-5">
+          Portafolio de Servicios
         </span>
-        <h2 class="text-4xl md:text-5xl font-black text-fenix-black tracking-tight mb-6">
-          Logística <br/><span class="text-fenix-red-light">Integral</span>
-        </h2>
-        <p class="text-gray-600 text-base md:text-lg font-medium leading-relaxed mb-10">
-          Movemos su carga de forma rápida, segura e inteligente para el éxito de su cadena de suministro.
+        <div class="overflow-hidden mb-8">
+          <h2 class="text-[40px] xl:text-[46px] leading-[1.05] font-semibold text-gray-900 tracking-[-0.02em] reveal-mask">
+            Capacidad Estratégica
+          </h2>
+        </div>
+        <p class="text-gray-900 text-[15px] xl:text-[16px] leading-relaxed mb-auto pb-12 pr-4">
+          Cubrimos todas las modalidades de transporte con la infraestructura necesaria para su operación.
         </p>
-        <div>
-          <a href="/servicios" class="inline-flex items-center gap-3 bg-fenix-red-light hover:bg-fenix-red-dark text-white px-8 py-4 rounded-full font-bold transition-all duration-300 transform hover:scale-105">
-            Ver todas
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
-            </svg>
+        <div class="mt-auto">
+          <a href="/servicios" class="inline-flex items-center justify-center bg-[#FC3D03] hover:bg-[#e33702] text-white px-9 py-4 rounded-full font-medium text-[16px] transition-colors shadow">
+            Más Detalles
           </a>
         </div>
       </div>
 
-      <!-- Services List (Web base replica) -->
-      <div class="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
-        {services.map((service) => (
-          <a href={service.link} class="group flex flex-col cursor-pointer transition-transform duration-300 hover:-translate-y-2">
-            <div class="w-full aspect-square md:aspect-[4/3] mb-6 overflow-hidden rounded-[2rem] shadow-none">
-              <img 
-                src={service.image} 
-                alt={service.alt}
-                loading="lazy"
-                decoding="async"
-                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-            </div>
-            <h3 class="text-2xl font-black text-fenix-black mb-3 tracking-tight group-hover:text-fenix-red-light transition-colors">
-              {service.title}
-            </h3>
-            <p class="text-gray-600 text-base leading-relaxed">
-              {service.description}
-            </p>
-          </a>
-        ))}
-      </div>
-
+      <!-- Services List -->
+      {services.map((service) => (
+        <div class="flex flex-col px-4 xl:px-8 pt-[40px] pb-[80px] h-full justify-start">
+          <div class="w-full aspect-[4/3] 2xl:aspect-square mb-8 overflow-hidden rounded-[20px] shadow-sm">
+            <img 
+              src={service.image} 
+              alt={service.alt}
+              loading="lazy"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <h3 class="text-[22px] xl:text-[26px] font-medium text-gray-900 mb-3 tracking-[-0.02em]">
+            {service.title}
+          </h3>
+          <p class="text-gray-900 text-[14px] xl:text-[16px] leading-relaxed">
+            {service.description}
+          </p>
+        </div>
+      ))}
     </div>
   </div>
 </section>
+
+
+

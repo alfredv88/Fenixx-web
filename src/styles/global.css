@@ -9,31 +9,50 @@
 
   --font-outfit: "Outfit", sans-serif;
   --font-inter: "Inter", sans-serif;
+  
+  /* Custom Spacing & Effects */
+  --ease-industrial: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 @layer base {
   body {
-    @apply font-inter bg-fenix-black text-fenix-white;
+    @apply bg-white text-gray-900 antialiased;
+    font-family: 'Work Sans', sans-serif;
     margin: 0;
     padding: 0;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-outfit font-bold;
+    @apply font-bold tracking-[-0.03em] leading-tight;
+    font-family: 'Outfit', sans-serif;
   }
 }
 
-/* Custom Utilities for the "Supply" style */
+/* --- Premium Industrial Tonalities --- */
+
 .text-monumental {
   font-size: clamp(3.9rem, 15.6vw, 13rem);
   line-height: 0.8;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.06em; /* More aggressive tracking for the "Supply" look */
+  font-weight: 900;
   user-select: none;
   pointer-events: none;
+  @apply uppercase;
 }
 
-.glass-card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+/* Scroll Mask Reveal System */
+@keyframes mask-reveal-up {
+  from { transform: translateY(110%); }
+  to { transform: translateY(0); }
 }
+
+.reveal-mask {
+  transform: translateY(110%);
+  display: block;
+}
+
+.reveal-mask.active {
+  animation: mask-reveal-up 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+

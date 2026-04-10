@@ -1,157 +1,91 @@
 ---
 ---
-
-<section id="contacto" class="py-24 md:py-32 bg-fenix-black relative overflow-hidden">
-
-  <!-- Monumental Background -->
-  <div class="absolute top-1/2 left-0 -translate-y-1/2 w-full select-none pointer-events-none overflow-hidden flex justify-center opacity-[0.02]">
-    <span class="text-[15vw] font-black text-white uppercase tracking-tighter whitespace-nowrap leading-none">
-      CONTACTO
-    </span>
-  </div>
-
-  <div class="w-full px-6 md:px-12 lg:px-24 relative z-10">
-
-    <!-- Header -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
-      <div class="lg:col-span-6">
-        <span class="text-xs uppercase tracking-[0.3em] text-fenix-red-light font-bold block mb-4">
-          Contáctanos
+<section id="contacto" class="py-[100px] lg:py-[160px] bg-white border-t border-gray-200">
+  <div class="w-full max-w-[1400px] mx-auto px-6 xl:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
+      
+      <!-- Info Izquierda -->
+      <div class="lg:col-span-5">
+        <span class="text-[12px] uppercase tracking-[0.25em] text-[#FC3D03] font-bold block mb-4">
+          Contacto
         </span>
-        <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[0.9] tracking-tight">
-          ¿Listo para<br/>
-          <span class="text-fenix-red-light">optimizar</span> su logística?
+        <h2 class="text-[40px] xl:text-[56px] font-bold text-gray-900 leading-[1.05] tracking-tight mb-8">
+          Iniciemos su <br/>próxima operación.
         </h2>
-      </div>
-      <div class="lg:col-span-4 lg:col-start-9 flex items-end">
-        <p class="text-white/60 text-base md:text-lg leading-relaxed">
-          Cuéntenos sobre su operación y diseñaremos la solución logística que su negocio necesita.
+        <p class="text-gray-500 text-[16px] xl:text-[18px] leading-[1.7] mb-12 max-w-[400px]">
+          Fénixx Logistics está listo para optimizar su cadena de suministro. Nuestro equipo de expertos le responderá en menos de 24 horas.
         </p>
+        
+        <div class="flex flex-col gap-10">
+          <div class="group">
+            <span class="text-[11px] uppercase tracking-[0.15em] text-gray-400 font-bold block mb-2">Línea Directa</span>
+            <a href="tel:+5804129671098" class="text-[20px] xl:text-[24px] font-medium text-gray-900 hover:text-[#FC3D03] transition-colors relative inline-flex items-center gap-2">
+              +58 0412 967 1098
+            </a>
+          </div>
+          
+          <div class="group">
+            <span class="text-[11px] uppercase tracking-[0.15em] text-gray-400 font-bold block mb-2">Correo Corporativo</span>
+            <a href="mailto:info@fenixx.com" class="text-[20px] xl:text-[24px] font-medium text-gray-900 hover:text-[#FC3D03] transition-colors relative inline-flex items-center gap-2">
+              info@fenixx.com
+            </a>
+          </div>
+
+          <div class="mt-4">
+             <span class="text-[11px] uppercase tracking-[0.15em] text-gray-400 font-bold block mb-2">Oficinas Fénixx</span>
+             <p class="text-[15px] xl:text-[16px] text-gray-600 leading-relaxed max-w-[280px]">
+               Av. Francisco de Miranda, <br/>Torre Empresarial, Piso 8.<br/>Caracas, Venezuela.
+             </p>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <!-- Form + Info Grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <!-- Formulario Derecha -->
+      <div class="lg:col-span-7 lg:col-start-6">
+        <form class="flex flex-col gap-10 lg:pt-4">
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div class="relative group">
+              <!-- El placeholder=" " es vital para que el peer-placeholder-shown funcione -->
+              <input type="text" id="name" placeholder=" " class="peer w-full bg-transparent border-0 border-b-2 border-gray-200 px-0 py-4 text-[16px] xl:text-[18px] text-gray-900 focus:ring-0 focus:border-[#FC3D03] transition-colors" required>
+              <label for="name" class="absolute left-0 top-4 text-gray-400 text-[16px] transition-all duration-300 peer-focus:-top-4 peer-focus:text-[11px] peer-focus:text-[#FC3D03] peer-focus:uppercase peer-focus:tracking-[0.15em] peer-focus:font-bold peer-placeholder-shown:top-4 peer-placeholder-shown:text-[16px] peer-placeholder-shown:text-gray-400 -top-4 text-[11px] text-gray-900 uppercase tracking-[0.15em] font-bold cursor-text">
+                Nombre Completo
+              </label>
+            </div>
+            
+            <div class="relative group">
+              <input type="email" id="email" placeholder=" " class="peer w-full bg-transparent border-0 border-b-2 border-gray-200 px-0 py-4 text-[16px] xl:text-[18px] text-gray-900 focus:ring-0 focus:border-[#FC3D03] transition-colors" required>
+              <label for="email" class="absolute left-0 top-4 text-gray-400 text-[16px] transition-all duration-300 peer-focus:-top-4 peer-focus:text-[11px] peer-focus:text-[#FC3D03] peer-focus:uppercase peer-focus:tracking-[0.15em] peer-focus:font-bold peer-placeholder-shown:top-4 peer-placeholder-shown:text-[16px] peer-placeholder-shown:text-gray-400 -top-4 text-[11px] text-gray-900 uppercase tracking-[0.15em] font-bold cursor-text">
+                Correo Electrónico
+              </label>
+            </div>
+          </div>
 
-      <!-- Contact Form -->
-      <div class="lg:col-span-7">
-        <form class="space-y-6" id="contact-form">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <label for="nombre" class="text-white/50 text-xs uppercase tracking-wider font-bold block mb-2">Nombre</label>
-              <input 
-                type="text" 
-                id="nombre" 
-                name="nombre"
-                placeholder="Su nombre completo"
-                class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-white/30 focus:outline-none focus:border-fenix-red-light transition-colors"
-                required
-              />
-            </div>
-            <div>
-              <label for="email" class="text-white/50 text-xs uppercase tracking-wider font-bold block mb-2">Email</label>
-              <input 
-                type="email" 
-                id="email" 
-                name="email"
-                placeholder="correo@empresa.com"
-                class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-white/30 focus:outline-none focus:border-fenix-red-light transition-colors"
-                required
-              />
-            </div>
+          <div class="relative group">
+            <input type="text" id="company" placeholder=" " class="peer w-full bg-transparent border-0 border-b-2 border-gray-200 px-0 py-4 text-[16px] xl:text-[18px] text-gray-900 focus:ring-0 focus:border-[#FC3D03] transition-colors" required>
+            <label for="company" class="absolute left-0 top-4 text-gray-400 text-[16px] transition-all duration-300 peer-focus:-top-4 peer-focus:text-[11px] peer-focus:text-[#FC3D03] peer-focus:uppercase peer-focus:tracking-[0.15em] peer-focus:font-bold peer-placeholder-shown:top-4 peer-placeholder-shown:text-[16px] peer-placeholder-shown:text-gray-400 -top-4 text-[11px] text-gray-900 uppercase tracking-[0.15em] font-bold cursor-text">
+              Empresa / Organización
+            </label>
           </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <label for="telefono" class="text-white/50 text-xs uppercase tracking-wider font-bold block mb-2">Teléfono</label>
-              <input 
-                type="tel" 
-                id="telefono" 
-                name="telefono"
-                placeholder="+58 (000) 000-0000"
-                class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-white/30 focus:outline-none focus:border-fenix-red-light transition-colors"
-              />
-            </div>
-            <div>
-              <label for="servicio" class="text-white/50 text-xs uppercase tracking-wider font-bold block mb-2">Servicio de interés</label>
-              <select 
-                id="servicio" 
-                name="servicio"
-                class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white/50 focus:outline-none focus:border-fenix-red-light transition-colors appearance-none"
-              >
-                <option value="">Seleccione un servicio</option>
-                <option value="transporte">Transporte Multimodal</option>
-                <option value="aduanas">Gestión Aduanera</option>
-                <option value="carga">Manejo de Carga</option>
-                <option value="equipos">Alquiler de Equipos</option>
-                <option value="otro">Otro</option>
-              </select>
-            </div>
+
+          <div class="relative group mt-4">
+            <textarea id="message" rows="3" placeholder=" " class="peer w-full bg-transparent border-0 border-b-2 border-gray-200 px-0 py-4 text-[16px] xl:text-[18px] text-gray-900 focus:ring-0 focus:border-[#FC3D03] transition-colors resize-none" required></textarea>
+            <label for="message" class="absolute left-0 top-4 text-gray-400 text-[16px] transition-all duration-300 peer-focus:-top-4 peer-focus:text-[11px] peer-focus:text-[#FC3D03] peer-focus:uppercase peer-focus:tracking-[0.15em] peer-focus:font-bold peer-placeholder-shown:top-4 peer-placeholder-shown:text-[16px] peer-placeholder-shown:text-gray-400 -top-4 text-[11px] text-gray-900 uppercase tracking-[0.15em] font-bold cursor-text">
+              Detalles de la Operación
+            </label>
           </div>
-          <div>
-            <label for="mensaje" class="text-white/50 text-xs uppercase tracking-wider font-bold block mb-2">Mensaje</label>
-            <textarea 
-              id="mensaje" 
-              name="mensaje"
-              rows="5"
-              placeholder="Describa brevemente su necesidad logística..."
-              class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-white/30 focus:outline-none focus:border-fenix-red-light transition-colors resize-none"
-              required
-            ></textarea>
+
+          <div class="mt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+            <button type="submit" class="bg-gray-900 hover:bg-[#FC3D03] text-white px-10 py-5 w-full sm:w-auto rounded-full font-bold text-[13px] xl:text-[14px] uppercase tracking-[0.15em] transition-colors duration-300 flex items-center justify-center gap-3 group/btn">
+              <span>Enviar Solicitud</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+            <p class="text-[12px] text-gray-400 max-w-[250px] leading-relaxed hidden sm:block">
+              Al enviar usted acepta nuestras normativas de privacidad y manejo de datos B2B.
+            </p>
           </div>
-          <button 
-            type="submit"
-            class="bg-fenix-red-light hover:bg-fenix-red-dark text-white px-10 py-4 rounded-full font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg shadow-fenix-red-light/20 w-full md:w-auto"
-          >
-            Enviar solicitud
-          </button>
+
         </form>
-      </div>
-
-      <!-- Contact Info -->
-      <div class="lg:col-span-4 lg:col-start-9 space-y-8">
-        <div>
-          <h4 class="text-white font-bold text-lg mb-3">Domicilio Fiscal</h4>
-          <p class="text-white/50 text-sm leading-relaxed">
-            Av. Raúl Leoni con Avenida Real,<br/>
-            Local Nro. S/N, Urb. Industria de Guanta,<br/>
-            Guanta, Edo. Anzoátegui. Zona Postal 6014
-          </p>
-        </div>
-        <div>
-          <h4 class="text-white font-bold text-lg mb-3">Teléfono</h4>
-          <a href="tel:+5804129671098" class="text-white/50 text-sm hover:text-fenix-red-light transition-colors">
-            +58 0412 967 1098
-          </a>
-        </div>
-        <div>
-          <h4 class="text-white font-bold text-lg mb-3">Email</h4>
-          <a href="mailto:info@fenixx.com" class="text-white/50 text-sm hover:text-fenix-red-light transition-colors">
-            info@fenixx.com
-          </a>
-        </div>
-        <div>
-          <h4 class="text-white font-bold text-lg mb-3">Horario</h4>
-          <p class="text-white/50 text-sm leading-relaxed">
-            Lunes - Viernes: 8:00am - 5:00pm<br/>
-            Sábados: 8:00am - 12:00pm
-          </p>
-        </div>
-
-        <!-- Social Links -->
-        <div class="pt-4 border-t border-white/10">
-          <h4 class="text-white font-bold text-lg mb-4">Síguenos</h4>
-          <div class="flex gap-4">
-            <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-fenix-red-light hover:border-fenix-red-light hover:text-white transition-all">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-            </a>
-            <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-fenix-red-light hover:border-fenix-red-light hover:text-white transition-all">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-            </a>
-            <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-fenix-red-light hover:border-fenix-red-light hover:text-white transition-all">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-            </a>
-          </div>
-        </div>
       </div>
 
     </div>
