@@ -15,7 +15,7 @@ export default function Stats() {
           
           {stats.map((stat, index) => (
             <div key={index} className="flex flex-col items-center lg:items-start text-center lg:text-left">
-              <span className="text-[80px] lg:text-[100px] leading-none font-bold text-gray-900 mb-4 tracking-tighter">
+              <span className="text-[80px] lg:text-[100px] leading-none font-bold text-fenix-dark-graphite mb-4 tracking-tighter">
                 {stat.number}
               </span>
               <div className="w-12 h-[2px] bg-[#FC3D03] mb-6"></div>

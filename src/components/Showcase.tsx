@@ -2,34 +2,55 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
-const LETTERS = ['A', 'D', 'U', 'A', 'N', 'A'];
+const LETTERS_ADUANA    = ['A', 'D', 'U', 'A', 'N', 'A'];
+const LETTERS_TRANSPORTE = ['T', 'R', 'A', 'N', 'S', 'P', 'O', 'R', 'T', 'E'];
+const LETTERS_LOGISTICA  = ['L', 'O', 'G', 'Í', 'S', 'T', 'I', 'C', 'A'];
+const LETTERS_CARGA      = ['C', 'A', 'R', 'G', 'A'];
 
-const containerVariants = {
+const makeContainer = (delay = 0.1) => ({
   hidden: {},
   visible: {
-    transition: {
-      staggerChildren: 0.09,
-      delayChildren: 0.1,
-    },
+    transition: { staggerChildren: 0.07, delayChildren: delay },
   },
-};
+});
 
 const letterVariants = {
-  hidden: {
-    y: 140,
-    opacity: 0,
-    filter: 'blur(8px)',
-  },
+  hidden: { y: 100, opacity: 0, filter: 'blur(8px)' },
   visible: {
     y: 0,
     opacity: 1,
     filter: 'blur(0px)',
-    transition: {
-      duration: 1.1,
-      ease: [0.16, 1, 0.3, 1] as const,
-    },
+    transition: { duration: 1.0, ease: [0.16, 1, 0.3, 1] as const },
   },
 };
+
+function MonumentalWord({ letters, fontSize, delay, className = '' }: {
+  letters: string[];
+  fontSize: string;
+  delay: number;
+  className?: string;
+}) {
+  return (
+    <motion.div
+      className={`flex leading-none justify-center ${className}`}
+      variants={makeContainer(delay)}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1 }}
+      style={{ fontSize }}
+    >
+      {letters.map((letter, i) => (
+        <motion.span
+          key={i}
+          variants={letterVariants}
+          className="font-black text-white/80 inline-block tracking-tight md:tracking-wider"
+        >
+          {letter}
+        </motion.span>
+      ))}
+    </motion.div>
+  );
+}
 
 export default function Showcase() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -39,37 +60,22 @@ export default function Showcase() {
     offset: ['start end', 'end start'],
   });
 
-  // X4 parallax: empieza muy bajo el contenedor, sube agresivamente al scrollear
   const parallaxY = useTransform(scrollYProgress, [0, 1], [1200, -600]);
 
   return (
-    <section ref={sectionRef} className="py-[200px] bg-[#ebebeb] relative overflow-hidden">
+    <section ref={sectionRef} className="py-16 md:py-24 lg:py-48 bg-[#ebebeb] relative overflow-hidden">
       
       <div className="w-full max-w-[1320px] mx-auto px-6 relative">
         
-        {/* Monumental Staggered + Parallax Background Text */}
-        <div className="absolute bottom-0 left-0 w-full flex justify-center select-none pointer-events-none z-0">
-          <motion.div
-            style={{ y: parallaxY, fontSize: '19vw' }}
-            className="flex leading-none"
-          >
-            <motion.div
-              className="flex leading-none"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-            >
-              {LETTERS.map((letter, i) => (
-                <motion.span
-                  key={i}
-                  variants={letterVariants}
-                  className="font-bold text-white tracking-widest opacity-90 inline-block"
-                >
-                  {letter}
-                </motion.span>
-              ))}
-            </motion.div>
+        {/* Monumental Words Stack */}
+        <div className="absolute bottom-0 left-0 w-full flex flex-col items-center justify-end select-none pointer-events-none z-0">
+          <motion.div style={{ y: parallaxY }} className="w-full flex flex-col items-center gap-0">
+
+            <MonumentalWord letters={LETTERS_ADUANA}     fontSize="clamp(45px, 12vw, 19vw)" delay={0.1} />
+            <MonumentalWord letters={LETTERS_TRANSPORTE} fontSize="clamp(24px, 7vw, 10vw)"  delay={0.35} />
+            <MonumentalWord letters={LETTERS_LOGISTICA}  fontSize="clamp(22px, 5.5vw, 7vw)" delay={0.55} />
+            <MonumentalWord letters={LETTERS_CARGA}      fontSize="clamp(18px, 4vw, 5vw)"   delay={0.75} />
+
           </motion.div>
         </div>
 

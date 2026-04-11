@@ -28,7 +28,7 @@ export default function Portfolio() {
           <span className="text-[14px] uppercase tracking-[0.2em] text-[#6e6e6e] font-bold block mb-6">
             Latest Projects
           </span>
-          <h2 className="text-[56px] leading-[1.1] font-semibold text-gray-900 tracking-tight max-w-[700px]">
+          <h2 className="text-[56px] leading-[1.1] font-semibold text-fenix-dark-graphite tracking-tight max-w-[700px]">
             Excellence in every logistics operation
           </h2>
         </div>
@@ -50,7 +50,7 @@ export default function Portfolio() {
                 <span className="text-[14px] uppercase tracking-[0.2em] text-[#6e6e6e] font-bold block mb-2">
                   {project.category}
                 </span>
-                <h3 className="text-[28px] font-semibold text-gray-900 group-hover:text-[#FC3D03] transition-colors duration-300">
+                <h3 className="text-[28px] font-semibold text-fenix-dark-graphite group-hover:text-[#FC3D03] transition-colors duration-300">
                   {project.title}
                 </h3>
               </div>

@@ -35,7 +35,7 @@ export default function Gallery() {
              <span className="text-[12px] uppercase tracking-[0.25em] text-[#FC3D03] font-bold block mb-4">
                 Portafolio
              </span>
-             <h2 className="text-[40px] xl:text-[48px] font-bold text-gray-900 leading-[1.05] tracking-tight mb-6">
+             <h2 className="text-[40px] xl:text-[48px] font-bold text-fenix-dark-graphite leading-[1.05] tracking-tight mb-6">
                 Operaciones <br className="hidden xl:block"/>de alto impacto
              </h2>
              <p className="text-gray-500 text-[16px] leading-[1.7] mb-10 max-w-[340px]">
@@ -46,7 +46,7 @@ export default function Gallery() {
                <a href="#contacto" className="group inline-flex items-center justify-center w-14 h-14 rounded-full bg-gray-900 text-white hover:bg-[#FC3D03] transition-colors duration-300">
                  <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                </a>
-               <span className="text-[13px] font-bold text-gray-900 uppercase tracking-[0.15em]">Ver Casos Completos</span>
+               <span className="text-[13px] font-bold text-fenix-dark-graphite uppercase tracking-[0.15em]">Ver Casos Completos</span>
              </div>
           </div>
 
@@ -67,7 +67,7 @@ export default function Gallery() {
                         <span className="text-[#FC3D03] text-[11px] uppercase tracking-[0.2em] font-bold block mb-2 transition-transform duration-500 group-hover:translate-x-2">
                            {p.category}
                         </span>
-                        <h3 className="text-gray-900 text-[20px] xl:text-[22px] font-bold leading-tight transition-all duration-500 group-hover:text-[#FC3D03] group-hover:translate-x-2">
+                        <h3 className="text-fenix-dark-graphite text-[20px] xl:text-[22px] font-bold leading-tight transition-all duration-500 group-hover:text-[#FC3D03] group-hover:translate-x-2">
                            {p.title}
                         </h3>
                       </div>
@@ -87,7 +87,7 @@ export default function Gallery() {
                         <span className="text-[#FC3D03] text-[11px] uppercase tracking-[0.2em] font-bold block mb-2 transition-transform duration-500 group-hover:translate-x-2">
                            {p.category}
                         </span>
-                        <h3 className="text-gray-900 text-[20px] xl:text-[22px] font-bold leading-tight transition-all duration-500 group-hover:text-[#FC3D03] group-hover:translate-x-2">
+                        <h3 className="text-fenix-dark-graphite text-[20px] xl:text-[22px] font-bold leading-tight transition-all duration-500 group-hover:text-[#FC3D03] group-hover:translate-x-2">
                            {p.title}
                         </h3>
                       </div>

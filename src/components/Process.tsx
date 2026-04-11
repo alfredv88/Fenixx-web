@@ -23,7 +23,7 @@ const steps = [
 
 export default function Process() {
   return (
-    <section className="bg-[#ebebeb] py-[100px]">
+    <section className="bg-fenix-gray-industrial py-[100px]">
       <div className="w-full max-w-[1300px] mx-auto px-8 xl:px-16">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
 
@@ -32,10 +32,10 @@ export default function Process() {
             <span className="text-[12px] uppercase tracking-[0.25em] text-[#FC3D03] font-bold block mb-6">
               Promesa de Valor
             </span>
-            <h2 className="text-[44px] xl:text-[52px] font-bold text-gray-900 leading-[1.1] tracking-tight mb-6">
+            <h2 className="text-[44px] xl:text-[52px] font-bold text-fenix-dark-graphite leading-[1.1] tracking-tight mb-6">
               El pulso de su carga, la fuerza de su éxito
             </h2>
-            <p className="text-gray-900 text-[16px] leading-[1.75] mb-10 max-w-[380px]">
+            <p className="text-fenix-dark-graphite text-[16px] leading-[1.75] mb-10 max-w-[380px]">
               Conectamos fronteras y simplificamos destinos mediante una gestión integral que garantiza seguridad, velocidad y eficiencia en cada movimiento.
             </p>
             <a href="#contacto"
@@ -58,10 +58,10 @@ export default function Process() {
                 <span className="text-[11px] uppercase tracking-[0.25em] text-[#FC3D03] font-bold block mb-5">
                   {s.step}
                 </span>
-                <h3 className="text-[24px] font-bold text-gray-900 leading-snug mb-2">
+                <h3 className="text-[24px] font-bold text-fenix-dark-graphite leading-snug mb-2">
                   {s.title}
                 </h3>
-                <p className="text-gray-900 text-[13px] font-medium mb-8">{s.subtitle}</p>
+                <p className="text-fenix-dark-graphite text-[13px] font-medium mb-8">{s.subtitle}</p>
                 <div dangerouslySetInnerHTML={{ __html: s.icon }} />
               </div>
             ))}

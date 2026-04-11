@@ -21,16 +21,17 @@ export default function Header() {
     <>
       <header
         id="main-header"
-        className={`top-0 left-0 w-full z-50 transition-all duration-500 py-2 ${
+        className={`top-0 left-0 w-full max-w-[100vw] overflow-x-hidden z-[9999] transition-all duration-500 py-2 ${
           isScrolled ? 'is-scrolled fixed bg-white py-1 shadow-md animate-[slide-down_0.4s_ease-out_forwards]' : 'absolute bg-transparent'
         }`}
       >
         <nav className="w-full px-6 md:px-12 lg:px-24 flex justify-between items-center transition-all duration-500">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 relative z-[10000]">
             <img
               src="/images/logoS.png"
               alt="Fenixx Logo"
               className={`w-auto object-contain transition-all duration-500 logo-img ${isScrolled ? 'h-20' : 'h-32'}`}
+              style={{ filter: isScrolled ? 'none' : 'brightness(1.1) saturate(1.25)' }}
             />
           </div>
 
@@ -40,8 +41,8 @@ export default function Header() {
                 <a
                   key={i}
                   href={`#${text.toLowerCase().replace('á', 'a')}`}
-                  className={`nav-link font-bold text-[14px] transition-colors hover:text-[#FC3D03] ${
-                    isScrolled ? 'text-black' : 'text-white'
+                  className={`nav-link font-bold text-[14px] transition-all duration-300 hover:text-[#FC3D03] ${
+                    isScrolled ? 'text-black' : 'text-white/80 hover:text-white'
                   }`}
                 >
                   {text}
@@ -49,16 +50,16 @@ export default function Header() {
               ))}
             </div>
             <div className={`flex items-center gap-4 py-2 border-l pl-6 social-links ${isScrolled ? 'border-black/10' : 'border-white/20'}`}>
-              <a href="#" className={`nav-link transition-colors hover:text-fenix-red-light ${isScrolled ? 'text-black' : 'text-white'}`}>
+              <a href="#" className={`nav-link transition-all duration-300 hover:text-fenix-red-light ${isScrolled ? 'text-black' : 'text-white/80 hover:text-white'}`}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-x"><path d="M4 4l11.733 16h4.267l-11.733 -16z"/><path d="M4 20l6.768 -6.746m2.464 -2.454l6.768 -6.8"/></svg>
               </a>
-              <a href="#" className={`nav-link transition-colors hover:text-fenix-red-light ${isScrolled ? 'text-black' : 'text-white'}`}>
+              <a href="#" className={`nav-link transition-all duration-300 hover:text-fenix-red-light ${isScrolled ? 'text-black' : 'text-white/80 hover:text-white'}`}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
               </a>
-              <a href="#" className={`nav-link transition-colors hover:text-fenix-red-light ${isScrolled ? 'text-black' : 'text-white'}`}>
+              <a href="#" className={`nav-link transition-all duration-300 hover:text-fenix-red-light ${isScrolled ? 'text-black' : 'text-white/80 hover:text-white'}`}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
               </a>
-              <a href="#" className={`nav-link transition-colors hover:text-fenix-red-light ${isScrolled ? 'text-black' : 'text-white'}`}>
+              <a href="#" className={`nav-link transition-all duration-300 hover:text-fenix-red-light ${isScrolled ? 'text-black' : 'text-white/80 hover:text-white'}`}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
               </a>
             </div>
@@ -107,7 +108,7 @@ export default function Header() {
             transparent 100%
           );
           box-shadow: 0 0 10px 2px rgba(252, 61, 3, 0.25), 0 0 25px 4px rgba(252, 61, 3, 0.1);
-          animation: shimmer-move 18s ease-in-out infinite;
+          animation: shimmer-move 3s ease-in-out infinite;
         }
       `}} />
     </>

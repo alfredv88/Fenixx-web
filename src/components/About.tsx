@@ -6,9 +6,9 @@ export default function About() {
   return (
     <section
       id="nosotros"
-      className="w-full bg-[#ebebeb] font-['Work_Sans',sans-serif] pt-[150px] pb-[100px] overflow-hidden"
+      className="w-full bg-[#ebebeb] font-['Work_Sans',sans-serif] py-16 md:py-24 overflow-hidden"
     >
-      <div className="w-full max-w-[1400px] mx-auto px-8 xl:px-16">
+      <div className="w-full max-w-[1400px] mx-auto px-6 md:px-8 xl:px-16">
         <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -27,7 +27,7 @@ export default function About() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 items-start relative">
             {/* Left Column: Big Title */}
             <div className="col-span-1 lg:col-span-8">
-              <h2 className="text-[46px] md:text-[56px] xl:text-[72px] leading-[1.05] font-semibold tracking-[-0.03em] max-w-[900px] text-[#1a1a2e]">
+              <h2 className="text-[32px] md:text-[56px] xl:text-[72px] leading-[1.1] md:leading-[1.05] font-semibold tracking-[-0.03em] max-w-[900px] text-[#1a1a2e]">
                 <motion.span 
                   initial={{ y: 50, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
@@ -55,7 +55,7 @@ export default function About() {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="flex flex-col items-start"
               >
-                <p className="text-gray-900 text-[16px] xl:text-[18px] font-medium leading-[1.6] mb-10 opacity-80">
+                <p className="text-fenix-dark-graphite text-[16px] xl:text-[18px] font-medium leading-[1.6] mb-10 opacity-80">
                   Somos su Centro Intermodal, especialistas en gestionar la complejidad logística para que usted se enfoque en hacer crecer su negocio. Desde el origen hasta el destino final, movemos su éxito por cualquier vía.
                 </p>
                 <motion.div
@@ -64,7 +64,7 @@ export default function About() {
                 >
                   <a
                     href="#contacto"
-                    className="group inline-flex items-center gap-3 text-gray-900 font-bold text-[16px] uppercase tracking-wider"
+                    className="group inline-flex items-center gap-3 text-fenix-dark-graphite font-bold text-[16px] uppercase tracking-wider"
                   >
                     <span>Conocer Más</span>
                     <div className="w-10 h-[2px] bg-[#FC3D03] transition-all group-hover:w-16" />

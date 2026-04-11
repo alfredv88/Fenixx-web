@@ -29,25 +29,27 @@ const partners = [
 
 export default function Partners() {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-12 md:py-24 bg-black">
       <div className="w-full max-w-[1300px] mx-auto px-8 xl:px-16">
 
         {/* Label */}
-        <p className="text-center text-[12px] uppercase tracking-[0.3em] text-gray-500 font-semibold mb-10">
+        <p className="text-center text-[10px] md:text-[11px] uppercase tracking-[0.4em] text-[#ebebeb]/70 font-bold mb-8 md:mb-12">
           Nuestros Aliados Estratégicos
         </p>
 
         {/* Partners pill container */}
-        <div className="border border-[#e4e4e4] rounded-[24px] overflow-hidden flex flex-col md:flex-row">
+        <div className="border border-white/10 rounded-[20px] md:rounded-[30px] overflow-hidden flex flex-col md:flex-row bg-white/[0.02]">
           {partners.map((p, i) => (
             <div 
               key={i}
-              className={`flex-1 flex items-center justify-center py-14 px-6
-              text-[#cccccc] hover:text-[#999] transition-colors duration-300 cursor-default
-              ${i < partners.length - 1 ? 'md:border-r border-b md:border-b-0 border-[#e4e4e4]' : ''}
+              className={`flex-1 flex items-center justify-center py-8 md:py-16 px-6
+              text-[#ebebeb]/70 hover:text-[#ebebeb] transition-all duration-500 cursor-default group
+              ${i < partners.length - 1 ? 'md:border-r border-b md:border-b-0 border-white/10' : ''}
             `}>
               <span className="sr-only">{p.name}</span>
-              <span dangerouslySetInnerHTML={{ __html: p.label }} />
+              <div className="transition-transform duration-500 group-hover:scale-110">
+                <span dangerouslySetInnerHTML={{ __html: p.label }} />
+              </div>
             </div>
           ))}
         </div>
