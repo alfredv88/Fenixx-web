@@ -27,7 +27,7 @@ export default function About() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 items-start relative">
             {/* Left Column: Big Title */}
             <div className="col-span-1 lg:col-span-8">
-              <h2 className="text-[32px] md:text-[56px] xl:text-[72px] leading-[1.1] md:leading-[1.05] font-semibold tracking-[-0.03em] max-w-[900px] text-[#1a1a2e]">
+              <h2 className="text-[32px] md:text-[56px] xl:text-[72px] leading-[1.1] md:leading-[1.05] font-semibold tracking-[-0.03em] max-w-[900px] text-black">
                 <motion.span 
                   initial={{ y: 50, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
@@ -56,7 +56,7 @@ export default function About() {
                 className="flex flex-col items-start"
               >
                 <p className="text-fenix-dark-graphite text-[16px] xl:text-[18px] font-medium leading-[1.6] mb-10 opacity-80">
-                  Somos su Centro Intermodal, especialistas en gestionar la complejidad logística para que usted se enfoque en hacer crecer su negocio. Desde el origen hasta el destino final, movemos su éxito por cualquier vía.
+                  En un mercado global que no se detiene, somos el aliado que gestiona la complejidad logística desde el origen hasta el destino final.
                 </p>
                 <motion.div
                   whileHover={{ x: 10 }}

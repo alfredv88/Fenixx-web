@@ -1,6 +1,6 @@
 "use client";
 import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 
 const LETTERS_ADUANA    = ['A', 'D', 'U', 'A', 'N', 'A'];
 const LETTERS_TRANSPORTE = ['T', 'R', 'A', 'N', 'S', 'P', 'O', 'R', 'T', 'E'];
@@ -43,7 +43,7 @@ function MonumentalWord({ letters, fontSize, delay, className = '' }: {
         <motion.span
           key={i}
           variants={letterVariants}
-          className="font-black text-white/80 inline-block tracking-tight md:tracking-wider"
+          className="font-black text-white inline-block tracking-tight md:tracking-wider text-shadow-sm"
         >
           {letter}
         </motion.span>
@@ -60,10 +60,11 @@ export default function Showcase() {
     offset: ['start end', 'end start'],
   });
 
-  const parallaxY = useTransform(scrollYProgress, [0, 1], [1200, -600]);
+  const rawY = useTransform(scrollYProgress, [0, 1], [1000, -100]);
+  const parallaxY = useSpring(rawY, { stiffness: 50, damping: 25, restDelta: 0.001 });
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 lg:py-48 bg-[#ebebeb] relative overflow-hidden">
+    <section ref={sectionRef} className="py-16 md:py-24 lg:py-48 bg-[#ebebeb] relative overflow-hidden -mt-[1px]">
       
       <div className="w-full max-w-[1320px] mx-auto px-6 relative">
         

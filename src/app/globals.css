@@ -9,7 +9,7 @@
   --color-fenix-white: #FFFFFF;
   --color-fenix-white-soft: #f9fafb;
   --color-fenix-white-ghost: rgba(255, 255, 255, 0.8);
-  --color-fenix-dark-graphite: #111827;
+  --color-fenix-dark-graphite: #111111;
 
   --font-outfit: "Outfit", sans-serif;
   --font-inter: "Inter", sans-serif;
@@ -25,7 +25,8 @@
 
 @layer base {
   html, body {
-    @apply overflow-x-hidden max-w-[100vw];
+    max-width: 100vw;
+    overflow-x: clip;
   }
   body {
     @apply bg-white text-fenix-dark-graphite antialiased;

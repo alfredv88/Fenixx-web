@@ -1,68 +1,171 @@
+"use client";
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const steps = [
   {
     step: "PASO 1",
-    title: "Gestión aduanal sin fricciones",
-    subtitle: "Procesamos tus importaciones y exportaciones con agilidad.",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#FC3D03" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 7h2l2 4 2-4h2"/></svg>`
+    title: "Gesti\u00f3n aduanal sin fricciones",
+    subtitle: "Procesamos tus importaciones y exportaciones con agilidad y precisi\u00f3n legal.",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round">
+        {/* Browser Window */}
+        <rect x="2" y="4" width="16" height="13" rx="1.5" />
+        <line x1="2" y1="8" x2="18" y2="8" />
+        {/* Box inside */}
+        <path d="M7 10.5l3-1.5 3 1.5v3l-3 1.5-3-1.5z" />
+        <path d="M7 10.5v3.2" />
+        <path d="M10 12l3-1.5" />
+        <path d="M10 12v3" />
+        {/* Cursor */}
+        <path d="M15 13l6 6-2 1-1 2-6-6z" fill="white" />
+        <path d="M15 13l6 6-2 1-1 2-6-6z" />
+      </svg>
+    )
   },
   {
     step: "PASO 2",
     title: "Transporte puerta a puerta",
-    subtitle: "Movemos tu carga de origen a destino con socios confiables.",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#FC3D03" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>`
+    subtitle: "Movemos tu carga de origen a destino con una red global de socios confiables.",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round">
+        {/* Crane Hook */}
+        <path d="M12 2v3" />
+        <path d="M10 5h4" />
+        {/* Container */}
+        <rect x="4" y="8" width="16" height="10" rx="1" />
+        {/* Corrugated lines */}
+        <line x1="8" y1="8" x2="8" y2="18" />
+        <line x1="12" y1="8" x2="12" y2="18" />
+        <line x1="16" y1="8" x2="16" y2="18" />
+        {/* Corner dots */}
+        <circle cx="5.5" cy="9.5" r="0.5" fill="currentColor" />
+        <circle cx="18.5" cy="9.5" r="0.5" fill="currentColor" />
+      </svg>
+    )
   },
   {
     step: "PASO 3",
-    title: "Soluciones logísticas a la medida",
-    subtitle: "Diseñamos estrategias personalizadas para tu cadena de suministro.",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#FC3D03" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>`
+    title: "Soluciones log\u00edsticas a la medida",
+    subtitle: "Dise\u00f1amos estrategias personalizadas para optimizar su cadena de suministro global.",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round">
+        {/* Ship Hull */}
+        <path d="M3 14h18l-2 4H5z" />
+        {/* Cabin */}
+        <path d="M7 10h4v4H7z" />
+        <path d="M11 12h3v2h-3z" />
+        {/* Chimney and Smoke */}
+        <path d="M12 7v3" />
+        <path d="M13 4c.5-1 2-1 2.5 0s0 2.5-1 2.5" />
+        {/* Waves */}
+        <path d="M3 20c1.5 0 1.5-1 3-1s1.5 1 3 1 1.5-1 3-1 1.5 1 3 1 1.5-1 3-1" />
+      </svg>
+    )
   }
 ];
 
 export default function Process() {
   return (
-    <section className="bg-fenix-gray-industrial py-[100px]">
-      <div className="w-full max-w-[1300px] mx-auto px-8 xl:px-16">
-        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
+    <section className="bg-[#f2f3f5] py-20 md:py-32 font-['Work_Sans',sans-serif]">
+      <div className="w-full max-w-[1300px] mx-auto px-6 md:px-10 xl:px-16">
+        <div className="flex flex-col lg:flex-row gap-20 lg:gap-32 items-start justify-center">
 
-          {/* LEFT: Sticky */}
-          <div className="lg:w-5/12 lg:sticky lg:top-32 pt-4">
-            <span className="text-[12px] uppercase tracking-[0.25em] text-[#FC3D03] font-bold block mb-6">
+          {/* LEFT — col mas ancha para equilibrar */}
+          <div className="w-full lg:w-5/12 lg:sticky lg:top-32 h-fit">
+            <motion.span
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              style={{ color: 'rgba(26,26,46,0.4)', letterSpacing: '0.28em' }}
+              className="text-[11px] uppercase font-bold block mb-5"
+            >
               Promesa de Valor
-            </span>
-            <h2 className="text-[44px] xl:text-[52px] font-bold text-fenix-dark-graphite leading-[1.1] tracking-tight mb-6">
-              El pulso de su carga, la fuerza de su éxito
-            </h2>
-            <p className="text-fenix-dark-graphite text-[16px] leading-[1.75] mb-10 max-w-[380px]">
-              Conectamos fronteras y simplificamos destinos mediante una gestión integral que garantiza seguridad, velocidad y eficiencia en cada movimiento.
-            </p>
-            <a href="#contacto"
-               className="inline-flex items-center justify-center gap-2 bg-[#FC3D03] hover:bg-[#e03502] text-white
-                      px-8 py-4 rounded-full font-semibold text-[15px] transition-all duration-300
-                      hover:shadow-lg hover:shadow-orange-500/25">
+            </motion.span>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1, duration: 0.7 }}
+              viewport={{ once: true }}
+              className="text-[38px] lg:text-[46px] font-semibold text-fenix-dark-graphite leading-[1.08] tracking-tight mb-8"
+            >
+              {`El pulso de su carga, la fuerza de su \u00e9xito`}
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.7 }}
+              viewport={{ once: true }}
+              style={{ color: '#6c757d' }}
+              className="text-[16px] leading-[1.8] mb-12 max-w-[420px]"
+            >
+              {`Conectamos fronteras y simplificamos destinos mediante una gesti\u00f3n integral que garantiza seguridad, velocidad y eficiencia en cada movimiento.`}
+            </motion.p>
+
+            <motion.a
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.96 }}
+              href="#contacto"
+              className="inline-flex items-center justify-center bg-[#FC3D03] hover:bg-[#e03502] text-white px-9 py-4 rounded-full font-semibold text-[15px] transition-all duration-300 hover:shadow-lg hover:shadow-[#FC3D03]/25"
+            >
               Hablar con un Asesor
-            </a>
+            </motion.a>
           </div>
 
-          {/* RIGHT: Stacking cards */}
-          <div className="lg:w-7/12 flex flex-col">
+          {/* RIGHT — cards compactas con efecto Stacking (Apilamiento) */}
+          <div className="w-full lg:w-7/12 max-w-[560px] flex flex-col">
             {steps.map((s, i) => (
               <div
                 key={i}
-                className="bg-white rounded-[20px] p-10 xl:p-12 border border-[#eaeaea]
-                       lg:sticky shadow-sm"
-                style={{ top: `${80 + i * 24}px`, zIndex: 10 + i }}
+                className="lg:sticky w-full mb-12 last:mb-0"
+                style={{ 
+                  top: `${140 + i * 45}px`, 
+                  zIndex: 10 + i,
+                }}
               >
-                <span className="text-[11px] uppercase tracking-[0.25em] text-[#FC3D03] font-bold block mb-5">
-                  {s.step}
-                </span>
-                <h3 className="text-[24px] font-bold text-fenix-dark-graphite leading-snug mb-2">
-                  {s.title}
-                </h3>
-                <p className="text-fenix-dark-graphite text-[13px] font-medium mb-8">{s.subtitle}</p>
-                <div dangerouslySetInnerHTML={{ __html: s.icon }} />
+                <motion.div
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, ease: "easeOut" }}
+                  viewport={{ once: true }}
+                  className="bg-white rounded-[32px] flex flex-col min-h-[360px] px-10 py-12 lg:px-14 lg:py-16 border border-[#ebebeb] shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-[0_40px_100px_rgba(0,0,0,0.08)] transition-all duration-500 group"
+                >
+                  <span
+                    style={{ color: '#FC3D03', letterSpacing: '0.24em', fontSize: '11px', opacity: 0.9 }}
+                    className="uppercase font-bold block mb-6"
+                  >
+                    {s.step}
+                  </span>
+
+                  <h3
+                    style={{ color: '#000000' }}
+                    className="text-[28px] lg:text-[32px] font-semibold leading-[1.2] mb-5 tracking-tight"
+                  >
+                    {s.title}
+                  </h3>
+
+                  <p
+                    style={{ color: '#555', fontSize: '16.5px', lineHeight: '1.75' }}
+                    className="mb-0"
+                  >
+                    {s.subtitle}
+                  </p>
+
+                  <div className="flex-grow" />
+
+                  <div
+                    style={{ color: 'rgba(252,61,3,0.35)', fill: 'none', stroke: 'rgba(252,61,3,0.35)' }}
+                    className="mt-12 group-hover:[color:rgba(252,61,3,0.9)] transition-all duration-500"
+                  >
+                    {s.icon}
+                  </div>
+                </motion.div>
               </div>
             ))}
           </div>

@@ -77,7 +77,7 @@ export default function Contact() {
               </div>
 
               <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-                <button type="submit" className="bg-gray-900 hover:bg-[#FC3D03] text-white px-10 py-5 w-full sm:w-auto rounded-full font-bold text-[13px] xl:text-[14px] uppercase tracking-[0.15em] transition-colors duration-300 flex items-center justify-center gap-3 group/btn">
+                <button type="submit" className="bg-black hover:bg-[#FC3D03] text-white px-10 py-5 w-full sm:w-auto rounded-full font-bold text-[13px] xl:text-[14px] uppercase tracking-[0.15em] transition-colors duration-300 flex items-center justify-center gap-3 group/btn">
                   <span>Enviar Solicitud</span>
                   <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </button>

@@ -2,22 +2,22 @@ import React from 'react';
 
 const projects = [
   {
-    image: "/images/service-carga.png",
+    image: "/images/case-shanghai.png",
     category: "Carga Internacional",
     title: "Importación Shanghái → Caucédo",
   },
   {
-    image: "/images/service-aduanas.png",
+    image: "/images/case-aduana.png",
     category: "Gestión Aduanal",
     title: "Despacho Express 24h",
   },
   {
-    image: "/images/service-transporte.png",
+    image: "/images/case-transporte.png",
     category: "Transporte Terrestre",
     title: "Distribución Nacional Multiparada",
   },
   {
-    image: "/images/service-maquinaria.png",
+    image: "/images/case-maquinaria.png",
     category: "Carga Proyecto",
     title: "Traslado de Maquinaria Pesada",
   }
@@ -43,7 +43,7 @@ export default function Gallery() {
              </p>
              
              <div className="flex items-center gap-4">
-               <a href="#contacto" className="group inline-flex items-center justify-center w-14 h-14 rounded-full bg-gray-900 text-white hover:bg-[#FC3D03] transition-colors duration-300">
+               <a href="#contacto" className="group inline-flex items-center justify-center w-14 h-14 rounded-full bg-black text-white hover:bg-[#FC3D03] transition-colors duration-300">
                  <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                </a>
                <span className="text-[13px] font-bold text-fenix-dark-graphite uppercase tracking-[0.15em]">Ver Casos Completos</span>

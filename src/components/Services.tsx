@@ -17,7 +17,7 @@ const services = [
   },
   {
     title: "Manejo de Carga",
-    description: "Precisión técnica para carga suelta o izada de piezas y maquinaria de gran dimensión.",
+    description: "Capacidad técnica y precisión absoluta para todo tipo de mercancía. Operaciones de izamiento especializado y manejo de carga suelta adaptadas a cualquier requerimiento industrial.",
     image: "/images/service-carga.png",
     alt: "Manejo de Carga"
   },
