@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 export default function Header({ variant = 'transparent' }: { variant?: 'transparent' | 'solid' }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
@@ -21,15 +22,24 @@ export default function Header({ variant = 'transparent' }: { variant?: 'transpa
   }, []);
 
   const handleMouseEnter = () => {
+    if (window.innerWidth < 1024) return;
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
     setIsServicesOpen(true);
   };
 
   const handleMouseLeave = () => {
+    if (window.innerWidth < 1024) return;
     timeoutRef.current = setTimeout(() => {
       setIsServicesOpen(false);
-    }, 300); // Pequeño delay para evitar cierres bruscos
+    }, 300);
   };
+
+  const menuItems = [
+    { name: 'Inicio', href: '/' },
+    { name: 'Servicios', href: '/servicios' },
+    { name: 'Portafolio', href: '/#portafolio' },
+    { name: 'Contáctanos', href: '/#contacto' },
+  ];
 
   return (
     <>
@@ -41,20 +51,19 @@ export default function Header({ variant = 'transparent' }: { variant?: 'transpa
             : 'absolute bg-transparent py-5'
         }`}
       >
-        {/* Bottom border line with independent opacity */}
         <div 
           className={`absolute bottom-0 left-0 w-full h-[1px] bg-gray-200/30 transition-opacity duration-300 pointer-events-none ${
             (isScrolled || variant === 'solid') ? 'opacity-100' : 'opacity-0'
           }`} 
         />
 
-        <nav className="max-w-[1920px] mx-auto px-8 md:px-16 lg:px-24 flex justify-between items-center">
+        <nav className="max-w-[1920px] mx-auto px-6 md:px-16 lg:px-24 flex justify-between items-center">
           <div className="flex items-center gap-2 relative z-[10000]">
             <a href="/" className="block">
               <img
                 src="/images/logo.png"
                 alt="Fenixx Logo"
-                className={`w-auto object-contain transition-all duration-500 logo-img ${(isScrolled || variant === 'solid') ? 'h-9' : 'h-18'}`}
+                className={`w-auto object-contain transition-all duration-500 logo-img ${(isScrolled || variant === 'solid') ? 'h-8 md:h-9' : 'h-14 md:h-18'}`}
                 style={{ 
                   filter: (isScrolled || variant === 'solid') ? 'none' : 'brightness(1.1) saturate(1.1)'
                 }}
@@ -62,10 +71,11 @@ export default function Header({ variant = 'transparent' }: { variant?: 'transpa
             </a>
           </div>
 
+          {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-12 ml-auto">
             <ul className="flex items-center gap-10">
-              {['Inicio', 'Servicios', 'Portafolio', 'Contáctanos'].map((text, i) => {
-                const isServices = text === 'Servicios';
+              {menuItems.map((item, i) => {
+                const isServices = item.name === 'Servicios';
                 
                 return (
                   <li 
@@ -75,12 +85,12 @@ export default function Header({ variant = 'transparent' }: { variant?: 'transpa
                     onMouseLeave={isServices ? handleMouseLeave : undefined}
                   >
                     <a
-                      href={isServices ? '#' : `/#${text.toLowerCase().replace('á', 'a')}`}
+                      href={item.href}
                       className={`nav-link font-bold text-[13px] uppercase tracking-[0.18em] transition-all duration-300 flex items-center gap-2 ${
                         (isScrolled || variant === 'solid') ? 'text-black hover:text-[#FC3D03]' : 'text-white/90 hover:text-white'
                       }`}
                     >
-                      {text}
+                      {item.name}
                       {isServices && (
                         <svg 
                           xmlns="http://www.w3.org/2000/svg" 
@@ -109,15 +119,52 @@ export default function Header({ variant = 'transparent' }: { variant?: 'transpa
             </div>
           </div>
 
-          {/* Mobile Menu Button — refined */}
-          <button className={`lg:hidden flex flex-col gap-1.5 p-2 transition-all hover:opacity-70 ${(isScrolled || variant === 'solid') ? 'text-black' : 'text-white'}`}>
-            <span className="w-7 h-[1.5px] bg-current" />
-            <span className="w-5 h-[1.5px] bg-current ml-auto" />
-            <span className="w-7 h-[1.5px] bg-current" />
+          {/* Mobile Menu Button */}
+          <button 
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className={`lg:hidden flex flex-col gap-1.5 p-2 transition-all relative z-[10001] ${(isScrolled || variant === 'solid' || isMenuOpen) ? 'text-black' : 'text-white'}`}
+          >
+            <motion.span animate={isMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }} className="w-7 h-[1.5px] bg-current block" />
+            <motion.span animate={isMenuOpen ? { opacity: 0 } : { opacity: 1 }} className="w-5 h-[1.5px] bg-current ml-auto block" />
+            <motion.span animate={isMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }} className="w-7 h-[1.5px] bg-current block" />
           </button>
         </nav>
 
-        {/* Mega Menu Container */}
+        {/* Mobile Menu Overlay */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, x: '100%' }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="fixed inset-0 bg-white z-[10000] flex flex-col pt-32 px-10"
+            >
+              <div className="flex flex-col gap-8">
+                {menuItems.map((item, i) => (
+                  <motion.a
+                    key={i}
+                    href={item.href}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.1 * i }}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="text-4xl font-bold text-black uppercase tracking-tighter hover:text-[#FC3D03] transition-colors"
+                  >
+                    {item.name}
+                  </motion.a>
+                ))}
+              </div>
+              
+              <div className="mt-auto pb-10 flex gap-6">
+                <a href="#" className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-black">X</a>
+                <a href="#" className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-black">In</a>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Mega Menu Container - Desktop only */}
         <AnimatePresence>
           {isServicesOpen && (
             <motion.div
@@ -127,7 +174,7 @@ export default function Header({ variant = 'transparent' }: { variant?: 'transpa
               transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
-              className="absolute left-0 w-full px-8 md:px-16 lg:px-24 top-full pt-4"
+              className="absolute left-0 w-full px-8 md:px-16 lg:px-24 top-full pt-4 hidden lg:block"
             >
               <div className="bg-white rounded-[32px] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.3)] overflow-hidden min-h-[420px] w-full border border-gray-500 flex relative z-[99999]">
                 

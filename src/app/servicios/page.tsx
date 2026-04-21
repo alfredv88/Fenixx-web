@@ -63,9 +63,9 @@ export default function ServiciosPage() {
             <img 
               src="/images/hero-servicios.png"
               alt="Industrial Background"
-              className="w-full h-full object-cover opacity-[0.6] grayscale-[0.2]"
+              className="w-full h-full object-cover opacity-[0.5] grayscale-[0.3]"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-white/40 to-[#f7f7f7]" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-white/30 to-[#f7f7f7]" />
           </div>
 
           <motion.div 
@@ -81,7 +81,7 @@ export default function ServiciosPage() {
               LOGÍSTICA PARA EL CRECIMIENTO
             </motion.span>
             
-            <h1 className="text-[72px] md:text-[110px] lg:text-[140px] font-bold text-[#111111] leading-[0.85] tracking-[-0.05em] uppercase flex justify-center flex-wrap" aria-label="Servicios">
+            <h1 className="text-[clamp(45px,10vw,140px)] font-bold text-[#111111] leading-[0.9] tracking-[-0.05em] uppercase flex justify-center flex-wrap" aria-label="Servicios">
               {letters.map((char, i) => (
                 <motion.span
                   key={i}
@@ -115,7 +115,7 @@ export default function ServiciosPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 1, ease: [0.211, 1, 0.32, 1] }}
-              className="text-[36px] md:text-[54px] lg:text-[72px] font-bold text-[#111111] leading-[1.05] tracking-tighter max-w-5xl"
+              className="text-[clamp(28px,6vw,72px)] font-bold text-[#111111] leading-[1.05] tracking-tighter max-w-5xl"
             >
               Logística <span className="text-[#FC3D03]">rápida y confiable</span> para cada carga, industria y destino.
             </motion.h2>
