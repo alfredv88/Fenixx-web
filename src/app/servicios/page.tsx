@@ -63,10 +63,28 @@ export default function ServiciosPage() {
             <img 
               src="/images/hero-servicios.png"
               alt="Industrial Background"
-              className="w-full h-full object-cover opacity-[0.5] grayscale-[0.3]"
+              className="w-full h-full object-cover opacity-[0.75] grayscale-[0.2]"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-white/30 to-[#f7f7f7]" />
+            <div className="absolute inset-0 bg-white/20" />
+            <div className="absolute bottom-0 left-0 w-full h-1/4 bg-gradient-to-t from-[#f7f7f7] to-transparent pointer-events-none" />
           </div>
+
+          {/* Scroll Indicator */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.5, duration: 1.2 }}
+            className="absolute bottom-10 left-1/2 -translate-x-1/2 z-40 flex flex-col items-center gap-2 pointer-events-none"
+          >
+            <span className="text-[9px] uppercase tracking-[0.3em] text-black/20 font-bold">Explora</span>
+            <div className="w-[18px] h-[30px] border border-black/10 rounded-full relative">
+              <motion.div
+                animate={{ y: [0, 10, 0], opacity: [0, 0.4, 0] }}
+                transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute top-1.5 left-1/2 -translate-x-1/2 w-[3px] h-[6px] bg-black/30 rounded-full"
+              />
+            </div>
+          </motion.div>
 
           <motion.div 
             style={{ y: yText }}
@@ -101,10 +119,25 @@ export default function ServiciosPage() {
           </motion.div>
 
           {/* Sutil background element */}
-          <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none overflow-hidden">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] border-[1px] border-black rounded-full" />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border-[1px] border-black rounded-full" />
           </div>
+
+          {/* Scroll Indicator */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.5, duration: 1.2 }}
+            className="absolute bottom-10 left-1/2 -translate-x-1/2 z-40 flex flex-col items-center gap-2 pointer-events-none"
+          >
+            <span className="text-[9px] uppercase tracking-[0.3em] text-black/20 font-bold">Scroll</span>
+            <div className="w-[18px] h-[30px] border border-black/10 rounded-full relative">
+              <motion.div
+                animate={{ y: [0, 10, 0], opacity: [0, 0.4, 0] }}
+                transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute top-1.5 left-1/2 -translate-x-1/2 w-[3px] h-[6px] bg-black/30 rounded-full"
+              />
+            </div>
+          </motion.div>
         </section>
 
         {/* --- BIG BOLD IMPACT SECTION --- */}
@@ -182,7 +215,7 @@ export default function ServiciosPage() {
                       alt={s.title} 
                       className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-tr from-black/20 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-700" />
+                    <div className="absolute inset-0 bg-white/20" />
                   </motion.div>
                 </div>
               </div>

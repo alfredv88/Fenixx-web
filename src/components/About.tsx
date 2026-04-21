@@ -63,7 +63,7 @@ export default function About() {
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
                   <a
-                    href="#contacto"
+                    href="/nosotros"
                     className="group inline-flex items-center gap-3 text-fenix-dark-graphite font-bold text-[16px] uppercase tracking-wider"
                   >
                     <span>Conocer Más</span>
