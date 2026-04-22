@@ -119,6 +119,7 @@ export default function ServiciosPage() {
           </motion.div>
 
           {/* Sutil background element */}
+          <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none overflow-hidden">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border-[1px] border-black rounded-full" />
           </div>
 

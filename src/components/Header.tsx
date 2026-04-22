@@ -38,7 +38,7 @@ export default function Header({ variant = 'transparent' }: { variant?: 'transpa
     { name: 'Inicio', href: '/' },
     { name: 'Nosotros', href: '/nosotros' },
     { name: 'Servicios', href: '/servicios' },
-    { name: 'Portafolio', href: '/#portafolio' },
+    { name: 'Portafolio', href: '/portafolio' },
     { name: 'Contáctanos', href: '/#contacto' },
   ];
 

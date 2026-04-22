@@ -125,17 +125,17 @@ export default function NosotrosPage() {
 
               <div className="lg:w-7/12 relative">
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-                  className="w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl shadow-black/10"
+                  initial={{ clipPath: "inset(10% 10% 10% 10% round 80px)", opacity: 0, scale: 0.92 }}
+                  whileInView={{ clipPath: "inset(0% 0% 0% 0% round 48px)", opacity: 1, scale: 1 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 1.2, ease: [0.23, 1, 0.32, 1] }}
+                  className="relative w-full aspect-[4/3] overflow-hidden shadow-[0_40px_100px_-20px_rgba(0,0,0,0.15)] group"
                 >
                   {/* Reutilizando un asset equilibrado existente para generar impacto humano / espacio sin saturar el Storage */}
                   <img src="/images/case-aduana.png" alt="Centro de Operaciones" className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  <div className="absolute bottom-8 left-8 right-8">
-                    <p className="text-white font-bold text-[20px] md:text-[28px] max-w-lg">
+                  <div className="absolute bottom-12 left-0 w-full px-8 flex justify-center text-center">
+                    <p className="text-white font-bold text-[22px] md:text-[32px] max-w-2xl leading-tight">
                       "El pulso de su carga, la fuerza de su éxito."
                     </p>
                   </div>
@@ -144,15 +144,51 @@ export default function NosotrosPage() {
             </div>
           </div>
         </section>
+        
+        {/* --- STATS SECTION (Authority & Contrast) --- */}
+        <section className="bg-[#111111] py-24 relative overflow-hidden">
+          {/* Background Decorative Text */}
+          <div className="absolute top-0 left-0 w-full h-full opacity-[0.02] flex items-center justify-center pointer-events-none select-none">
+            <span className="text-[25vw] font-black leading-none uppercase text-white">Fenixx</span>
+          </div>
+
+          <div className="max-w-[1320px] mx-auto px-8 relative z-10">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-8">
+              {[
+                { label: 'Años de Trayectoria', value: '15+', delay: 0.1 },
+                { label: 'Seguridad Jurídica', value: '100%', delay: 0.2 },
+                { label: 'Proyectos Especiales', value: '+500', delay: 0.3 },
+                { label: 'Alcance Intermodal', value: 'Global', delay: 0.4 },
+              ].map((stat, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: stat.delay }}
+                  className="flex flex-col items-center text-center group"
+                >
+                  <div className="text-[48px] md:text-[64px] font-bold text-[#FC3D03] mb-2 tracking-tighter leading-none group-hover:scale-110 transition-transform duration-500">
+                    {stat.value}
+                  </div>
+                  <div className="h-[1px] w-8 bg-white/20 mb-4 group-hover:w-16 transition-all duration-500" />
+                  <div className="text-[12px] md:text-[14px] uppercase tracking-[0.25em] text-white/50 font-bold max-w-[150px]">
+                    {stat.label}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* --- VALORES SECTION --- */}
-        <section className="bg-white py-32 px-8">
+        <section className="bg-[#F9FAFB] py-32 px-8">
           <div className="max-w-[1320px] mx-auto">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="mb-20 text-center md:text-left"
+              className="mb-20 text-center"
             >
               <span className="text-[14px] uppercase tracking-[0.2em] font-bold text-[#FC3D03] mb-4 block">02 / Nuestra Promesa de Valor</span>
               <h3 className="text-[36px] md:text-[48px] font-bold text-[#111111] leading-tight tracking-tight">
@@ -172,7 +208,7 @@ export default function NosotrosPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.15, duration: 0.6 }}
-                  className="bg-[#fcfcfc] border border-gray-100 p-10 rounded-[32px] hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] transition-all duration-500 group"
+                  className="bg-[#fcfcfc] border border-gray-100 p-10 rounded-[32px] hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] transition-all duration-500 group flex flex-col items-center text-center"
                 >
                   <div className="w-14 h-14 bg-black text-white rounded-full flex items-center justify-center mb-8 group-hover:bg-[#FC3D03] transition-colors duration-500">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d={v.icon}/></svg>
