@@ -110,13 +110,29 @@ export default function Header({ variant = 'transparent' }: { variant?: 'transpa
               })}
             </ul>
 
-            <div className={`flex items-center gap-6 border-l pl-10 ml-2 ${(isScrolled || variant === 'solid') ? 'border-gray-200' : 'border-white/20'}`}>
-              <a href="#" className={`nav-link transition-all duration-300 hover:scale-125 hover:text-[#FC3D03] ${(isScrolled || variant === 'solid') ? 'text-black' : 'text-white/80'}`}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"/><path d="M4 20l6.768 -6.746m2.464 -2.454l6.768 -6.8"/></svg>
-              </a>
-              <a href="#" className={`nav-link transition-all duration-300 hover:scale-125 hover:text-[#FC3D03] ${(isScrolled || variant === 'solid') ? 'text-black' : 'text-white/80'}`}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-              </a>
+            <div className={`flex items-center gap-4 border-l pl-10 ml-2 ${(isScrolled || variant === 'solid') ? 'border-gray-200' : 'border-white/20'}`}>
+              {[
+                { name: 'X', path: 'M4 4l11.733 16h4.267l-11.733 -16z M4 20l6.768 -6.746m2.464 -2.454l6.768 -6.8', viewbox: '0 0 24 24' },
+                { name: 'LinkedIn', path: 'M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z M2 9h4v12h-4z M4 4m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0', viewbox: '0 0 24 24' },
+                { name: 'Instagram', path: 'M17 2H7C4.23858 2 2 4.23858 2 7V17C2 19.7614 4.23858 22 7 22H17C19.7614 22 22 19.7614 22 17V7C22 4.23858 19.7614 2 17 2Z M16 11.37C16.1234 12.2022 15.9813 13.0522 15.5938 13.799C15.2063 14.5458 14.5931 15.1514 13.8416 15.5297C13.0901 15.9079 12.2384 16.0396 11.4038 15.9059C10.5691 15.7723 9.79055 15.3798 9.17643 14.7822C8.56231 14.1846 8.14005 13.4116 7.9675 12.5714C7.79495 11.7311 7.88124 10.8601 8.21441 10.0768C8.54758 9.29348 9.11147 8.63661 9.8277 8.19504C10.5439 7.75348 11.3789 7.54897 12.22 7.6094C13.914 7.7303 15.269 9.0853 15.39 10.779C15.3976 10.978 15.4011 11.1774 15.4005 11.3768L16 11.37Z M17.5 6.5H17.51', viewbox: '0 0 24 24' },
+                { name: 'Facebook', path: 'M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z', viewbox: '0 0 24 24' }
+              ].map((social, idx) => (
+                <a 
+                  key={idx}
+                  href="#" 
+                  className={`w-9 h-9 rounded-full border flex items-center justify-center transition-all duration-300 hover:bg-[#FC3D03] hover:border-[#FC3D03] hover:text-white ${(isScrolled || variant === 'solid') ? 'border-gray-200 text-black' : 'border-white/20 text-white/80'}`}
+                >
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    width="14" height="14" 
+                    viewBox={social.viewbox} 
+                    fill="none" stroke="currentColor" 
+                    strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                  >
+                    <path d={social.path} />
+                  </svg>
+                </a>
+              ))}
             </div>
           </div>
 
@@ -157,9 +173,29 @@ export default function Header({ variant = 'transparent' }: { variant?: 'transpa
                 ))}
               </div>
               
-              <div className="mt-auto pb-10 flex gap-6">
-                <a href="#" className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-black">X</a>
-                <a href="#" className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-black">In</a>
+              <div className="mt-auto pb-10 flex gap-4">
+                {[
+                  { name: 'X', path: 'M4 4l11.733 16h4.267l-11.733 -16z M4 20l6.768 -6.746m2.464 -2.454l6.768 -6.8', viewbox: '0 0 24 24' },
+                  { name: 'LinkedIn', path: 'M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z M2 9h4v12h-4z M4 4m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0', viewbox: '0 0 24 24' },
+                  { name: 'Instagram', path: 'M17 2H7C4.23858 2 2 4.23858 2 7V17C2 19.7614 4.23858 22 7 22H17C19.7614 22 22 19.7614 22 17V7C22 4.23858 19.7614 2 17 2Z M16 11.37C16.1234 12.2022 15.9813 13.0522 15.5938 13.799C15.2063 14.5458 14.5931 15.1514 13.8416 15.5297C13.0901 15.9079 12.2384 16.0396 11.4038 15.9059C10.5691 15.7723 9.79055 15.3798 9.17643 14.7822C8.56231 14.1846 8.14005 13.4116 7.9675 12.5714C7.79495 11.7311 7.88124 10.8601 8.21441 10.0768C8.54758 9.29348 9.11147 8.63661 9.8277 8.19504C10.5439 7.75348 11.3789 7.54897 12.22 7.6094C13.914 7.7303 15.269 9.0853 15.39 10.779C15.3976 10.978 15.4011 11.1774 15.4005 11.3768L16 11.37Z M17.5 6.5H17.51', viewbox: '0 0 24 24' },
+                  { name: 'Facebook', path: 'M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z', viewbox: '0 0 24 24' }
+                ].map((social, idx) => (
+                  <a 
+                    key={idx} 
+                    href="#" 
+                    className="w-12 h-12 rounded-full border border-gray-100 flex items-center justify-center text-black hover:bg-[#FC3D03] hover:border-[#FC3D03] hover:text-white transition-all duration-300"
+                  >
+                    <svg 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      width="18" height="18" 
+                      viewBox={social.viewbox} 
+                      fill="none" stroke="currentColor" 
+                      strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                    >
+                      <path d={social.path} />
+                    </svg>
+                  </a>
+                ))}
               </div>
             </motion.div>
           )}
@@ -218,8 +254,8 @@ export default function Header({ variant = 'transparent' }: { variant?: 'transpa
                       { name: 'Aduana', img: '/images/menu-aduana.png', slug: 'aduana' },
                       { name: 'Transporte', img: '/images/menu-transporte.png', slug: 'transporte' },
                       { name: 'Carga', img: '/images/menu-carga.png', slug: 'manejo-carga' },
-                      { name: 'Heavy Lift', img: '/images/menu-heavylift.png', slug: 'equipos' },
-                      { name: 'Warehouse', img: '/images/menu-warehouse.png', slug: 'almacen' }
+                      { name: 'Carga de Izada', img: '/images/menu-heavylift.png', slug: 'equipos' },
+                      { name: 'Almacenes', img: '/images/menu-warehouse.png', slug: 'almacen' }
                     ].map((s, idx) => (
                       <motion.a 
                         initial={{ opacity: 0, scale: 0.9 }}

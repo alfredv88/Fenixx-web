@@ -1,11 +1,19 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 
 export default function PortafolioPage() {
   const [activeFilter, setActiveFilter] = useState('Todos');
+  const containerRef = useRef<HTMLDivElement>(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"]
+  });
+
+  const yText = useTransform(scrollYProgress, [0, 1], [0, 200]);
 
   const titleText = "Portafolio";
   const letters = titleText.split("");
@@ -17,14 +25,14 @@ export default function PortafolioPage() {
       category: "Transporte",
       tag: "Logística Integral",
       img: "/images/case-shanghai.png",
-      stats: "Transit: 38 Días | Carga: 240 Tons",
+      stats: "Tránsito: 38 Días | Carga: 240 Tons",
       desc: "Gestión de suministro de componentes para la industria pesada desde el centro de China hasta puertos venezolanos."
     },
     {
       id: 2,
       title: "Izada de Maquinaria de Alta Precisión",
       category: "Especializados",
-      tag: "Heavy Lift",
+      tag: "Carga de Izada",
       img: "/images/case-maquinaria.png",
       stats: "Precisión: 100% | Carga: Grúa 120t",
       desc: "Operación de izada y posicionamiento de maquinaria industrial sobredimensionada utilizando equipos de última generación."
@@ -42,7 +50,7 @@ export default function PortafolioPage() {
       id: 4,
       title: "Gestión Aduanera y Nacionalización Crítica",
       category: "Aduanas",
-      tag: "Customs",
+      tag: "Aduanas",
       img: "/images/case-aduana.png",
       stats: "Eficiencia: 3 Días | Cumplimiento: 100%",
       desc: "Nacionalización express de suministros críticos para el sector infraestructura con riguroso cumplimiento normativo."
@@ -57,31 +65,29 @@ export default function PortafolioPage() {
 
   return (
     <>
-      <Header variant="transparent" />
-      <main className="bg-[#f7f7f7] min-h-screen font-outfit">
+      <Header variant="solid" />
+      <main className="font-outfit" ref={containerRef}>
         
         {/* --- HERO SECTION --- */}
-        <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0 z-0">
+        <section className="bg-[#f7f7f7] pt-60 pb-32 px-8 overflow-hidden relative">
+          <div className="absolute inset-0 z-0 pointer-events-none">
             <img 
-              src="/images/hero-servicios.png" 
-              className="w-full h-full object-cover opacity-[0.8] grayscale-[0.2]"
-              alt="Portafolio Hero"
+              src="/images/hero-servicios.png"
+              alt="Portafolio Fenixx"
+              className="w-full h-full object-cover opacity-[0.75] grayscale-[0.2]"
             />
-            <div className="absolute inset-0 bg-white/20" />
-            <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#f7f7f7] to-transparent" />
+            <div className="absolute inset-0 bg-white/15" />
           </div>
 
           <motion.div 
-            className="relative z-10 text-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            style={{ y: yText }}
+            className="max-w-[1320px] mx-auto text-center relative z-10"
           >
             <motion.span 
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="inline-block text-[13px] uppercase tracking-[0.4em] text-[#FC3D03] font-bold mb-6"
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="text-[11px] md:text-[13px] uppercase tracking-[0.4em] text-[#FC3D03] font-bold block mb-6 px-4"
             >
               Nuestra Experiencia
             </motion.span>
@@ -99,7 +105,7 @@ export default function PortafolioPage() {
                   }}
                   className="inline-block"
                 >
-                  {char}
+                  {char === " " ? "\u00A0" : char}
                 </motion.span>
               ))}
             </h1>
@@ -195,7 +201,7 @@ export default function PortafolioPage() {
                         {p.desc}
                       </p>
                       <div className="bg-white border border-gray-100 px-6 py-4 rounded-2xl flex items-center justify-between">
-                        <span className="text-[10px] text-gray-400 uppercase tracking-widest font-bold">Data Insight</span>
+                        <span className="text-[10px] text-gray-400 uppercase tracking-widest font-bold">Análisis Operativo</span>
                         <span className="text-[12px] text-black font-bold tracking-tight">{p.stats}</span>
                       </div>
                     </div>
