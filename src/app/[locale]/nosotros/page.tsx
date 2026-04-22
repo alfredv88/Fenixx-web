@@ -1,11 +1,11 @@
-'use client';
-
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
+"use client";
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
+import { useTranslations } from 'next-intl';
 
-export default function NosotrosPage() {
+export default function NosotrosPage({ params }: { params: { locale: string } }) {
+  const t = useTranslations('Nosotros');
+  
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -14,19 +14,18 @@ export default function NosotrosPage() {
 
   const yText = useTransform(scrollYProgress, [0, 1], [0, 200]);
 
-  const titleText = "Nosotros";
+  const titleText = t('Hero.title');
   const letters = titleText.split("");
 
   return (
     <>
-      <Header variant="solid" />
       <main className="font-outfit" ref={containerRef}>
         {/* --- HERO SECTION --- */}
         <section className="bg-[#f7f7f7] pt-60 pb-32 px-8 overflow-hidden relative">
           <div className="absolute inset-0 z-0 pointer-events-none">
             <img 
               src="/images/hero-nosotros.png"
-              alt="Equipo Logístico Fenixx"
+              alt={t('Hero.title')}
               className="w-full h-full object-cover opacity-[0.75] grayscale-[0.2]"
             />
             <div className="absolute inset-0 bg-white/15" />
@@ -42,10 +41,10 @@ export default function NosotrosPage() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="text-[11px] md:text-[13px] uppercase tracking-[0.4em] text-[#FC3D03] font-bold block mb-6 px-4"
             >
-              EL PULSO DE SU CARGA
+              {t('Hero.badge')}
             </motion.span>
             
-            <h1 className="text-[clamp(45px,10vw,140px)] font-bold text-[#111111] leading-[0.9] tracking-[-0.05em] uppercase flex justify-center flex-wrap" aria-label="Nosotros">
+            <h1 className="text-[clamp(45px,10vw,140px)] font-bold text-[#111111] leading-[0.9] tracking-[-0.05em] uppercase flex justify-center flex-wrap" aria-label={titleText}>
               {letters.map((char, i) => (
                 <motion.span
                   key={i}
@@ -58,16 +57,11 @@ export default function NosotrosPage() {
                   }}
                   className="inline-block"
                 >
-                  {char}
+                  {char === " " ? "\u00A0" : char}
                 </motion.span>
               ))}
             </h1>
           </motion.div>
-
-          <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none overflow-hidden">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] border-[1px] border-black rounded-full" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border-[1px] border-black rounded-full" />
-          </div>
 
           {/* Scroll Indicator */}
           <motion.div
@@ -76,7 +70,7 @@ export default function NosotrosPage() {
             transition={{ delay: 1.5, duration: 1.2 }}
             className="absolute bottom-10 left-1/2 -translate-x-1/2 z-40 flex flex-col items-center gap-2 pointer-events-none"
           >
-            <span className="text-[9px] uppercase tracking-[0.3em] text-black/20 font-bold">Scroll</span>
+            <span className="text-[9px] uppercase tracking-[0.3em] text-black/20 font-bold">{t('Hero.scroll')}</span>
             <div className="w-[18px] h-[30px] border border-black/10 rounded-full relative">
               <motion.div
                 animate={{ y: [0, 10, 0], opacity: [0, 0.4, 0] }}
@@ -97,7 +91,9 @@ export default function NosotrosPage() {
               transition={{ duration: 1, ease: [0.211, 1, 0.32, 1] }}
               className="text-[clamp(28px,5vw,56px)] font-bold text-[#111111] leading-[1.1] tracking-[-0.02em] max-w-4xl"
             >
-              En un mercado global que no se detiene, su empresa necesita un aliado que <span className="text-[#FC3D03]">domine cada etapa</span> de la cadena de suministro.
+              {t.rich('Impact.headline', {
+                accent: (chunks) => <span className="text-[#FC3D03]">{chunks}</span>
+              })}
             </motion.h2>
           </div>
         </section>
@@ -113,12 +109,12 @@ export default function NosotrosPage() {
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.8, ease: "easeOut" }}
                 >
-                  <span className="text-[14px] uppercase tracking-[0.2em] font-bold text-[#FC3D03] mb-8 block">01 / Quiénes Somos</span>
+                  <span className="text-[14px] uppercase tracking-[0.2em] font-bold text-[#FC3D03] mb-8 block">{t('Manifesto.badge')}</span>
                   <p className="text-[18px] md:text-[22px] leading-[1.6] text-gray-800 font-medium mb-8">
-                    Somos su Centro Intermodal, especialistas en gestionar la complejidad logística para que usted se enfoque en hacer crecer su negocio. 
+                    {t('Manifesto.title')}
                   </p>
                   <p className="text-[16px] md:text-[18px] leading-[1.7] text-gray-600">
-                    Nuestra trayectoria nos ha permitido comprender que la logística no se trata solo de mover cajas, sino de conectar los puntos clave que garantizan el éxito de sus operaciones. Desde el origen hasta el destino final, movemos su mercancía por cualquier vía con precisión quirúrgica.
+                    {t('Manifesto.description')}
                   </p>
                 </motion.div>
               </div>
@@ -131,12 +127,11 @@ export default function NosotrosPage() {
                   transition={{ duration: 1.2, ease: [0.23, 1, 0.32, 1] }}
                   className="relative w-full aspect-[4/3] overflow-hidden shadow-[0_40px_100px_-20px_rgba(0,0,0,0.15)] group"
                 >
-                  {/* Reutilizando un asset equilibrado existente para generar impacto humano / espacio sin saturar el Storage */}
                   <img src="/images/case-aduana.png" alt="Centro de Operaciones" className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                   <div className="absolute bottom-12 left-0 w-full px-8 flex justify-center text-center">
                     <p className="text-white font-bold text-[22px] md:text-[32px] max-w-2xl leading-tight">
-                      "El pulso de su carga, la fuerza de su éxito."
+                      "{t('Manifesto.quote')}"
                     </p>
                   </div>
                 </motion.div>
@@ -147,7 +142,6 @@ export default function NosotrosPage() {
         
         {/* --- STATS SECTION (Authority & Contrast) --- */}
         <section className="bg-[#111111] py-24 relative overflow-hidden">
-          {/* Background Decorative Text */}
           <div className="absolute top-0 left-0 w-full h-full opacity-[0.02] flex items-center justify-center pointer-events-none select-none">
             <span className="text-[25vw] font-black leading-none uppercase text-white">Fenixx</span>
           </div>
@@ -155,10 +149,10 @@ export default function NosotrosPage() {
           <div className="max-w-[1320px] mx-auto px-8 relative z-10">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-8">
               {[
-                { label: 'Años de Trayectoria', value: '15+', delay: 0.1 },
-                { label: 'Seguridad Jurídica', value: '100%', delay: 0.2 },
-                { label: 'Proyectos Especiales', value: '+500', delay: 0.3 },
-                { label: 'Alcance Intermodal', value: 'Global', delay: 0.4 },
+                { key: 'experience', delay: 0.1 },
+                { key: 'security', delay: 0.2 },
+                { key: 'projects', delay: 0.3 },
+                { key: 'reach', delay: 0.4 },
               ].map((stat, i) => (
                 <motion.div
                   key={i}
@@ -169,11 +163,11 @@ export default function NosotrosPage() {
                   className="flex flex-col items-center text-center group"
                 >
                   <div className="text-[48px] md:text-[64px] font-bold text-[#FC3D03] mb-2 tracking-tighter leading-none group-hover:scale-110 transition-transform duration-500">
-                    {stat.value}
+                    {t(`Stats.${stat.key}.value`)}
                   </div>
                   <div className="h-[1px] w-8 bg-white/20 mb-4 group-hover:w-16 transition-all duration-500" />
                   <div className="text-[12px] md:text-[14px] uppercase tracking-[0.25em] text-white/50 font-bold max-w-[150px]">
-                    {stat.label}
+                    {t(`Stats.${stat.key}.label`)}
                   </div>
                 </motion.div>
               ))}
@@ -190,17 +184,19 @@ export default function NosotrosPage() {
               viewport={{ once: true }}
               className="mb-20 text-center"
             >
-              <span className="text-[14px] uppercase tracking-[0.2em] font-bold text-[#FC3D03] mb-4 block">02 / Nuestra Promesa de Valor</span>
+              <span className="text-[14px] uppercase tracking-[0.2em] font-bold text-[#FC3D03] mb-4 block">{t('Promise.badge')}</span>
               <h3 className="text-[36px] md:text-[48px] font-bold text-[#111111] leading-tight tracking-tight">
-                Conectamos fronteras y <br className="hidden md:block" />simplificamos destinos.
+                {t.rich('Promise.title', {
+                  br: () => <br className="hidden md:block" />
+                })}
               </h3>
             </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
               {[
-                { title: 'Gestión Integral', desc: 'Sincronizamos todos los actores de la cadena para eliminar cuellos de botella y sobrecostos inesperados.', icon: 'M13 10V3L4 14h7v7l9-11h-7z' },
-                { title: 'Seguridad Absoluta', desc: 'Garantizamos la integridad de su mercancía y el estricto cumplimiento normativo en cada territorio.', icon: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z' },
-                { title: 'Velocidad', desc: 'Respuesta inmediata y alternativas de ruta en tiempo real para no detener sus líneas de producción.', icon: 'M12 2v20 M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6' },
+                { key: 'integral', icon: 'M13 10V3L4 14h7v7l9-11h-7z' },
+                { key: 'security', icon: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z' },
+                { key: 'speed', icon: 'M12 2v20 M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6' },
               ].map((v, i) => (
                 <motion.div 
                   key={i}
@@ -213,15 +209,14 @@ export default function NosotrosPage() {
                   <div className="w-14 h-14 bg-black text-white rounded-full flex items-center justify-center mb-8 group-hover:bg-[#FC3D03] transition-colors duration-500">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d={v.icon}/></svg>
                   </div>
-                  <h4 className="text-[22px] font-bold text-[#111111] mb-4 tracking-tight">{v.title}</h4>
-                  <p className="text-gray-600 leading-relaxed text-[16px]">{v.desc}</p>
+                  <h4 className="text-[22px] font-bold text-[#111111] mb-4 tracking-tight">{t(`Promise.items.${v.key}.title`)}</h4>
+                  <p className="text-gray-600 leading-relaxed text-[16px]">{t(`Promise.items.${v.key}.description`)}</p>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
       </main>
-      <Footer />
     </>
   );
 }

@@ -1,63 +1,16 @@
 "use client";
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-
-const testimonials = [
-  {
-    name: "David Nguyen",
-    role: "Director de Logística",
-    quote: "El equipo dedicado de Fenixx mantiene nuestra carga en movimiento a tiempo y sin complicaciones. Sus soluciones rápidas han hecho de ellos nuestro socio más confiable.",
-    image: "https://randomuser.me/api/portraits/men/32.jpg"
-  },
-  {
-    name: "Samantha Lee",
-    role: "Operaciones Comerciales",
-    quote: "El seguimiento en tiempo real nos permite planificar con anticipación y mantiene nuestro inventario al día. Confiamos en Fenixx para tener nuestras tiendas surtidas todo el año.",
-    image: "https://randomuser.me/api/portraits/women/44.jpg"
-  },
-  {
-    name: "Megan Turner",
-    role: "Líder de Cadena de Suministro",
-    quote: "Desde la recolección hasta la entrega, el servicio de Fenixx es de primera. Sus transportistas siempre llegan a tiempo y nuestros bienes arriban seguros en cada envío.",
-    image: "https://randomuser.me/api/portraits/women/68.jpg"
-  },
-  {
-    name: "Olivia Ward",
-    role: "Gerente de Distribución",
-    quote: "El equipo de almacenamiento de Fenixx es rápido y confiable. Tener un solo socio para manejar el almacenaje y el envío nos ahorra tiempo y dinero cada mes.",
-    image: "https://randomuser.me/api/portraits/women/11.jpg"
-  },
-  {
-    name: "Carlos Ruiz",
-    role: "Gerente de Importaciones",
-    quote: "Los trámites aduanales que maneja Fenixx se procesaron sin retrasos. Su equipo es profesional y siempre está disponible para resolver cualquier duda al instante.",
-    image: "https://randomuser.me/api/portraits/men/54.jpg"
-  },
-  {
-    name: "Laura Méndez",
-    role: "Coordinadora de Suministros",
-    quote: "Fenixx transformó nuestra cadena de suministro. Los tiempos de entrega mejoraron un 40% y los reportes en línea son exactos y súper claros para nuestro directorio.",
-    image: "https://randomuser.me/api/portraits/women/25.jpg"
-  },
-  {
-    name: "James Torres",
-    role: "Broker de Carga",
-    quote: "Trabajar con Fenixx no tiene fricciones. Su comunicación es excelente, los envíos se manejan con mucho cuidado y siempre entregan a tiempo sin excepciones.",
-    image: "https://randomuser.me/api/portraits/men/76.jpg"
-  },
-  {
-    name: "Patricia Solano",
-    role: "Gerente de Operaciones",
-    quote: "Desde que trabajamos con Fenixx, las importaciones llegan sin sorpresas. El equipo conoce cada detalle del proceso y eso se nota inmediatamente en los resultados.",
-    image: "https://randomuser.me/api/portraits/women/60.jpg"
-  }
-];
-
-// Duplicamos el set de cartas para el scroll infinito suave
-const tickerCards = [...testimonials, ...testimonials];
+import { useTranslations } from 'next-intl';
 
 export default function Testimonials() {
+  const t = useTranslations('Testimonials');
   const [isPaused, setIsPaused] = useState(false);
+
+  // Obtenemos los items dinámicamente desde el JSON
+  const testimonials = t.raw('items');
+  // Duplicamos el set de cartas para el scroll infinito suave
+  const tickerCards = [...testimonials, ...testimonials];
 
   return (
     <section 
@@ -69,12 +22,12 @@ export default function Testimonials() {
         <div className="px-6 md:px-12 lg:px-24 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 mb-10 md:mb-20">
           <div className="md:col-start-2 md:col-span-4 lg:col-start-3 lg:col-span-2">
             <span className="text-[14px] uppercase tracking-[0.2em] text-[#FC3D03] font-bold block pt-2">
-              NUESTROS CLIENTES
+              {t('badge')}
             </span>
           </div>
           <div className="md:col-start-6 md:col-span-6 lg:col-start-6 lg:col-span-5">
             <p className="text-fenix-dark-graphite text-[15px] xl:text-[16px] leading-[1.7]">
-              Fenixx entrega más que carga: nuestro equipo de especialistas brinda tranquilidad en cada movimiento. Lea lo que nuestros clientes opinan sobre nuestra dedicación y eficiencia.
+              {t('description')}
             </p>
           </div>
         </div>
@@ -101,7 +54,7 @@ export default function Testimonials() {
               },
             }}
           >
-            {tickerCards.map((item, i) => (
+            {tickerCards.map((item: any, i: number) => (
               <div 
                 key={i} 
                 className="w-[240px] md:w-[450px] flex-shrink-0 bg-white rounded-[20px] p-5 md:p-8 xl:p-10 flex flex-col hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-black/5"

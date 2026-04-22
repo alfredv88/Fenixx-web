@@ -1,0 +1,362 @@
+{
+  "Header": {
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "services": "Services",
+      "portfolio": "Portfolio",
+      "contact": "Contact Us"
+    },
+    "megaMenu": {
+      "title": "Services",
+      "catalog": "View Catalog",
+      "info": "+ Info",
+      "categories": {
+        "aduana": "Customs Management",
+        "transporte": "International Transport",
+        "carga": "Commercial Cargo",
+        "equipos": "Industrial Equipment",
+        "almacen": "Warehouse & Stock"
+      }
+    }
+  },
+  "Hero": {
+    "title": {
+      "logistics": "Integral",
+      "integral": "logistics"
+    },
+    "subtitle": "Your strategic partner in customs management, multimodal transport, and specialized cargo.",
+    "cta": "Learn more",
+    "labels": {
+      "brand": "Fenixx C.A",
+      "scroll": "Scroll"
+    }
+  },
+  "About": {
+    "badge": "Who We Are",
+    "headline": {
+      "part1": "In a global market that never stops,",
+      "part2": "your company needs a",
+      "accent": "partner."
+    },
+    "description": "In a global market that never stops, we are the partner that manages logistical complexity from origin to final destination.",
+    "cta": "Learn More"
+  },
+  "Services": {
+    "badge": "Service Portfolio",
+    "title": "Strategic Capacity",
+    "description": "We cover all transport modes with the necessary infrastructure for your operation.",
+    "cta": "More Details",
+    "items": {
+      "transporte": {
+        "title": "Multimodal Transport",
+        "description": "Total coverage and strategic coordination in sea, air, and land connections."
+      },
+      "aduana": {
+        "title": "Customs Management",
+        "description": "We accelerate times with specialized advice and efficient cargo nationalization."
+      },
+      "carga": {
+        "title": "Cargo Handling",
+        "description": "Technical capacity and absolute precision for all types of merchandise. Specialized lifting operations."
+      },
+      "equipos": {
+        "title": "Equipment Rental",
+        "description": "Modern fleet and specialized tools to optimize your entire operation."
+      }
+    }
+  },
+  "Footer": {
+    "brand": {
+      "slogan": "The pulse of your cargo, the strength of your success."
+    },
+    "sections": {
+      "navigation": "Navigation",
+      "services": "Services",
+      "contact": "Contact"
+    },
+    "links": {
+      "home": "Home",
+      "services": "Services",
+      "about": "About Us",
+      "portfolio": "Portfolio",
+      "contact": "Contact",
+      "services_list": {
+        "transporte": "Multimodal Transport",
+        "aduana": "Customs Management",
+        "carga": "Cargo Handling",
+        "equipos": "Equipment Rental"
+      }
+    },
+    "contact": {
+      "address": "Raúl Leoni Ave. with Real Ave., Local S/N Urb. Industria de Guanta, Anzoátegui."
+    },
+    "bottom": {
+      "rights": "All rights reserved.",
+      "tagline": "High-Level Logistics and Customs",
+      "designed_by": "Designed by"
+    }
+  },
+  "Nosotros": {
+    "Hero": {
+      "badge": "THE PULSE OF YOUR CARGO",
+      "title": "About Us",
+      "scroll": "Scroll"
+    },
+    "Impact": {
+      "headline": "In a global market that never stops, your company needs a partner that <accent>dominates every stage</accent> of the supply chain."
+    },
+    "Manifesto": {
+      "badge": "01 / Who We Are",
+      "title": "We are your Intermodal Center, specialists in managing logistical complexity so you can focus on growing your business.",
+      "description": "Our trajectory has allowed us to understand that logistics is not just about moving boxes, but about connecting the key points that guarantee the success of your operations. From origin to final destination, we move your merchandise via any route with surgical precision.",
+      "quote": "The pulse of your cargo, the strength of your success."
+    },
+    "Stats": {
+      "experience": {
+        "value": "15+",
+        "label": "Years of Experience"
+      },
+      "security": {
+        "value": "100%",
+        "label": "Legal Security"
+      },
+      "projects": {
+        "value": "+500",
+        "label": "Special Projects"
+      },
+      "reach": {
+        "value": "Global",
+        "label": "Intermodal Reach"
+      }
+    },
+    "Promise": {
+      "badge": "02 / Our Our Value Promise",
+      "title": "We connect borders and simplify destinations.",
+      "items": {
+        "integral": {
+          "title": "Integral Management",
+          "description": "We synchronize all chain actors to eliminate bottlenecks and unexpected surcharges."
+        },
+        "security": {
+          "title": "Absolute Security",
+          "description": "We guarantee the integrity of your merchandise and strict regulatory compliance in every territory."
+        },
+        "speed": {
+          "title": "Speed",
+          "description": "Immediate response and real-time route alternatives to keep your production lines moving."
+        }
+      }
+    }
+  },
+  "ServiciosPage": {
+    "Hero": {
+      "badge": "LOGISTICS FOR GROWTH",
+      "title": "Services",
+      "scroll": "Explore"
+    },
+    "Impact": {
+      "headline": "<accent>Fast and reliable</accent> logistics for every cargo, industry and destination."
+    },
+    "Items": {
+      "label": "Service 0{index}",
+      "cta": "Consult Service",
+      "transporte": {
+        "title": "Multimodal Transport",
+        "description": "Total coverage in all modes: sea, river, air, and land. Strategic coordination of international and national freights for any destination.",
+        "bullets": ["Sea and River Transport", "Express Air Cargo", "Land Distribution", "Freight Management"]
+      },
+      "aduana": {
+        "title": "Customs Management",
+        "description": "Comprehensive advice and representation in customs procedures. We simplify bureaucracy to accelerate your delivery times and guarantee the legal entry of your merchandise.",
+        "bullets": ["Customs Advice", "Cargo Nationalization", "Origin Coordination", "Regulatory Compliance"]
+      },
+      "manejo-carga": {
+        "title": "Cargo Handling",
+        "description": "Technical capacity for any type of merchandise. From individual packages to large-scale cargo, we operate with precision and total security.",
+        "bullets": ["Loose and Fractionated Cargo", "Project Handling", "Inventory Control", "Integrated Logistics"]
+      },
+      "equipos": {
+        "title": "Equipment Rental",
+        "description": "We provide you with a modern fleet of machinery and specialized equipment to support any type of cargo, lifting operation, and industrial logistics.",
+        "bullets": ["Lifting Equipment", "Industrial Machinery", "Support for All Cargo Types", "Special Operations"]
+      }
+    },
+    "CTA": {
+      "badge": "Ready for the next level?",
+      "title": "Boost your Logistics Today.",
+      "accent": "Logistics",
+      "button": "Talk to an Expert"
+    }
+  },
+  "Portafolio": {
+    "Hero": {
+      "badge": "Our Experience",
+      "title": "Portfolio",
+      "scroll": "View Projects"
+    },
+    "Filters": {
+      "all": "All",
+      "transporte": "Transport",
+      "aduanas": "Customs",
+      "especializados": "Specialized"
+    },
+    "Projects": {
+      "details": "View Details",
+      "analysis": "Operational Analysis",
+      "items": {
+        "hubei": {
+          "title": "Hubei Industrial Supply - Valencia",
+          "category": "Transport",
+          "tag": "Integral Logistics",
+          "stats": "Transit: 38 Days | Load: 240 Tons",
+          "description": "Supply management of components for heavy industry from central China to Venezuelan ports."
+        },
+        "izada": {
+          "title": "High-Precision Machinery Lifting",
+          "category": "Specialized",
+          "tag": "Lifting Cargo",
+          "stats": "Precision: 100% | Load: 120t Crane",
+          "description": "Lifting and positioning operation of oversized industrial machinery using state-of-the-art equipment."
+        },
+        "houston": {
+          "title": "Houston - Latam Logistics Bridge",
+          "category": "Transport",
+          "tag": "Multimodal",
+          "stats": "Frequency: Weekly | Type: Consolidated",
+          "description": "Consolidation and multimodal dispatch from the Houston hub for technology and energy sectors."
+        },
+        "aduanas_critica": {
+          "title": "Customs Management and Critical Nationalization",
+          "category": "Customs",
+          "tag": "Customs",
+          "stats": "Efficiency: 3 Days | Compliance: 100%",
+          "description": "Express nationalization of critical supplies for the infrastructure sector with rigorous regulatory compliance."
+        }
+      }
+    },
+    "Empty": "No projects available in this category.",
+    "CTA": {
+      "badge": "Your cargo is the next challenge",
+      "title": "Ready to move your success with us?",
+      "button": "Request Quote"
+    }
+  },
+  "Showcase": {
+    "words": {
+      "aduana": "CUSTOMS",
+      "transporte": "TRANSPORT",
+      "logistica": "LOGISTICS",
+      "carga": "CARGO"
+    }
+  },
+  "Testimonials": {
+    "badge": "OUR CLIENTS",
+    "description": "Fenixx delivers more than cargo: our specialist team provides peace of mind in every movement. Read what our clients say about our dedication and efficiency.",
+    "items": [
+      {
+        "name": "David Nguyen",
+        "role": "Logistics Director",
+        "quote": "Fenixx's dedicated team keeps our cargo moving on time and hassle-free. Their rapid solutions have made them our most trusted partner.",
+        "image": "https://randomuser.me/api/portraits/men/11.jpg"
+      },
+      {
+        "name": "Samantha Lee",
+        "role": "Business Operations",
+        "quote": "Real-time tracking allows us to plan ahead and keeps our inventory up to date. We trust Fenixx to keep our stores stocked all year round.",
+        "image": "https://randomuser.me/api/portraits/women/25.jpg"
+      },
+      {
+        "name": "Megan Turner",
+        "role": "Supply Chain Lead",
+        "quote": "From pickup to delivery, Fenixx's service is top notch. Their carriers always arrive on time and our goods arrive safe on every shipment.",
+        "image": "https://randomuser.me/api/portraits/women/60.jpg"
+      },
+      {
+        "name": "Carlos Ruiz",
+        "role": "Imports Manager",
+        "quote": "The customs procedures handled by Fenixx were processed without delays. Their team is professional and always available to resolve any questions instantly.",
+        "image": "https://randomuser.me/api/portraits/men/54.jpg"
+      }
+    ]
+  },
+  "Partners": {
+    "label": "Our Strategic Partners"
+  },
+  "Process": {
+    "badge": "Value Promise",
+    "title": "The pulse of your cargo, the strength of your success",
+    "description": "We connect borders and simplify destinations through comprehensive management that guarantees security, speed, and efficiency in every movement.",
+    "button": "Talk to an Advisor",
+    "steps": [
+      {
+        "label": "STEP 1",
+        "title": "Frictionless Customs Management",
+        "description": "We process your imports and exports with agility and legal precision."
+      },
+      {
+        "label": "STEP 2",
+        "title": "Door-to-Door Transport",
+        "description": "We move your cargo from origin to destination with a global network of trusted partners."
+      },
+      {
+        "label": "STEP 3",
+        "title": "Tailor-made Logistics Solutions",
+        "description": "We design personalized strategies to optimize your global supply chain."
+      }
+    ]
+  },
+  "Gallery": {
+    "badge": "Portfolio",
+    "title": "High-impact operations",
+    "description": "Our proven operational capacity in the field. We design real logistical solutions for commercially complex technical challenges.",
+    "cta": "View Full Cases",
+    "items": [
+      {
+        "category": "International Cargo",
+        "title": "Import Shanghai → Caucedo"
+      },
+      {
+        "category": "Customs Management",
+        "title": "24h Express Clearance"
+      },
+      {
+        "category": "Land Transport",
+        "title": "Multi-stop National Distribution"
+      },
+      {
+        "category": "Project Cargo",
+        "title": "Heavy Machinery Transport"
+      }
+    ]
+  },
+  "Contact": {
+    "badge": "Contact",
+    "title": "Let's start your next operation.",
+    "description": "Fenixx Logistics is ready to optimize your supply chain. Our team of experts will respond in less than 24 hours.",
+    "info": {
+      "directLine": "Direct Line",
+      "corporateEmail": "Corporate Email",
+      "offices": "Fenixx Offices",
+      "address": "Francisco de Miranda Ave, Business Tower, 8th Floor. Caracas, Venezuela."
+    },
+    "form": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "company": "Company / Organization",
+      "message": "Operation Details",
+      "submit": "Send Request",
+      "privacy": "By submitting you accept our privacy policies and B2B data handling."
+    }
+  },
+  "Ticker": {
+    "logistics": "Logistics",
+    "transport": "Transport",
+    "cargo": "Cargo",
+    "customs": "Customs"
+  },
+  "Common": {
+    "loading": "Loading...",
+    "error": "An error has occurred"
+  }
+}

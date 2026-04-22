@@ -1,46 +1,11 @@
-'use client';
-
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
+"use client";
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
+import { useTranslations } from 'next-intl';
 
-const servicios = [
-  {
-    id: 'transporte',
-    title: 'Transporte Multimodal',
-    shortTitle: 'Transporte',
-    desc: 'Cobertura total en todas las modalidades: marítima, fluvial, aérea y terrestre. Coordinación estratégica de fletes internacionales y nacionales para cualquier destino.',
-    img: '/images/service-transporte.png',
-    bullets: ['Transporte Marítimo y Fluvial', 'Carga Aérea Express', 'Distribución Terrestre', 'Gestión de Fletes'],
-  },
-  {
-    id: 'aduana',
-    title: 'Gestión Aduanera',
-    shortTitle: 'Aduana',
-    desc: 'Asesoría y representación integral en trámites aduanales. Simplificamos la burocracia para acelerar sus tiempos de entrega y garantizar el ingreso legal de su mercancía.',
-    img: '/images/service-aduanas.png',
-    bullets: ['Asesoría Aduanera', 'Nacionalización de Carga', 'Coordinación en Origen', 'Cumplimiento Normativo'],
-  },
-  {
-    id: 'manejo-carga',
-    title: 'Manejo de Carga',
-    shortTitle: 'Carga',
-    desc: 'Capacidad técnica para cualquier tipo de mercancía. Desde bultos individuales hasta cargas de grandes dimensiones, operamos con precisión y total seguridad.',
-    img: '/images/service-carga.png',
-    bullets: ['Carga Suelta y Fraccionada', 'Manejo de Proyectos', 'Control de Inventario', 'Logística Integrada'],
-  },
-  {
-    id: 'equipos',
-    title: 'Alquiler de Equipos',
-    shortTitle: 'Equipos',
-    desc: 'Ponemos a su disposición una flota moderna de maquinaria y equipos especializados para el soporte de cualquier tipo de carga, operación de izado y logística industrial.',
-    img: '/images/service-maquinaria.png',
-    bullets: ['Equipos de Izamiento', 'Maquinaria Industrial', 'Soporte para Todo Tipo de Carga', 'Operaciones Especiales'],
-  },
-];
-
-export default function ServiciosPage() {
+export default function ServiciosPage({ params }: { params: { locale: string } }) {
+  const t = useTranslations('ServiciosPage');
+  
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -49,16 +14,22 @@ export default function ServiciosPage() {
 
   const yText = useTransform(scrollYProgress, [0, 1], [0, 200]);
 
-  const titleText = "Servicios";
+  const titleText = t('Hero.title');
   const letters = titleText.split("");
+
+  const servicesKeys = ['transporte', 'aduana', 'manejo-carga', 'equipos'];
+  const servicesImages: Record<string, string> = {
+    'transporte': '/images/service-transporte.png',
+    'aduana': '/images/service-aduanas.png',
+    'manejo-carga': '/images/service-carga.png',
+    'equipos': '/images/service-maquinaria.png'
+  };
 
   return (
     <>
-      <Header variant="solid" />
       <main className="font-outfit" ref={containerRef}>
-        {/* --- HERO SECTION (Cinematic Propuesta 2) --- */}
+        {/* --- HERO SECTION --- */}
         <section className="bg-[#f7f7f7] pt-60 pb-32 px-8 overflow-hidden relative">
-          {/* Background Image - Subtle & High-end */}
           <div className="absolute inset-0 z-0 pointer-events-none">
             <img 
               src="/images/hero-servicios.png"
@@ -66,25 +37,7 @@ export default function ServiciosPage() {
               className="w-full h-full object-cover opacity-[0.75] grayscale-[0.2]"
             />
             <div className="absolute inset-0 bg-white/20" />
-            <div className="absolute bottom-0 left-0 w-full h-1/4 bg-gradient-to-t from-[#f7f7f7] to-transparent pointer-events-none" />
           </div>
-
-          {/* Scroll Indicator */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.5, duration: 1.2 }}
-            className="absolute bottom-10 left-1/2 -translate-x-1/2 z-40 flex flex-col items-center gap-2 pointer-events-none"
-          >
-            <span className="text-[9px] uppercase tracking-[0.3em] text-black/20 font-bold">Explora</span>
-            <div className="w-[18px] h-[30px] border border-black/10 rounded-full relative">
-              <motion.div
-                animate={{ y: [0, 10, 0], opacity: [0, 0.4, 0] }}
-                transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-1.5 left-1/2 -translate-x-1/2 w-[3px] h-[6px] bg-black/30 rounded-full"
-              />
-            </div>
-          </motion.div>
 
           <motion.div 
             style={{ y: yText }}
@@ -96,10 +49,10 @@ export default function ServiciosPage() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="text-[11px] uppercase tracking-[0.4em] text-[#FC3D03] font-bold block mb-6 px-4"
             >
-              LOGÍSTICA PARA EL CRECIMIENTO
+              {t('Hero.badge')}
             </motion.span>
             
-            <h1 className="text-[clamp(45px,10vw,140px)] font-bold text-[#111111] leading-[0.9] tracking-[-0.05em] uppercase flex justify-center flex-wrap" aria-label="Servicios">
+            <h1 className="text-[clamp(45px,10vw,140px)] font-bold text-[#111111] leading-[0.9] tracking-[-0.05em] uppercase flex justify-center flex-wrap" aria-label={titleText}>
               {letters.map((char, i) => (
                 <motion.span
                   key={i}
@@ -112,16 +65,11 @@ export default function ServiciosPage() {
                   }}
                   className="inline-block"
                 >
-                  {char}
+                  {char === " " ? "\u00A0" : char}
                 </motion.span>
               ))}
             </h1>
           </motion.div>
-
-          {/* Sutil background element */}
-          <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none overflow-hidden">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border-[1px] border-black rounded-full" />
-          </div>
 
           {/* Scroll Indicator */}
           <motion.div
@@ -130,7 +78,7 @@ export default function ServiciosPage() {
             transition={{ delay: 1.5, duration: 1.2 }}
             className="absolute bottom-10 left-1/2 -translate-x-1/2 z-40 flex flex-col items-center gap-2 pointer-events-none"
           >
-            <span className="text-[9px] uppercase tracking-[0.3em] text-black/20 font-bold">Scroll</span>
+            <span className="text-[9px] uppercase tracking-[0.3em] text-black/20 font-bold">{t('Hero.scroll')}</span>
             <div className="w-[18px] h-[30px] border border-black/10 rounded-full relative">
               <motion.div
                 animate={{ y: [0, 10, 0], opacity: [0, 0.4, 0] }}
@@ -151,16 +99,18 @@ export default function ServiciosPage() {
               transition={{ duration: 1, ease: [0.211, 1, 0.32, 1] }}
               className="text-[clamp(28px,6vw,72px)] font-bold text-[#111111] leading-[1.05] tracking-tighter max-w-5xl"
             >
-              Logística <span className="text-[#FC3D03]">rápida y confiable</span> para cada carga, industria y destino.
+              {t.rich('Impact.headline', {
+                accent: (chunks) => <span className="text-[#FC3D03]">{chunks}</span>
+              })}
             </motion.h2>
           </div>
         </section>
 
-        {/* --- DETAILED SECTIONS (Alternating with Mask Reveal) --- */}
-        {servicios.map((s, idx) => (
+        {/* --- DETAILED SECTIONS --- */}
+        {servicesKeys.map((key, idx) => (
           <section 
-            id={s.id} 
-            key={s.id} 
+            id={key} 
+            key={key} 
             className={`py-40 px-8 ${idx % 2 === 1 ? 'bg-[#F7F7F7]' : 'bg-white'}`}
           >
             <div className="max-w-[1320px] mx-auto">
@@ -174,16 +124,16 @@ export default function ServiciosPage() {
                     transition={{ duration: 0.8, ease: "easeOut" }}
                   >
                     <span className="text-[10px] uppercase tracking-[0.4em] text-[#FC3D03] font-bold mb-6 block border-b border-[#FC3D03]/30 pb-3 w-fit">
-                      Servicio 0{idx + 1}
+                      {t('Items.label', { index: idx + 1 })}
                     </span>
                     <h2 className="text-4xl md:text-6xl font-bold text-[#111111] leading-[1] mb-10 tracking-tight uppercase">
-                      {s.title}
+                      {t(`Items.${key}.title`)}
                     </h2>
                     <p className="text-xl text-gray-500 leading-relaxed mb-12 max-w-xl font-light">
-                      {s.desc}
+                      {t(`Items.${key}.description`)}
                     </p>
                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-5 gap-x-12 mb-14">
-                      {s.bullets.map((item, i) => (
+                      {(t.raw(`Items.${key}.bullets`) as string[]).map((item, i) => (
                         <li key={i} className="flex items-center gap-3 text-[12px] font-extrabold text-[#111111] uppercase tracking-widest">
                           <div className="w-2 h-2 bg-[#FC3D03] rounded-full rotate-45" />
                           {item}
@@ -196,7 +146,7 @@ export default function ServiciosPage() {
                       href="/#contacto" 
                       className="inline-block bg-[#111111] text-white px-14 py-6 rounded-full font-bold uppercase text-[11px] tracking-[0.25em] hover:bg-[#FC3D03] transition-all duration-500 shadow-xl shadow-black/5 hover:shadow-[#FC3D03]/20"
                     >
-                      Consultar Servicio
+                      {t('Items.cta')}
                     </motion.a>
                   </motion.div>
                 </div>
@@ -212,11 +162,10 @@ export default function ServiciosPage() {
                     <motion.img 
                       whileHover={{ scale: 1.1 }}
                       transition={{ duration: 1.5, ease: [0.23, 1, 0.32, 1] }}
-                      src={s.img} 
-                      alt={s.title} 
+                      src={servicesImages[key]} 
+                      alt={t(`Items.${key}.title`)} 
                       className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-white/20" />
                   </motion.div>
                 </div>
               </div>
@@ -234,10 +183,13 @@ export default function ServiciosPage() {
             className="max-w-4xl mx-auto relative z-10"
           >
             <span className="text-[11px] uppercase tracking-[0.5em] text-[#FC3D03] font-bold block mb-10">
-              ¿Listo para el siguiente nivel?
+              {t('CTA.badge')}
             </span>
             <h2 className="text-5xl md:text-8xl font-bold text-white mb-14 leading-[0.9] tracking-tighter uppercase font-outfit">
-              Impulse su <br /> <span className="text-[#FC3D03]">Logística</span> Hoy.
+              {t.rich('CTA.title', {
+                br: () => <br />,
+                accent: (chunks) => <span className="text-[#FC3D03]">{chunks}</span>
+              })}
             </h2>
             <div className="flex flex-col sm:flex-row gap-8 justify-center mt-12">
               <motion.a 
@@ -246,18 +198,16 @@ export default function ServiciosPage() {
                 href="/#contacto" 
                 className="bg-[#FC3D03] text-white px-16 py-8 rounded-full font-bold uppercase text-[12px] tracking-[0.3em] transition-all duration-500 shadow-2xl shadow-[#FC3D03]/20"
               >
-                Hablar con un Experto
+                {t('CTA.button')}
               </motion.a>
             </div>
           </motion.div>
           
-          {/* Subtle decoration */}
           <div className="absolute bottom-0 right-0 p-10 opacity-10">
             <span className="text-[180px] font-bold text-white leading-none tracking-tighter select-none">FENIXX</span>
           </div>
         </section>
       </main>
-      <Footer />
     </>
   );
 }

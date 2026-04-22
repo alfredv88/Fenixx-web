@@ -1,0 +1,362 @@
+{
+  "Header": {
+    "nav": {
+      "home": "Inicio",
+      "about": "Nosotros",
+      "services": "Servicios",
+      "portfolio": "Portafolio",
+      "contact": "Contáctanos"
+    },
+    "megaMenu": {
+      "title": "Servicios",
+      "catalog": "Ver Catálogo",
+      "info": "+ Info",
+      "categories": {
+        "aduana": "Gestión Aduanera",
+        "transporte": "Transporte Internacional",
+        "carga": "Carga Comercial",
+        "equipos": "Equipos Industriales",
+        "almacen": "Almacén y Stock"
+      }
+    }
+  },
+  "Hero": {
+    "title": {
+      "logistics": "Logística",
+      "integral": "integral"
+    },
+    "subtitle": "Su aliado estratégico en gestión aduanera, transporte multimodal y carga especializada.",
+    "cta": "Saber más",
+    "labels": {
+      "brand": "Fenixx C.A",
+      "scroll": "Scroll"
+    }
+  },
+  "About": {
+    "badge": "Quiénes Somos",
+    "headline": {
+      "part1": "En un mercado global que no se detiene,",
+      "part2": "su empresa necesita un",
+      "accent": "aliado."
+    },
+    "description": "En un mercado global que no se detiene, somos el aliado que gestiona la complejidad logística desde el origen hasta el destino final.",
+    "cta": "Conocer Más"
+  },
+  "Services": {
+    "badge": "Portafolio de Servicios",
+    "title": "Capacidad Estratégica",
+    "description": "Cubrimos todas las modalidades de transporte con la infraestructura necesaria para su operación.",
+    "cta": "Más Detalles",
+    "items": {
+      "transporte": {
+        "title": "Transporte Multimodal",
+        "description": "Cobertura total y coordinación estratégica en conexiones marítimas, aéreas y terrestres."
+      },
+      "aduana": {
+        "title": "Gestión Aduanera",
+        "description": "Aceleramos tiempos con asesoría especializada y nacionalización eficiente de carga."
+      },
+      "carga": {
+        "title": "Manejo de Carga",
+        "description": "Capacidad técnica y precisión absoluta para todo tipo de mercancía. Operaciones de izamiento especializado."
+      },
+      "equipos": {
+        "title": "Alquiler de Equipos",
+        "description": "Flota moderna y herramientas especializadas para optimizar toda su operación."
+      }
+    }
+  },
+  "Footer": {
+    "brand": {
+      "slogan": "El pulso de su carga, la fuerza de su éxito."
+    },
+    "sections": {
+      "navigation": "Navegación",
+      "services": "Servicios",
+      "contact": "Contacto"
+    },
+    "links": {
+      "home": "Inicio",
+      "services": "Servicios",
+      "about": "Quiénes Somos",
+      "portfolio": "Portafolio",
+      "contact": "Contacto",
+      "services_list": {
+        "transporte": "Transporte Multimodal",
+        "aduana": "Gestión Aduanera",
+        "carga": "Manejo de Carga",
+        "equipos": "Alquiler de Equipos"
+      }
+    },
+    "contact": {
+      "address": "Av. Raúl Leoni con Av. Real, Local S/N Urb. Industria de Guanta, Anzoátegui."
+    },
+    "bottom": {
+      "rights": "Todos los derechos reservados.",
+      "tagline": "Logística y Aduanas de Alto Nivel",
+      "designed_by": "Diseñado por"
+    }
+  },
+  "Nosotros": {
+    "Hero": {
+      "badge": "EL PULSO DE SU CARGA",
+      "title": "Nosotros",
+      "scroll": "Scroll"
+    },
+    "Impact": {
+      "headline": "En un mercado global que no se detiene, su empresa necesita un aliado que <accent>domine cada etapa</accent> de la cadena de suministro."
+    },
+    "Manifesto": {
+      "badge": "01 / Quiénes Somos",
+      "title": "Somos su Centro Intermodal, especialistas en gestionar la complejidad logística para que usted se enfoque en hacer crecer su negocio.",
+      "description": "Nuestra trayectoria nos ha permitido comprender que la logística no se trata solo de mover cajas, sino de conectar los puntos clave que garantizan el éxito de sus operaciones. Desde el origen hasta el destino final, movemos su mercancía por cualquier vía con precisión quirúrgica.",
+      "quote": "El pulso de su carga, la fuerza de su éxito."
+    },
+    "Stats": {
+      "experience": {
+        "value": "15+",
+        "label": "Años de Trayectoria"
+      },
+      "security": {
+        "value": "100%",
+        "label": "Seguridad Jurídica"
+      },
+      "projects": {
+        "value": "+500",
+        "label": "Proyectos Especiales"
+      },
+      "reach": {
+        "value": "Global",
+        "label": "Alcance Intermodal"
+      }
+    },
+    "Promise": {
+      "badge": "02 / Nuestra Promesa de Valor",
+      "title": "Conectamos fronteras y simplificamos destinos.",
+      "items": {
+        "integral": {
+          "title": "Gestión Integral",
+          "description": "Sincronizamos todos los actores de la cadena para eliminar cuellos de botella y sobrecostos inesperados."
+        },
+        "security": {
+          "title": "Seguridad Absoluta",
+          "description": "Garantizamos la integridad de su mercancía y el estricto cumplimiento normativo en cada territorio."
+        },
+        "speed": {
+          "title": "Velocidad",
+          "description": "Respuesta inmediata y alternativas de ruta en tiempo real para no detener sus líneas de producción."
+        }
+      }
+    }
+  },
+  "ServiciosPage": {
+    "Hero": {
+      "badge": "LOGÍSTICA PARA EL CRECIMIENTO",
+      "title": "Servicios",
+      "scroll": "Explora"
+    },
+    "Impact": {
+      "headline": "Logística <accent>rápida y confiable</accent> para cada carga, industria y destino."
+    },
+    "Items": {
+      "label": "Servicio 0{index}",
+      "cta": "Consultar Servicio",
+      "transporte": {
+        "title": "Transporte Multimodal",
+        "description": "Cobertura total en todas las modalidades: marítima, fluvial, aérea y terrestre. Coordinación estratégica de fletes internacionales y nacionales para cualquier destino.",
+        "bullets": ["Transporte Marítimo y Fluvial", "Carga Aérea Express", "Distribución Terrestre", "Gestión de Fletes"]
+      },
+      "aduana": {
+        "title": "Gestión Aduanera",
+        "description": "Asesoría y representación integral en trámites aduanales. Simplificamos la burocracia para acelerar sus tiempos de entrega y garantizar el ingreso legal de su mercancía.",
+        "bullets": ["Asesoría Aduanera", "Nacionalización de Carga", "Coordinación en Origen", "Cumplimiento Normativo"]
+      },
+      "manejo-carga": {
+        "title": "Manejo de Carga",
+        "description": "Capacidad técnica para cualquier tipo de mercancía. Desde bultos individuales hasta cargas de grandes dimensiones, operamos con precisión y total seguridad.",
+        "bullets": ["Carga Suelta y Fraccionada", "Manejo de Proyectos", "Control de Inventario", "Logística Integrada"]
+      },
+      "equipos": {
+        "title": "Alquiler de Equipos",
+        "description": "Ponemos a su disposición una flota moderna de maquinaria y equipos especializados para el soporte de cualquier tipo de carga, operación de izado y logística industrial.",
+        "bullets": ["Equipos de Izamiento", "Maquinaria Industrial", "Soporte para Todo Tipo de Carga", "Operaciones Especiales"]
+      }
+    },
+    "CTA": {
+      "badge": "¿Listo para el siguiente nivel?",
+      "title": "Impulse su Logística Hoy.",
+      "accent": "Logística",
+      "button": "Hablar con un Experto"
+    }
+  },
+  "Portafolio": {
+    "Hero": {
+      "badge": "Nuestra Experiencia",
+      "title": "Portafolio",
+      "scroll": "Ver Proyectos"
+    },
+    "Filters": {
+      "all": "Todos",
+      "transporte": "Transporte",
+      "aduanas": "Aduanas",
+      "especializados": "Especializados"
+    },
+    "Projects": {
+      "details": "Ver Detalles",
+      "analysis": "Análisis Operativo",
+      "items": {
+        "hubei": {
+          "title": "Suministro Industrial Hubei - Valencia",
+          "category": "Transporte",
+          "tag": "Logística Integral",
+          "stats": "Tránsito: 38 Días | Carga: 240 Tons",
+          "description": "Gestión de suministro de componentes para la industria pesada desde el centro de China hasta puertos venezolanos."
+        },
+        "izada": {
+          "title": "Izada de Maquinaria de Alta Precisión",
+          "category": "Especializados",
+          "tag": "Carga de Izada",
+          "stats": "Precisión: 100% | Carga: Grúa 120t",
+          "description": "Operación de izada y posicionamiento de maquinaria industrial sobredimensionada utilizando equipos de última generación."
+        },
+        "houston": {
+          "title": "Puente Logístico Houston - Latam",
+          "category": "Transporte",
+          "tag": "Multimodal",
+          "stats": "Frecuencia: Semanal | Tipo: Consolidado",
+          "description": "Consolidación y despacho multimodal desde el hub de Houston para sectores de tecnología y energía."
+        },
+        "aduanas_critica": {
+          "title": "Gestión Aduanera y Nacionalización Crítica",
+          "category": "Aduanas",
+          "tag": "Aduanas",
+          "stats": "Eficiencia: 3 Días | Cumplimiento: 100%",
+          "description": "Nacionalización express de suministros críticos para el sector infraestructura con riguroso cumplimiento normativo."
+        }
+      }
+    },
+    "Empty": "No hay proyectos disponibles en esta categoría.",
+    "CTA": {
+      "badge": "Su carga es el próximo desafío",
+      "title": "¿Listo para mover su éxito con nosotros?",
+      "button": "Solicitar Cotización"
+    }
+  },
+  "Showcase": {
+    "words": {
+      "aduana": "ADUANA",
+      "transporte": "TRANSPORTE",
+      "logistica": "LOGÍSTICA",
+      "carga": "CARGA"
+    }
+  },
+  "Testimonials": {
+    "badge": "NUESTROS CLIENTES",
+    "description": "Fenixx entrega más que carga: nuestro equipo de especialistas brinda tranquilidad en cada movimiento. Lea lo que nuestros clientes opinan sobre nuestra dedicación y eficiencia.",
+    "items": [
+      {
+        "name": "David Nguyen",
+        "role": "Director de Logística",
+        "quote": "El equipo dedicado de Fenixx mantiene nuestra carga en movimiento a tiempo y sin complicaciones. Sus soluciones rápidas han hecho de ellos nuestro socio más confiable.",
+        "image": "https://randomuser.me/api/portraits/men/11.jpg"
+      },
+      {
+        "name": "Samantha Lee",
+        "role": "Operaciones Comerciales",
+        "quote": "El seguimiento en tiempo real nos permite planificar con anticipación y mantiene nuestro inventario al día. Confiamos en Fenixx para tener nuestras tiendas surtidas todo el año.",
+        "image": "https://randomuser.me/api/portraits/women/25.jpg"
+      },
+      {
+        "name": "Megan Turner",
+        "role": "Líder de Cadena de Suministro",
+        "quote": "Desde la recolección hasta la entrega, el servicio de Fenixx es de primera. Sus transportistas siempre llegan a tiempo y nuestros bienes arriban seguros en cada envío.",
+        "image": "https://randomuser.me/api/portraits/women/60.jpg"
+      },
+      {
+        "name": "Carlos Ruiz",
+        "role": "Gerente de Importaciones",
+        "quote": "Los trámites aduanales que maneja Fenixx se procesaron sin retrasos. Su equipo es profesional y siempre está disponible para resolver cualquier duda al instante.",
+        "image": "https://randomuser.me/api/portraits/men/54.jpg"
+      }
+    ]
+  },
+  "Partners": {
+    "label": "Nuestros Aliados Estratégicos"
+  },
+  "Process": {
+    "badge": "Promesa de Valor",
+    "title": "El pulso de su carga, la fuerza de su éxito",
+    "description": "Conectamos fronteras y simplificamos destinos mediante una gestión integral que garantiza seguridad, velocidad y eficiencia en cada movimiento.",
+    "button": "Hablar con un Asesor",
+    "steps": [
+      {
+        "label": "PASO 1",
+        "title": "Gestión aduanal sin fricciones",
+        "description": "Procesamos tus importaciones y exportaciones con agilidad y precisión legal."
+      },
+      {
+        "label": "PASO 2",
+        "title": "Transporte puerta a puerta",
+        "description": "Movemos tu carga de origen a destino con una red global de socios confiables."
+      },
+      {
+        "label": "PASO 3",
+        "title": "Soluciones logísticas a la medida",
+        "description": "Diseñamos estrategias personalizadas para optimizar su cadena de suministro global."
+      }
+    ]
+  },
+  "Gallery": {
+    "badge": "Portafolio",
+    "title": "Operaciones de alto impacto",
+    "description": "Nuestra capacidad operativa comprobada en el terreno. Diseñamos soluciones logísticas reales para desafíos comerciales de alta complejidad técnica.",
+    "cta": "Ver Casos Completos",
+    "items": [
+      {
+        "category": "Carga Internacional",
+        "title": "Importación Shanghái → Caucédo"
+      },
+      {
+        "category": "Gestión Aduanal",
+        "title": "Despacho Express 24h"
+      },
+      {
+        "category": "Transporte Terrestre",
+        "title": "Distribución Nacional Multiparada"
+      },
+      {
+        "category": "Carga Proyecto",
+        "title": "Traslado de Maquinaria Pesada"
+      }
+    ]
+  },
+  "Contact": {
+    "badge": "Contacto",
+    "title": "Iniciemos su próxima operación.",
+    "description": "Fénixx Logistics está listo para optimizar su cadena de suministro. Nuestro equipo de expertos le responderá en menos de 24 horas.",
+    "info": {
+      "directLine": "Línea Directa",
+      "corporateEmail": "Correo Corporativo",
+      "offices": "Oficinas Fénixx",
+      "address": "Av. Francisco de Miranda, Torre Empresarial, Piso 8. Caracas, Venezuela."
+    },
+    "form": {
+      "name": "Nombre Completo",
+      "email": "Correo Electrónico",
+      "company": "Empresa / Organización",
+      "message": "Detalles de la Operación",
+      "submit": "Enviar Solicitud",
+      "privacy": "Al enviar usted acepta nuestras normativas de privacidad y manejo de datos B2B."
+    }
+  },
+  "Ticker": {
+    "logistics": "Logística",
+    "transport": "Transporte",
+    "cargo": "Carga",
+    "customs": "Aduana"
+  },
+  "Common": {
+    "loading": "Cargando...",
+    "error": "Ha ocurrido un error"
+  }
+}

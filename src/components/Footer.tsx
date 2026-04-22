@@ -1,6 +1,10 @@
+"use client";
 import React from 'react';
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/routing';
 
 export default function Footer() {
+  const t = useTranslations('Footer');
   const currentYear = new Date().getFullYear();
 
   return (
@@ -45,44 +49,43 @@ export default function Footer() {
               IMPORT EXPORT C.A.
             </p>
             <p className="text-[#ebebeb]/70 text-sm leading-relaxed max-w-[250px] font-medium italic opacity-80">
-              El pulso de su carga, la fuerza de su éxito.
+              {t('brand.slogan')}
             </p>
           </div>
 
           {/* Quick Links */}
           <div className="lg:justify-self-center">
-            <h5 className="text-white font-bold text-sm uppercase tracking-wider mb-4">Navegación</h5>
+            <h5 className="text-white font-bold text-sm uppercase tracking-wider mb-4">{t('sections.navigation')}</h5>
             <ul className="space-y-3">
-              <li><a href="#" className="text-[#ebebeb]/70 text-sm hover:text-fenix-red-light transition-colors">Inicio</a></li>
-              <li><a href="#servicios" className="text-[#ebebeb]/70 text-sm hover:text-fenix-red-light transition-colors">Servicios</a></li>
-              <li><a href="#nosotros" className="text-[#ebebeb]/70 text-sm hover:text-fenix-red-light transition-colors">Quiénes Somos</a></li>
-              <li><a href="#proyectos" className="text-[#ebebeb]/70 text-sm hover:text-fenix-red-light transition-colors">Portafolio</a></li>
-              <li><a href="#contacto" className="text-[#ebebeb]/70 text-sm hover:text-fenix-red-light transition-colors">Contacto</a></li>
+              <li><Link href="/" className="text-[#ebebeb]/70 text-sm hover:text-fenix-red-light transition-colors">{t('links.home')}</Link></li>
+              <li><Link href="/servicios" className="text-[#ebebeb]/70 text-sm hover:text-fenix-red-light transition-colors">{t('links.services')}</Link></li>
+              <li><Link href="/nosotros" className="text-[#ebebeb]/70 text-sm hover:text-fenix-red-light transition-colors">{t('links.about')}</Link></li>
+              <li><Link href="/portafolio" className="text-[#ebebeb]/70 text-sm hover:text-fenix-red-light transition-colors">{t('links.portfolio')}</Link></li>
+              <li><Link href="/#contacto" className="text-[#ebebeb]/70 text-sm hover:text-fenix-red-light transition-colors">{t('links.contact')}</Link></li>
             </ul>
           </div>
 
           {/* Services */}
           <div className="lg:justify-self-center">
-            <h5 className="text-white font-bold text-sm uppercase tracking-wider mb-4">Servicios</h5>
+            <h5 className="text-white font-bold text-sm uppercase tracking-wider mb-4">{t('sections.services')}</h5>
             <ul className="space-y-3">
-              <li><a href="/servicios/transporte" className="text-[#ebebeb]/70 text-sm hover:text-fenix-red-light transition-colors">Transporte Multimodal</a></li>
-              <li><a href="/servicios/aduanas" className="text-[#ebebeb]/70 text-sm hover:text-fenix-red-light transition-colors">Gestión Aduanera</a></li>
-              <li><a href="/servicios/carga" className="text-[#ebebeb]/70 text-sm hover:text-fenix-red-light transition-colors">Manejo de Carga</a></li>
-              <li><a href="/servicios/equipos" className="text-[#ebebeb]/70 text-sm hover:text-fenix-red-light transition-colors">Alquiler de Equipos</a></li>
+              <li><Link href="/servicios#transporte" className="text-[#ebebeb]/70 text-sm hover:text-fenix-red-light transition-colors">{t('links.services_list.transporte')}</Link></li>
+              <li><Link href="/servicios#aduana" className="text-[#ebebeb]/70 text-sm hover:text-fenix-red-light transition-colors">{t('links.services_list.aduana')}</Link></li>
+              <li><Link href="/servicios#manejo-carga" className="text-[#ebebeb]/70 text-sm hover:text-fenix-red-light transition-colors">{t('links.services_list.carga')}</Link></li>
+              <li><Link href="/servicios#equipos" className="text-[#ebebeb]/70 text-sm hover:text-fenix-red-light transition-colors">{t('links.services_list.equipos')}</Link></li>
             </ul>
           </div>
 
           {/* Contact Mini */}
           <div className="lg:justify-self-end">
-            <h5 className="text-white font-bold text-sm uppercase tracking-wider mb-6">Contacto</h5>
+            <h5 className="text-white font-bold text-sm uppercase tracking-wider mb-6">{t('sections.contact')}</h5>
             <ul className="space-y-4">
               <li className="flex items-start gap-4 text-[#ebebeb]/70 text-sm leading-relaxed max-w-[280px] group">
                 <div className="mt-1 p-1.5 rounded bg-white/5 group-hover:bg-fenix-red-light/10 transition-colors">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-fenix-red-light"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
                 </div>
                 <span>
-                  Av. Raúl Leoni con Av. Real, Local S/N<br/>
-                  Urb. Industria de Guanta, Anzoátegui.
+                  {t('contact.address')}
                 </span>
               </li>
               <li className="flex items-center gap-4 text-[#ebebeb]/70 text-sm group">
@@ -105,10 +108,10 @@ export default function Footer() {
         <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex flex-col items-center md:items-start gap-1">
             <p className="text-[#ebebeb]/70 text-xs font-medium">
-              &copy; {currentYear} Fenixx Import Export C.A. Todos los derechos reservados.
+              &copy; {currentYear} Fenixx Import Export C.A. {t('bottom.rights')}
             </p>
             <p className="text-[#ebebeb]/30 text-[10px] uppercase tracking-[0.2em]">
-              Logística y Aduanas de Alto Nivel
+              {t('bottom.tagline')}
             </p>
           </div>
 
@@ -134,7 +137,7 @@ export default function Footer() {
           </div>
 
           <p className="text-[#ebebeb]/40 text-[11px]">
-            Diseñado por <a href="#" className="text-[#ebebeb]/60 hover:text-fenix-red-light transition-colors font-semibold">AMS Desarrollos</a>
+            {t('bottom.designed_by')} <a href="#" className="text-[#ebebeb]/60 hover:text-fenix-red-light transition-colors font-semibold">AMS Desarrollos</a>
           </p>
         </div>
 

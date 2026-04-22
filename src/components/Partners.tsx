@@ -1,4 +1,6 @@
+"use client";
 import React from 'react';
+import { useTranslations } from 'next-intl';
 
 const partners = [
   {
@@ -28,13 +30,15 @@ const partners = [
 ];
 
 export default function Partners() {
+  const t = useTranslations('Partners');
+
   return (
     <section className="py-12 md:py-24 bg-black">
       <div className="w-full max-w-[1300px] mx-auto px-8 xl:px-16">
 
         {/* Label */}
         <p className="text-center text-[10px] md:text-[11px] uppercase tracking-[0.4em] text-[#ebebeb]/70 font-bold mb-8 md:mb-12">
-          Nuestros Aliados Estratégicos
+          {t('label')}
         </p>
 
         {/* Partners pill container */}

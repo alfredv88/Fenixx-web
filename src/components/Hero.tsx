@@ -1,10 +1,7 @@
 "use client";
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-
-
-
-
+import { useTranslations } from 'next-intl';
 
 // Individual video layer: always rendered, visibility controlled by opacity
 function VideoLayer({ src, isActive }: { src: string; isActive: boolean }) {
@@ -27,6 +24,7 @@ function VideoLayer({ src, isActive }: { src: string; isActive: boolean }) {
 }
 
 export default function Hero() {
+  const t = useTranslations('Hero');
   const [currentVideo, setCurrentVideo] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const containerRef = useRef(null);
@@ -131,7 +129,7 @@ export default function Hero() {
             transition={{ duration: 1.2, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             className="inline-block text-[11px] md:text-[13px] uppercase tracking-[0.35em] text-[#FC3D03] font-bold mb-5"
           >
-            Fenixx C.A
+            {t('labels.brand')}
           </motion.span>
 
           {/* Line 1 — White */}
@@ -142,7 +140,7 @@ export default function Hero() {
             className="text-[40px] md:text-[45px] lg:text-[70px] font-bold tracking-tighter leading-[1.05] uppercase mb-1"
             style={{ color: 'var(--color-fenix-white-soft)' }}
           >
-            Logística
+            {t('title.logistics')}
           </motion.h1>
           {/* Line 2 — Brand Red */}
           <motion.h1
@@ -152,7 +150,7 @@ export default function Hero() {
             className="text-[40px] md:text-[45px] lg:text-[70px] font-bold tracking-tighter leading-[1.05] uppercase mb-4"
             style={{ color: '#FC3D03' }}
           >
-            integral
+            {t('title.integral')}
           </motion.h1>
 
           <motion.div
@@ -162,7 +160,7 @@ export default function Hero() {
             className="mb-8 md:mb-10"
           >
             <p className="text-sm lg:text-lg text-white/70 font-medium max-w-sm lg:max-w-lg ml-auto">
-              Su aliado estratégico en gestión aduanera, transporte multimodal y carga especializada.
+              {t('subtitle')}
             </p>
           </motion.div>
 
@@ -176,7 +174,7 @@ export default function Hero() {
               href="#servicios"
               className="bg-[#FC3D03] hover:bg-[#e33702] text-white px-7 py-3 rounded-full font-medium text-[14px] transition-all duration-300 hover:scale-105 active:scale-95 shadow-premium"
             >
-              Saber más
+              {t('cta')}
             </a>
           </motion.div>
         </div>
@@ -189,7 +187,7 @@ export default function Hero() {
         transition={{ delay: 1.5, duration: 1.2 }}
         className="absolute bottom-40 left-1/2 -translate-x-1/2 z-40 flex flex-col items-center gap-2"
       >
-        <span className="text-[9px] uppercase tracking-[0.3em] text-white/25 font-medium">Scroll</span>
+        <span className="text-[9px] uppercase tracking-[0.3em] text-white/25 font-medium">{t('labels.scroll')}</span>
         <div className="w-[18px] h-[30px] border border-white/15 rounded-full relative">
           <motion.div
             animate={{ y: [0, 10, 0], opacity: [0, 0.6, 0] }}

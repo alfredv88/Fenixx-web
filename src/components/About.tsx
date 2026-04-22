@@ -1,8 +1,12 @@
 "use client";
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/routing';
 
 export default function About() {
+  const t = useTranslations('About');
+
   return (
     <section
       id="nosotros"
@@ -21,9 +25,9 @@ export default function About() {
             transition={{ duration: 0.6 }}
             className="text-[12px] uppercase tracking-[0.2em] text-[#FC3D03] font-bold block mb-12"
           >
-            Quiénes Somos
+            {t('badge')}
           </motion.span>
-
+          
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 items-start relative">
             {/* Left Column: Big Title */}
             <div className="col-span-1 lg:col-span-8">
@@ -34,7 +38,7 @@ export default function About() {
                   transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] as const }}
                   className="block"
                 >
-                  En un mercado global que no se detiene,
+                  {t('headline.part1')}
                 </motion.span> 
                 <motion.span 
                   initial={{ y: 50, opacity: 0 }}
@@ -42,7 +46,7 @@ export default function About() {
                   transition={{ duration: 0.8, delay: 0.2, ease: [0.23, 1, 0.32, 1] as const }}
                   className="block"
                 >
-                  su empresa necesita un <span className="relative whitespace-nowrap">aliado.<span className="absolute left-0 bottom-[6px] md:bottom-[8px] w-full h-[4px] md:h-[6px] bg-[#FC3D03] opacity-80 -z-10" /></span>
+                  {t('headline.part2')} <span className="relative whitespace-nowrap">{t('headline.accent')}<span className="absolute left-0 bottom-[6px] md:bottom-[8px] w-full h-[4px] md:h-[6px] bg-[#FC3D03] opacity-80 -z-10" /></span>
                 </motion.span>
               </h2>
             </div>
@@ -56,19 +60,19 @@ export default function About() {
                 className="flex flex-col items-start"
               >
                 <p className="text-fenix-dark-graphite text-[16px] xl:text-[18px] font-medium leading-[1.6] mb-10 opacity-80">
-                  En un mercado global que no se detiene, somos el aliado que gestiona la complejidad logística desde el origen hasta el destino final.
+                  {t('description')}
                 </p>
                 <motion.div
                   whileHover={{ x: 10 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
-                  <a
+                  <Link
                     href="/nosotros"
                     className="group inline-flex items-center gap-3 text-fenix-dark-graphite font-bold text-[16px] uppercase tracking-wider"
                   >
-                    <span>Conocer Más</span>
+                    <span>{t('cta')}</span>
                     <div className="w-10 h-[2px] bg-[#FC3D03] transition-all group-hover:w-16" />
-                  </a>
+                  </Link>
                 </motion.div>
               </motion.div>
             </div>

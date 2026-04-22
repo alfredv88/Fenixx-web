@@ -1,11 +1,7 @@
 "use client";
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-
-const LETTERS_ADUANA    = ['A', 'D', 'U', 'A', 'N', 'A'];
-const LETTERS_TRANSPORTE = ['T', 'R', 'A', 'N', 'S', 'P', 'O', 'R', 'T', 'E'];
-const LETTERS_LOGISTICA  = ['L', 'O', 'G', 'Í', 'S', 'T', 'I', 'C', 'A'];
-const LETTERS_CARGA      = ['C', 'A', 'R', 'G', 'A'];
+import { useTranslations } from 'next-intl';
 
 const makeContainer = (delay = 0.1) => ({
   hidden: {},
@@ -45,7 +41,7 @@ function MonumentalWord({ letters, fontSize, delay, className = '' }: {
           variants={letterVariants}
           className="font-black text-white inline-block tracking-tight md:tracking-wider text-shadow-sm"
         >
-          {letter}
+          {letter === " " ? "\u00A0" : letter}
         </motion.span>
       ))}
     </motion.div>
@@ -53,6 +49,7 @@ function MonumentalWord({ letters, fontSize, delay, className = '' }: {
 }
 
 export default function Showcase() {
+  const t = useTranslations('Showcase');
   const sectionRef = useRef<HTMLElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -63,6 +60,12 @@ export default function Showcase() {
   const rawY = useTransform(scrollYProgress, [0, 1], [1000, -100]);
   const parallaxY = useSpring(rawY, { stiffness: 50, damping: 25, restDelta: 0.001 });
 
+  // Dynamically generate letter arrays
+  const aduanaLetters = t('words.aduana').split("");
+  const transporteLetters = t('words.transporte').split("");
+  const logisticaLetters = t('words.logistica').split("");
+  const cargaLetters = t('words.carga').split("");
+
   return (
     <section ref={sectionRef} className="py-16 md:py-24 lg:py-48 bg-[#ebebeb] relative overflow-hidden -mt-[1px]">
       
@@ -72,10 +75,10 @@ export default function Showcase() {
         <div className="absolute bottom-0 left-0 w-full flex flex-col items-center justify-end select-none pointer-events-none z-0">
           <motion.div style={{ y: parallaxY }} className="w-full flex flex-col items-center gap-0">
 
-            <MonumentalWord letters={LETTERS_ADUANA}     fontSize="clamp(45px, 12vw, 19vw)" delay={0.1} />
-            <MonumentalWord letters={LETTERS_TRANSPORTE} fontSize="clamp(24px, 7vw, 10vw)"  delay={0.35} />
-            <MonumentalWord letters={LETTERS_LOGISTICA}  fontSize="clamp(22px, 5.5vw, 7vw)" delay={0.55} />
-            <MonumentalWord letters={LETTERS_CARGA}      fontSize="clamp(18px, 4vw, 5vw)"   delay={0.75} />
+            <MonumentalWord letters={aduanaLetters}     fontSize="clamp(45px, 12vw, 19vw)" delay={0.1} />
+            <MonumentalWord letters={transporteLetters} fontSize="clamp(24px, 7vw, 10vw)"  delay={0.35} />
+            <MonumentalWord letters={logisticaLetters}  fontSize="clamp(22px, 5.5vw, 7vw)" delay={0.55} />
+            <MonumentalWord letters={cargaLetters}      fontSize="clamp(18px, 4vw, 5vw)"   delay={0.75} />
 
           </motion.div>
         </div>
@@ -87,7 +90,7 @@ export default function Showcase() {
             <img 
               src="/images/Generated Image April 08, 2026 - 5_12PM.png" 
               alt="Cargo Solutions" 
-              className="w-full h-auto drop-shadow-[0_35px_60px_rgba(0,0,0,0.15)]"
+              className="w-full h-auto drop-shadow-[0_35px_60px_rgba(0,0,0,0.15)] grayscale-[0.4] contrast-125 brightness-110"
             />
           </div>
 

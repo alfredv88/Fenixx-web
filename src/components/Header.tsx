@@ -1,9 +1,20 @@
 "use client";
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslations, useLocale } from 'next-intl';
+import { Link, usePathname, useRouter } from '@/i18n/routing';
 
-export default function Header({ variant = 'transparent' }: { variant?: 'transparent' | 'solid' }) {
+export default function Header({ variant }: { variant?: 'transparent' | 'solid' }) {
+  const t = useTranslations('Header');
+  const locale = useLocale();
+  const currentPathname = usePathname();
+  const router = useRouter();
+  
   const [isScrolled, setIsScrolled] = useState(false);
+  
+  // High-fidelity logic: determine variant based on path or prop
+  const isHome = currentPathname === '/';
+  const effectiveVariant = variant || (isHome ? 'transparent' : 'solid');
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -34,49 +45,61 @@ export default function Header({ variant = 'transparent' }: { variant?: 'transpa
     }, 300);
   };
 
+  const switchLanguage = (newLocale: 'en' | 'es') => {
+    router.replace(currentPathname, { locale: newLocale });
+  };
+
   const menuItems = [
-    { name: 'Inicio', href: '/' },
-    { name: 'Nosotros', href: '/nosotros' },
-    { name: 'Servicios', href: '/servicios' },
-    { name: 'Portafolio', href: '/portafolio' },
-    { name: 'Contáctanos', href: '/#contacto' },
+    { name: t('nav.home'), href: '/' as any },
+    { name: t('nav.about'), href: '/nosotros' as any },
+    { name: t('nav.services'), href: '/servicios' as any },
+    { name: t('nav.portfolio'), href: '/portafolio' as any },
+    { name: t('nav.contact'), href: '/#contacto' as any },
+  ];
+
+  const megaMenuLinks = [
+    { name: t('megaMenu.categories.aduana'), slug: 'aduana' },
+    { name: t('megaMenu.categories.transporte'), slug: 'transporte' },
+    { name: t('megaMenu.categories.carga'), slug: 'manejo-carga' },
+    { name: t('megaMenu.categories.equipos'), slug: 'equipos' },
+    { name: t('megaMenu.categories.almacen'), slug: 'almacen' }
   ];
 
   return (
     <>
       <header
         id="main-header"
-        className={`top-0 left-0 w-full z-[9999] transition-all duration-500 font-outfit ${
-          (isScrolled || variant === 'solid')
-            ? 'fixed bg-white py-2 shadow-[0_4px_30px_rgba(0,0,0,0.03)] animate-[slide-down_0.4s_ease-out]' 
+        className={`top-0 left-0 w-full z-[9999] transition-all duration-700 font-outfit ${
+          (isScrolled || effectiveVariant === 'solid')
+            ? 'fixed bg-white/90 backdrop-blur-xl py-2 shadow-[0_4px_30px_rgba(0,0,0,0.03)] animate-slide-down' 
             : 'absolute bg-transparent py-5'
         }`}
       >
         <div 
           className={`absolute bottom-0 left-0 w-full h-[1px] bg-gray-200/30 transition-opacity duration-300 pointer-events-none ${
-            (isScrolled || variant === 'solid') ? 'opacity-100' : 'opacity-0'
+            (isScrolled || effectiveVariant === 'solid') ? 'opacity-100' : 'opacity-0'
           }`} 
         />
 
         <nav className="max-w-[1920px] mx-auto px-6 md:px-16 lg:px-24 flex justify-between items-center">
           <div className="flex items-center gap-2 relative z-[10000]">
-            <a href="/" className="block">
+            <Link href="/" className="block">
               <img
                 src="/images/logo.png"
                 alt="Fenixx Logo"
-                className={`w-auto object-contain transition-all duration-500 logo-img ${(isScrolled || variant === 'solid') ? 'h-8 md:h-9' : 'h-14 md:h-18'}`}
+                className={`w-auto object-contain transition-all duration-500 logo-img ${(isScrolled || effectiveVariant === 'solid') ? 'h-8 md:h-9' : 'h-14 md:h-18'}`}
                 style={{ 
-                  filter: (isScrolled || variant === 'solid') ? 'none' : 'brightness(1.1) saturate(1.1)'
+                  filter: (isScrolled || effectiveVariant === 'solid') ? 'none' : 'brightness(1.1) saturate(1.1)'
                 }}
               />
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-12 ml-auto">
             <ul className="flex items-center gap-10">
               {menuItems.map((item, i) => {
-                const isServices = item.name === 'Servicios';
+                const isServices = item.href === '/servicios';
                 
                 return (
                   <li 
@@ -85,10 +108,10 @@ export default function Header({ variant = 'transparent' }: { variant?: 'transpa
                     onMouseEnter={isServices ? handleMouseEnter : undefined}
                     onMouseLeave={isServices ? handleMouseLeave : undefined}
                   >
-                    <a
+                    <Link
                       href={item.href}
                       className={`nav-link font-bold text-[13px] uppercase tracking-[0.18em] transition-all duration-300 flex items-center gap-2 ${
-                        (isScrolled || variant === 'solid') ? 'text-black hover:text-[#FC3D03]' : 'text-white/90 hover:text-white'
+                        (isScrolled || effectiveVariant === 'solid') ? 'text-black hover:text-[#FC3D03]' : 'text-white/90 hover:text-white'
                       }`}
                     >
                       {item.name}
@@ -103,14 +126,39 @@ export default function Header({ variant = 'transparent' }: { variant?: 'transpa
                           <path d="m6 9 6 6 6-6"/>
                         </svg>
                       )}
-                    </a>
+                    </Link>
                     <span className={`absolute bottom-0 left-0 w-0 h-[2px] bg-[#FC3D03] transition-all duration-300 group-hover:w-full ${isServicesOpen && isServices ? 'w-full' : ''}`} />
                   </li>
                 );
               })}
             </ul>
 
-            <div className={`flex items-center gap-4 border-l pl-10 ml-2 ${(isScrolled || variant === 'solid') ? 'border-gray-200' : 'border-white/20'}`}>
+            {/* Language Switcher & Social */}
+            <div className={`flex items-center gap-6 border-l pl-10 ml-2 ${(isScrolled || effectiveVariant === 'solid') ? 'border-gray-200' : 'border-white/20'}`}>
+              
+              {/* Language Switcher Component */}
+              <div className="flex items-center gap-3 mr-4">
+                {['es', 'en'].map((l) => (
+                  <button
+                    key={l}
+                    onClick={() => switchLanguage(l as any)}
+                    className={`text-[11px] font-black uppercase tracking-widest transition-all duration-300 relative py-1 ${
+                      locale === l 
+                        ? (isScrolled || effectiveVariant === 'solid' ? 'text-black' : 'text-white')
+                        : 'text-gray-400/60 hover:text-[#FC3D03]'
+                    }`}
+                  >
+                    {l}
+                    {locale === l && (
+                      <motion.div 
+                        layoutId="activeLang"
+                        className="absolute -bottom-1 left-0 w-full h-[2px] bg-[#FC3D03]" 
+                      />
+                    )}
+                  </button>
+                ))}
+              </div>
+
               {[
                 { name: 'X', path: 'M4 4l11.733 16h4.267l-11.733 -16z M4 20l6.768 -6.746m2.464 -2.454l6.768 -6.8', viewbox: '0 0 24 24' },
                 { name: 'LinkedIn', path: 'M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z M2 9h4v12h-4z M4 4m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0', viewbox: '0 0 24 24' },
@@ -120,7 +168,7 @@ export default function Header({ variant = 'transparent' }: { variant?: 'transpa
                 <a 
                   key={idx}
                   href="#" 
-                  className={`w-9 h-9 rounded-full border flex items-center justify-center transition-all duration-300 hover:bg-[#FC3D03] hover:border-[#FC3D03] hover:text-white ${(isScrolled || variant === 'solid') ? 'border-gray-200 text-black' : 'border-white/20 text-white/80'}`}
+                  className={`w-9 h-9 rounded-full border flex items-center justify-center transition-all duration-300 hover:bg-[#FC3D03] hover:border-[#FC3D03] hover:text-white ${(isScrolled || effectiveVariant === 'solid') ? 'border-gray-200 text-black' : 'border-white/20 text-white/80'}`}
                 >
                   <svg 
                     xmlns="http://www.w3.org/2000/svg" 
@@ -139,7 +187,7 @@ export default function Header({ variant = 'transparent' }: { variant?: 'transpa
           {/* Mobile Menu Button */}
           <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className={`lg:hidden flex flex-col gap-1.5 p-2 transition-all relative z-[10001] ${(isScrolled || variant === 'solid' || isMenuOpen) ? 'text-black' : 'text-white'}`}
+            className={`lg:hidden flex flex-col gap-1.5 p-2 transition-all relative z-[10001] ${(isScrolled || effectiveVariant === 'solid' || isMenuOpen) ? 'text-black' : 'text-white'}`}
           >
             <motion.span animate={isMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }} className="w-7 h-[1.5px] bg-current block" />
             <motion.span animate={isMenuOpen ? { opacity: 0 } : { opacity: 1 }} className="w-5 h-[1.5px] bg-current ml-auto block" />
@@ -157,19 +205,35 @@ export default function Header({ variant = 'transparent' }: { variant?: 'transpa
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
               className="fixed inset-0 bg-white z-[10000] flex flex-col pt-32 px-10"
             >
-              <div className="flex flex-col gap-8">
+              {/* Language Switcher Mobile */}
+              <div className="flex gap-6 mb-12 border-b border-gray-100 pb-6 uppercase tracking-widest font-black text-xs">
+                {['es', 'en'].map((l) => (
+                  <button
+                    key={l}
+                    onClick={() => { switchLanguage(l as any); setIsMenuOpen(false); }}
+                    className={locale === l ? 'text-[#FC3D03]' : 'text-gray-300'}
+                  >
+                    {l}
+                  </button>
+                ))}
+              </div>
+
+              <div className="flex flex-col gap-6">
                 {menuItems.map((item, i) => (
-                  <motion.a
+                  <motion.div
                     key={i}
-                    href={item.href}
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.1 * i }}
-                    onClick={() => setIsMenuOpen(false)}
-                    className="text-4xl font-bold text-black uppercase tracking-tighter hover:text-[#FC3D03] transition-colors"
                   >
-                    {item.name}
-                  </motion.a>
+                    <Link
+                      href={item.href}
+                      onClick={() => setIsMenuOpen(false)}
+                      className="text-4xl font-bold text-black uppercase tracking-tighter hover:text-[#FC3D03] transition-colors"
+                    >
+                      {item.name}
+                    </Link>
+                  </motion.div>
                 ))}
               </div>
               
@@ -213,37 +277,31 @@ export default function Header({ variant = 'transparent' }: { variant?: 'transpa
               onMouseLeave={handleMouseLeave}
               className="absolute left-0 w-full px-8 md:px-16 lg:px-24 top-full pt-4 hidden lg:block"
             >
-              <div className="bg-white rounded-[32px] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.3)] overflow-hidden min-h-[420px] w-full border border-gray-500 flex relative z-[99999]">
+              <div className="bg-white rounded-[32px] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.3)] overflow-hidden min-h-[420px] w-full border border-gray-100 flex relative z-[99999]">
                 
                 {/* Left Sidebar: Text Navigation */}
-                <div className="w-[260px] bg-white border-r border-gray-50 p-10 flex flex-col font-outfit">
+                <div className="w-[300px] bg-white border-r border-gray-50 p-10 flex flex-col font-outfit">
                   <span className="text-[10px] uppercase tracking-[0.25em] text-gray-400 font-bold mb-8 border-b border-gray-50 pb-4">
-                    Servicios
+                    {t('megaMenu.title')}
                   </span>
                   <div className="flex flex-col gap-6 relative">
-                    {[
-                      { name: 'Gestión Aduanera', slug: 'aduana' },
-                      { name: 'Transporte Internacional', slug: 'transporte' },
-                      { name: 'Carga Comercial', slug: 'manejo-carga' },
-                      { name: 'Equipos Industriales', slug: 'equipos' },
-                      { name: 'Almacén y Stock', slug: 'almacen' }
-                    ].map((s, idx) => (
-                      <a 
+                    {megaMenuLinks.map((s, idx) => (
+                      <Link 
                         key={idx}
-                        href={`/servicios#${s.slug}`}
+                        href={`/servicios#${s.slug}` as any}
                         className="group flex items-center gap-3 text-[13px] uppercase tracking-[0.1em] font-bold text-[#111111] hover:text-[#FC3D03] transition-all duration-300"
                       >
                         <div className="w-0 group-hover:w-1.5 h-1.5 bg-[#FC3D03] rounded-full transition-all duration-300 opacity-0 group-hover:opacity-100" />
                         {s.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                   
                   <div className="mt-auto pt-8">
-                    <a href="/servicios" className="inline-flex items-center gap-3 text-[11px] font-bold uppercase tracking-widest text-[#FC3D03] hover:text-black transition-all group">
-                      Ver Catálogo
+                    <Link href="/servicios" className="inline-flex items-center gap-3 text-[11px] font-bold uppercase tracking-widest text-[#FC3D03] hover:text-black transition-all group">
+                      {t('megaMenu.catalog')}
                       <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
-                    </a>
+                    </Link>
                   </div>
                 </div>
 
@@ -251,37 +309,41 @@ export default function Header({ variant = 'transparent' }: { variant?: 'transpa
                 <div className="flex-1 p-10 bg-[#F9FAFB]/30 font-outfit">
                   <div className="grid grid-cols-5 gap-5 h-full">
                     {[
-                      { name: 'Aduana', img: '/images/menu-aduana.png', slug: 'aduana' },
-                      { name: 'Transporte', img: '/images/menu-transporte.png', slug: 'transporte' },
-                      { name: 'Carga', img: '/images/menu-carga.png', slug: 'manejo-carga' },
-                      { name: 'Carga de Izada', img: '/images/menu-heavylift.png', slug: 'equipos' },
-                      { name: 'Almacenes', img: '/images/menu-warehouse.png', slug: 'almacen' }
+                      { name: t('megaMenu.categories.aduana'), img: '/images/menu-aduana.png', slug: 'aduana' },
+                      { name: t('megaMenu.categories.transporte'), img: '/images/menu-transporte.png', slug: 'transporte' },
+                      { name: t('megaMenu.categories.carga'), img: '/images/menu-carga.png', slug: 'manejo-carga' },
+                      { name: t('megaMenu.categories.equipos'), img: '/images/menu-heavylift.png', slug: 'equipos' },
+                      { name: t('megaMenu.categories.almacen'), img: '/images/menu-warehouse.png', slug: 'almacen' }
                     ].map((s, idx) => (
-                      <motion.a 
+                      <motion.div 
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.5, delay: idx * 0.08 }}
                         key={idx}
-                        href={`/servicios#${s.slug}`}
                         className="group flex flex-col gap-4 font-outfit"
                       >
-                        <div className="aspect-square bg-white rounded-2xl overflow-hidden relative shadow-[0_10px_25px_-10px_rgba(0,0,0,0.1)] group-hover:shadow-[0_20px_40px_-10px_rgba(252,61,3,0.15)] transition-all duration-500">
-                          <img 
-                            src={s.img} 
-                            alt={s.name}
-                            className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                          <div className="absolute bottom-3 left-0 w-full text-center translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                            <span className="text-[10px] text-white font-bold uppercase tracking-widest">+ Info</span>
+                        <Link 
+                          href={`/servicios#${s.slug}` as any}
+                          className="block"
+                        >
+                          <div className="aspect-square bg-white rounded-2xl overflow-hidden relative shadow-[0_10px_25px_-10px_rgba(0,0,0,0.1)] group-hover:shadow-[0_20px_40px_-10px_rgba(252,61,3,0.15)] transition-all duration-500">
+                            <img 
+                              src={s.img} 
+                              alt={s.name}
+                              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                            <div className="absolute bottom-3 left-0 w-full text-center translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                              <span className="text-[10px] text-white font-bold uppercase tracking-widest">{t('megaMenu.info')}</span>
+                            </div>
                           </div>
-                        </div>
-                        <div className="flex items-center gap-2 pl-1">
-                          <span className="text-[13px] uppercase tracking-[0.1em] font-bold text-[#111111] group-hover:text-[#FC3D03] transition-colors duration-300">
-                            {s.name}
-                          </span>
-                        </div>
-                      </motion.a>
+                          <div className="flex items-center gap-2 mt-4 pl-1">
+                            <span className="text-[11px] uppercase tracking-[0.1em] font-bold text-[#111111] group-hover:text-[#FC3D03] transition-colors duration-300 leading-tight">
+                              {s.name}
+                            </span>
+                          </div>
+                        </Link>
+                      </motion.div>
                     ))}
                   </div>
                 </div>
