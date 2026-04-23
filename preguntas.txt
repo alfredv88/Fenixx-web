@@ -1,0 +1,46 @@
+# 🚀 Cuestionario Maestro: Fenixx Import Export
+
+Este documento contiene la información crítica necesaria para convertir la web de **Fenixx** en una plataforma logística de élite. La precisión de estas respuestas definirá la efectividad del Chatbot y la conversión de clientes.
+
+---
+
+## 1. 🏗️ Identidad de Marca y Tono
+
+* **Voz de la empresa:** Amigable y profesional.
+* **Diferenciador Clave (USP):** ¿Por qué un cliente debería elegir Fenixx en lugar de otra empresa? (Ej: Mejores precios hacia Venezuela, Rapidez desde China, Seguridad total).
+
+## 2. 🚢 Operaciones y Logística (El Corazón del Bot)
+
+* **Rutas "Estrella":** ¿Cuáles son las 3 rutas más importantes? (Ej: Miami -> Caracas / Madrid -> Bogotá / Shenzhen -> Panamá).
+* **Puertos y Aeropuertos:** Nombra los terminales donde tienen operación directa.
+* **Tiempos de Entrega Estimados:**
+  * Aéreo (Express): ¿Cuántos días?
+  * Marítimo (LCL/FCL): ¿Cuántos días?
+* **Tipos de Carga:** ¿Manejan carga peligrosa (IMO), alimentos perecederos, o solo carga general?
+* **Almacenaje:** ¿Tienen almacenes propios (Warehousing) en algún país?
+
+## 4. 💬 Lógica de Ventas y Chatbot (Alex)
+
+* **Número de WhatsApp:** [+58 0412 967 1098](tel:+5804129671098)
+* **Horario de Atención:** ¿En qué franja horaria hay humanos disponibles para responder el WhatsApp?
+* **Pregunta de Filtro:** Si un cliente quiere un presupuesto, ¿qué 3 datos son OBLIGATORIOS? (Ej: Peso, Medidas, Valor de la mercancía).
+* **Preguntas Frecuentes (FAQ):**
+  * ¿Dónde están las oficinas físicas? Av. Raúl Leoni con Av. Real, Local S/N Urb. Industria de Guanta, Anzoátegui.
+  * ¿Aceptan pagos en criptomonedas o solo transferencias bancarias/Zelle?
+  * ¿Tienen servicio de "Puerta a Puerta" (Door-to-Door)?
+
+## 4. 🌍 Multi-Idioma y Localización
+
+* **Versión Árabe (AR):** El contenido es una traducción directa
+* **Moneda:** Los precios se cotizan siempre en USD
+
+## 5. 🛠️ Requerimientos Técnicos
+
+* **Dominio Final:** www.fenixx.com.ve
+* **Email Corporativo:** info.fenixx.com.ve
+* **Sistemas Externos:** ¿Fenixx usa algún software de rastreo (Tracking) propio que debamos integrar o linkear?
+
+---
+
+> [!IMPORTANT]
+> Responder estas preguntas permitirá que el Chatbot "Alex" actúe con total autonomía, filtrando clientes y cerrando oportunidades de negocio 24/7.

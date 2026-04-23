@@ -5,6 +5,7 @@ import { routing } from '@/i18n/routing';
 import Header from '@/components/Header';
 import Preloader from '@/components/Preloader';
 import Footer from '@/components/Footer';
+import ChatWidget from '@/components/ChatWidget';
 import "./globals.css";
 import { Metadata } from 'next';
 
@@ -56,6 +57,7 @@ export default async function RootLayout({
           <Header />
           {children}
           <Footer />
+          <ChatWidget />
         </NextIntlClientProvider>
       </body>
     </html>
