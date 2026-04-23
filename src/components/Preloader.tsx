@@ -10,7 +10,6 @@ export default function Preloader() {
   useEffect(() => {
     let currentProgress = 0;
     const interval = setInterval(() => {
-      // Smooth logarithmic-like progress simulation
       const increment = Math.random() * (currentProgress > 80 ? 2 : 12);
       currentProgress += increment;
       
@@ -69,8 +68,13 @@ export default function Preloader() {
             ))}
           </div>
 
-          {/* Content Layer */}
-          <div className="relative z-20 flex flex-col items-center px-6" dir="ltr">
+          {/* Content Layer (Fixed Structure) */}
+          <div className="relative z-20 w-full h-full flex flex-col items-center justify-between py-24 md:py-32 px-6" dir="ltr">
+            
+            {/* Top Corner Decor - Optional but for balance */}
+            <div className="opacity-0 h-4 md:h-10" />
+
+            {/* Middle Logo Section */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 10 }}
               animate={{ 
@@ -79,10 +83,10 @@ export default function Preloader() {
                 y: 0,
                 filter: complete ? "drop-shadow(0 0 25px rgba(252,61,3,0.4))" : "none"
               }}
-              className="relative mb-20"
+              className="flex flex-col items-center justify-center flex-1 w-full"
             >
               <div className="relative flex flex-col items-center">
-                <h1 className="text-5xl md:text-[8rem] font-black tracking-[0.25em] uppercase flex items-center leading-none select-none">
+                <h1 className="text-5xl md:text-[8rem] font-black tracking-[0.15em] md:tracking-[0.25em] uppercase flex items-center leading-none select-none">
                   <span className="text-white/10 relative">
                     FENI
                     <motion.span 
@@ -104,7 +108,7 @@ export default function Preloader() {
                 </h1>
                 
                 {/* Technical Progress UI */}
-                <div className="w-full mt-6 flex items-center gap-6">
+                <div className="w-[80vw] max-w-[400px] mt-8 flex items-center gap-6">
                   <div className="h-[1px] flex-1 bg-white/5 relative overflow-hidden">
                     <motion.div 
                       className="absolute inset-0 bg-gradient-to-r from-transparent via-[#FC3D03] to-transparent opacity-50"
@@ -124,14 +128,14 @@ export default function Preloader() {
               </div>
             </motion.div>
 
-            {/* Logistics Indicators */}
+            {/* Bottom Indicators Section */}
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
-              className="absolute bottom-16 flex flex-col items-center"
+              className="flex flex-col items-center gap-10 mt-auto"
             >
-              <div className="flex gap-10 mb-6 h-4 items-center">
+              <div className="flex gap-8 md:gap-12 h-4 items-center">
                 {['AIR', 'SEA', 'LAND'].map((mode, i) => {
                   const isActive = progress > (i + 1) * 25;
                   return (
@@ -142,18 +146,19 @@ export default function Preloader() {
                       <motion.div 
                         initial={{ scaleX: 0 }}
                         animate={{ scaleX: isActive ? 1 : 0 }}
-                        className="w-full h-[1px] bg-[#FC3D03]"
+                        className="w-full h-[1.5px] bg-[#FC3D03]"
                       />
                     </div>
                   );
                 })}
               </div>
-              <div className="relative overflow-hidden pt-2">
-                <p className="text-[10px] uppercase tracking-[0.8em] text-white/30 font-bold whitespace-nowrap">
+
+              <div className="relative overflow-hidden pt-2 px-4">
+                <p className="text-[9px] md:text-[10px] uppercase tracking-[0.35em] md:tracking-[0.8em] text-white/40 font-bold whitespace-nowrap">
                   Logistics forged in precision
                 </p>
                 <motion.div 
-                  className="absolute inset-0 bg-[#111]"
+                  className="absolute inset-0 bg-[#0a0a0a]"
                   animate={{ x: '100%' }}
                   transition={{ duration: 1.5, ease: "easeInOut", delay: 0.2 }}
                 />

@@ -72,7 +72,7 @@ export default function Hero() {
   }, [videoList.length, currentVideo]);
 
   return (
-    <section ref={containerRef} className="relative h-screen h-[100svh] w-full overflow-x-clip flex items-center">
+    <section id="home" ref={containerRef} className="relative h-screen h-[100svh] w-full overflow-x-clip flex items-center">
       {/* Ken Burns keyframe */}
       <style>{`
         @keyframes kenBurns {

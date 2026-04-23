@@ -50,7 +50,7 @@ export default function Header({ variant }: { variant?: 'transparent' | 'solid' 
   };
 
   const menuItems = [
-    { name: t('nav.home'), href: '/' as any },
+    { name: t('nav.home'), href: '/#home' as any },
     { name: t('nav.about'), href: '/nosotros' as any },
     { name: t('nav.services'), href: '/servicios' as any },
     { name: t('nav.portfolio'), href: '/portafolio' as any },
@@ -217,12 +217,12 @@ export default function Header({ variant }: { variant?: 'transparent' | 'solid' 
                 className="fixed top-0 right-0 w-[75%] sm:w-[45%] lg:w-[30%] bg-white z-[10000] flex flex-col pt-32 px-[clamp(2rem,6vw,4rem)] h-[100svh] shadow-[-20px_0_60px_rgba(0,0,0,0.08)] rounded-l-[40px] border-l border-gray-50"
               >
                 {/* Language Switcher Mobile (Ultra Thin) */}
-                <div className="flex gap-8 mb-16 border-b border-gray-50 pb-8 uppercase tracking-[0.3em] font-black text-[9px] opacity-60">
+                <div className="flex gap-8 mb-16 border-b border-gray-100 pb-8 uppercase tracking-[0.3em] font-black text-[10px]">
                   {['es', 'en', 'ar'].map((l) => (
                     <button
                       key={l}
                       onClick={() => { switchLanguage(l as any); setIsMenuOpen(false); }}
-                      className={`transition-all duration-300 ${locale === l ? 'text-[#FC3D03] scale-110' : 'text-gray-400 hover:text-black'}`}
+                      className={`transition-all duration-300 ${locale === l ? 'text-[#FC3D03] scale-110' : 'text-gray-900/60 hover:text-black'}`}
                     >
                       {l}
                     </button>
@@ -248,7 +248,7 @@ export default function Header({ variant }: { variant?: 'transparent' | 'solid' 
                   ))}
                 </div>
                 
-                <div className="mt-auto pb-12 flex gap-5">
+                <div className="mt-16 pb-12 flex gap-5">
                   {[
                     { name: 'X', path: 'M4 4l11.733 16h4.267l-11.733 -16z M4 20l6.768 -6.746m2.464 -2.454l6.768 -6.8', viewbox: '0 0 24 24' },
                     { name: 'LinkedIn', path: 'M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z M2 9h4v12h-4z M4 4m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0', viewbox: '0 0 24 24' },
@@ -258,7 +258,7 @@ export default function Header({ variant }: { variant?: 'transparent' | 'solid' 
                     <a 
                       key={idx} 
                       href="#" 
-                      className="w-9 h-9 rounded-full border border-gray-100 flex items-center justify-center text-gray-400 hover:bg-[#FC3D03] hover:border-[#FC3D03] hover:text-white transition-all duration-500"
+                      className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-900 shadow-sm hover:bg-[#FC3D03] hover:border-[#FC3D03] hover:text-white transition-all duration-500"
                     >
                       <svg 
                         xmlns="http://www.w3.org/2000/svg" 
