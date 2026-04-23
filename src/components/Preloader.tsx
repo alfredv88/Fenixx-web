@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, Variants } from 'framer-motion';
 
 export default function Preloader() {
   const [loading, setLoading] = useState(true);
@@ -26,13 +26,13 @@ export default function Preloader() {
     return () => clearInterval(interval);
   }, []);
 
-  const panelVariants = {
+  const panelVariants: Variants = {
     initial: { y: 0 },
     exit: (i: number) => ({
       y: '-100%',
       transition: { 
         duration: 0.8, 
-        ease: [0.19, 1, 0.22, 1], 
+        ease: [0.19, 1, 0.22, 1] as const, 
         delay: i * 0.05 
       }
     })
