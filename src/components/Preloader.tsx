@@ -42,10 +42,11 @@ export default function Preloader() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8 }}
               className="relative mb-12"
+              dir="ltr"
             >
               {/* Central Logo Text */}
               <div className="relative">
-                <div className="text-6xl md:text-8xl font-black tracking-[0.2em] uppercase flex">
+                <div className="text-6xl md:text-8xl font-black tracking-[0.2em] uppercase flex" dir="ltr">
                   <span className="text-white/10">FENI</span>
                   <span className="text-white/10">XX</span>
                 </div>
@@ -54,8 +55,9 @@ export default function Preloader() {
                 <motion.div 
                   className="absolute top-0 left-0 overflow-hidden whitespace-nowrap select-none flex"
                   style={{ width: `${progress}%` }}
+                  dir="ltr"
                 >
-                  <div className="text-6xl md:text-8xl font-black tracking-[0.2em] uppercase flex">
+                  <div className="text-6xl md:text-8xl font-black tracking-[0.2em] uppercase flex" dir="ltr">
                     <span className="text-[#808080]">FENI</span>
                     <span className="text-[#FC3D03]">XX</span>
                   </div>

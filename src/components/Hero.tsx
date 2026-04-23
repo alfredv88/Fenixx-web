@@ -104,8 +104,9 @@ export default function Hero() {
       <motion.div
         style={{ y: monumentalY, opacity: monumentalOpacity }}
         className="absolute bottom-12 left-0 w-full z-20 select-none pointer-events-none flex justify-center px-4 mix-blend-screen will-change-transform"
+        dir="ltr"
       >
-        <div className="flex items-center gap-4 text-center leading-[0.8] font-black uppercase tracking-tighter whitespace-nowrap" style={{ fontSize: 'clamp(2rem, 10vw, 12rem)' }}>
+        <div className="flex items-center gap-4 text-center leading-[0.8] font-black uppercase tracking-tighter whitespace-nowrap" style={{ fontSize: 'clamp(2rem, 10vw, 12rem)' }} dir="ltr">
           <motion.span 
             style={{ x: importX }}
             className="text-white/40 md:text-white/60"
