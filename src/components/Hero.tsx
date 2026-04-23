@@ -45,9 +45,12 @@ export default function Hero() {
     offset: ["start start", "end start"]
   });
 
-  const monumentalY = useTransform(scrollYProgress, [0, 1], [0, -200]);
+  const monumentalY = useTransform(scrollYProgress, [0, 1], [0, -300]);
+  const importX = useTransform(scrollYProgress, [0, 0.5], [0, -200]);
+  const exportX = useTransform(scrollYProgress, [0, 0.5], [0, 200]);
   const contentY = useTransform(scrollYProgress, [0, 1], [0, 100]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+  const monumentalOpacity = useTransform(scrollYProgress, [0, 0.4], [0.8, 0.1]);
 
   // Video rotation logic (only if more than 1 video)
   useEffect(() => {
@@ -97,29 +100,45 @@ export default function Hero() {
         }}
       />
 
-      {/* Monumental Parallax Text */}
+      {/* Monumental Parallax Text (Industrial Aperture) */}
       <motion.div
-        style={{ y: monumentalY }}
-        className="absolute bottom-12 left-0 w-full z-20 select-none pointer-events-none flex justify-center px-4"
+        style={{ y: monumentalY, opacity: monumentalOpacity }}
+        className="absolute bottom-12 left-0 w-full z-20 select-none pointer-events-none flex justify-center px-4 mix-blend-screen will-change-transform"
       >
-        <span className="font-black text-fenix-white-soft uppercase tracking-tighter whitespace-nowrap opacity-20 md:opacity-100 text-center leading-[0.8]" style={{ fontSize: 'clamp(2rem, 7.5vw, 10rem)' }}>
-          IMPORT <span style={{ fontSize: '50%', WebkitTextStroke: '2px #f9fafb', color: 'transparent', verticalAlign: 'middle' }}>&</span> EXPORT
-        </span>
+        <div className="flex items-center gap-4 text-center leading-[0.8] font-black uppercase tracking-tighter whitespace-nowrap" style={{ fontSize: 'clamp(2rem, 10vw, 12rem)' }}>
+          <motion.span 
+            style={{ x: importX }}
+            className="text-white/40 md:text-white/60"
+          >
+            IMPORT
+          </motion.span>
+          
+          <span className="opacity-30" style={{ fontSize: '40%', WebkitTextStroke: '2px #f9fafb', color: 'transparent' }}>
+            &
+          </span>
+
+          <motion.span 
+            style={{ x: exportX }}
+            className="text-white/40 md:text-white/60"
+          >
+            EXPORT
+          </motion.span>
+        </div>
       </motion.div>
 
       {/* Content Block */}
       <motion.div
         style={{ y: contentY, opacity: heroOpacity }}
-        className="absolute inset-0 z-30 flex justify-center md:justify-end items-center px-6 md:pr-12 lg:pr-24"
+        className="absolute inset-0 z-30 flex justify-center md:justify-end items-center px-[clamp(1.5rem,6vw,8rem)]"
       >
-        <div className="relative max-w-md lg:max-w-xl text-center md:text-right">
+        <div className="relative max-w-md lg:max-w-xl text-center md:text-end">
 
           {/* Vertical decorative line */}
           <motion.div
             initial={{ scaleY: 0, opacity: 0 }}
             animate={{ scaleY: 1, opacity: 1 }}
             transition={{ duration: 1.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="hidden md:block absolute -right-6 md:-right-8 top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-[#FC3D03] to-transparent origin-top"
+            className="hidden md:block absolute -end-6 md:-end-8 top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-[#FC3D03] to-transparent origin-top"
           />
 
           {/* Brand Label */}
@@ -137,7 +156,7 @@ export default function Hero() {
             initial={{ y: 60, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[40px] md:text-[45px] lg:text-[70px] font-bold tracking-tighter leading-[1.05] uppercase mb-1"
+            className="text-[clamp(1.8rem,8vw,4.5rem)] font-bold tracking-tighter leading-[1] uppercase mb-1"
             style={{ color: 'var(--color-fenix-white-soft)' }}
           >
             {t('title.logistics')}
@@ -147,7 +166,7 @@ export default function Hero() {
             initial={{ y: 60, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1.8, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[40px] md:text-[45px] lg:text-[70px] font-bold tracking-tighter leading-[1.05] uppercase mb-4"
+            className="text-[clamp(1.8rem,8vw,4.5rem)] font-bold tracking-tighter leading-[1] uppercase mb-4"
             style={{ color: '#FC3D03' }}
           >
             {t('title.integral')}
@@ -159,7 +178,7 @@ export default function Hero() {
             transition={{ duration: 1.4, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
             className="mb-8 md:mb-10"
           >
-            <p className="text-sm lg:text-lg text-white/70 font-medium max-w-sm lg:max-w-lg ml-auto">
+            <p className="text-[clamp(0.9rem,1.2vw,1.1rem)] text-white/70 font-medium max-w-sm lg:max-w-lg ms-auto text-center md:text-end">
               {t('subtitle')}
             </p>
           </motion.div>

@@ -61,7 +61,7 @@ export default function Footer() {
               <li><Link href="/servicios" className="text-[#ebebeb]/70 text-sm hover:text-fenix-red-light transition-colors">{t('links.services')}</Link></li>
               <li><Link href="/nosotros" className="text-[#ebebeb]/70 text-sm hover:text-fenix-red-light transition-colors">{t('links.about')}</Link></li>
               <li><Link href="/portafolio" className="text-[#ebebeb]/70 text-sm hover:text-fenix-red-light transition-colors">{t('links.portfolio')}</Link></li>
-              <li><Link href="/#contacto" className="text-[#ebebeb]/70 text-sm hover:text-fenix-red-light transition-colors">{t('links.contact')}</Link></li>
+              <li><Link href={"/#contacto" as any} className="text-[#ebebeb]/70 text-sm hover:text-fenix-red-light transition-colors">{t('links.contact')}</Link></li>
             </ul>
           </div>
 
@@ -69,10 +69,10 @@ export default function Footer() {
           <div className="lg:justify-self-center">
             <h5 className="text-white font-bold text-sm uppercase tracking-wider mb-4">{t('sections.services')}</h5>
             <ul className="space-y-3">
-              <li><Link href="/servicios#transporte" className="text-[#ebebeb]/70 text-sm hover:text-fenix-red-light transition-colors">{t('links.services_list.transporte')}</Link></li>
-              <li><Link href="/servicios#aduana" className="text-[#ebebeb]/70 text-sm hover:text-fenix-red-light transition-colors">{t('links.services_list.aduana')}</Link></li>
-              <li><Link href="/servicios#manejo-carga" className="text-[#ebebeb]/70 text-sm hover:text-fenix-red-light transition-colors">{t('links.services_list.carga')}</Link></li>
-              <li><Link href="/servicios#equipos" className="text-[#ebebeb]/70 text-sm hover:text-fenix-red-light transition-colors">{t('links.services_list.equipos')}</Link></li>
+              <li><Link href={"/servicios#transporte" as any} className="text-[#ebebeb]/70 text-sm hover:text-fenix-red-light transition-colors">{t('links.services_list.transporte')}</Link></li>
+              <li><Link href={"/servicios#aduana" as any} className="text-[#ebebeb]/70 text-sm hover:text-fenix-red-light transition-colors">{t('links.services_list.aduana')}</Link></li>
+              <li><Link href={"/servicios#manejo-carga" as any} className="text-[#ebebeb]/70 text-sm hover:text-fenix-red-light transition-colors">{t('links.services_list.carga')}</Link></li>
+              <li><Link href={"/servicios#equipos" as any} className="text-[#ebebeb]/70 text-sm hover:text-fenix-red-light transition-colors">{t('links.services_list.equipos')}</Link></li>
             </ul>
           </div>
 

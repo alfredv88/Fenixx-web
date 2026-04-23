@@ -88,7 +88,7 @@ export default function Showcase() {
           {/* Container Hero Image */}
           <div className="w-full max-w-[1000px] transform hover:scale-[1.02] transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]">
             <img 
-              src="/images/Generated Image April 08, 2026 - 5_12PM.png" 
+              src="/images/showcase-main.png" 
               alt="Cargo Solutions" 
               className="w-full h-auto drop-shadow-[0_35px_60px_rgba(0,0,0,0.15)] grayscale-[0.4] contrast-125 brightness-110"
             />

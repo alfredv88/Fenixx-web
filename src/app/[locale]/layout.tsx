@@ -3,6 +3,7 @@ import { getMessages, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import Header from '@/components/Header';
+import Preloader from '@/components/Preloader';
 import Footer from '@/components/Footer';
 import "./globals.css";
 import { Metadata } from 'next';
@@ -39,7 +40,7 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} suppressHydrationWarning>
       <head>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         {/* Google Fonts: Work Sans */}
@@ -47,9 +48,11 @@ export default async function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
       </head>
-      <body className="font-['Work_Sans',sans-serif]">
+      <body className={locale === 'ar' ? "font-['Cairo',sans-serif]" : "font-['Work_Sans',sans-serif]"}>
         <NextIntlClientProvider messages={messages}>
+          <Preloader />
           <Header />
           {children}
           <Footer />

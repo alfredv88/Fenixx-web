@@ -46,7 +46,7 @@ export default function About() {
                   transition={{ duration: 0.8, delay: 0.2, ease: [0.23, 1, 0.32, 1] as const }}
                   className="block"
                 >
-                  {t('headline.part2')} <span className="relative whitespace-nowrap">{t('headline.accent')}<span className="absolute left-0 bottom-[6px] md:bottom-[8px] w-full h-[4px] md:h-[6px] bg-[#FC3D03] opacity-80 -z-10" /></span>
+                  {t('headline.part2')} <span className="relative whitespace-nowrap">{t('headline.accent')}<span className="absolute start-0 bottom-[6px] md:bottom-[8px] w-full h-[4px] md:h-[6px] bg-[#FC3D03] opacity-80 -z-10" /></span>
                 </motion.span>
               </h2>
             </div>

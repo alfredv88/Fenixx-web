@@ -81,7 +81,7 @@ export default function Header({ variant }: { variant?: 'transparent' | 'solid' 
           }`} 
         />
 
-        <nav className="max-w-[1920px] mx-auto px-6 md:px-16 lg:px-24 flex justify-between items-center">
+        <nav className="max-w-[1920px] mx-auto px-[clamp(1.5rem,5vw,6rem)] flex justify-between items-center">
           <div className="flex items-center gap-2 relative z-[10000]">
             <Link href="/" className="block">
               <img
@@ -110,7 +110,7 @@ export default function Header({ variant }: { variant?: 'transparent' | 'solid' 
                   >
                     <Link
                       href={item.href}
-                      className={`nav-link font-bold text-[13px] uppercase tracking-[0.18em] transition-all duration-300 flex items-center gap-2 ${
+                      className={`nav-link font-bold text-[clamp(11px,0.8vw,13px)] uppercase tracking-[0.18em] transition-all duration-300 flex items-center gap-2 ${
                         (isScrolled || effectiveVariant === 'solid') ? 'text-black hover:text-[#FC3D03]' : 'text-white/90 hover:text-white'
                       }`}
                     >
@@ -138,11 +138,11 @@ export default function Header({ variant }: { variant?: 'transparent' | 'solid' 
               
               {/* Language Switcher Component */}
               <div className="flex items-center gap-3 mr-4">
-                {['es', 'en'].map((l) => (
+                {['es', 'en', 'ar'].map((l) => (
                   <button
                     key={l}
                     onClick={() => switchLanguage(l as any)}
-                    className={`text-[11px] font-black uppercase tracking-widest transition-all duration-300 relative py-1 ${
+                    className={`text-[clamp(10px,0.7vw,11px)] font-black uppercase tracking-widest transition-all duration-300 relative py-1 ${
                       locale === l 
                         ? (isScrolled || effectiveVariant === 'solid' ? 'text-black' : 'text-white')
                         : 'text-gray-400/60 hover:text-[#FC3D03]'
@@ -198,70 +198,82 @@ export default function Header({ variant }: { variant?: 'transparent' | 'solid' 
         {/* Mobile Menu Overlay */}
         <AnimatePresence>
           {isMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, x: '100%' }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: '100%' }}
-              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed inset-0 bg-white z-[10000] flex flex-col pt-32 px-10"
-            >
-              {/* Language Switcher Mobile */}
-              <div className="flex gap-6 mb-12 border-b border-gray-100 pb-6 uppercase tracking-widest font-black text-xs">
-                {['es', 'en'].map((l) => (
-                  <button
-                    key={l}
-                    onClick={() => { switchLanguage(l as any); setIsMenuOpen(false); }}
-                    className={locale === l ? 'text-[#FC3D03]' : 'text-gray-300'}
-                  >
-                    {l}
-                  </button>
-                ))}
-              </div>
-
-              <div className="flex flex-col gap-6">
-                {menuItems.map((item, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.1 * i }}
-                  >
-                    <Link
-                      href={item.href}
-                      onClick={() => setIsMenuOpen(false)}
-                      className="text-4xl font-bold text-black uppercase tracking-tighter hover:text-[#FC3D03] transition-colors"
-                    >
-                      {item.name}
-                    </Link>
-                  </motion.div>
-                ))}
-              </div>
+            <>
+              {/* Backdrop Overlay */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setIsMenuOpen(false)}
+                className="fixed inset-0 bg-black/20 backdrop-blur-sm z-[9999] lg:hidden"
+              />
               
-              <div className="mt-auto pb-10 flex gap-4">
-                {[
-                  { name: 'X', path: 'M4 4l11.733 16h4.267l-11.733 -16z M4 20l6.768 -6.746m2.464 -2.454l6.768 -6.8', viewbox: '0 0 24 24' },
-                  { name: 'LinkedIn', path: 'M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z M2 9h4v12h-4z M4 4m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0', viewbox: '0 0 24 24' },
-                  { name: 'Instagram', path: 'M17 2H7C4.23858 2 2 4.23858 2 7V17C2 19.7614 4.23858 22 7 22H17C19.7614 22 22 19.7614 22 17V7C22 4.23858 19.7614 2 17 2Z M16 11.37C16.1234 12.2022 15.9813 13.0522 15.5938 13.799C15.2063 14.5458 14.5931 15.1514 13.8416 15.5297C13.0901 15.9079 12.2384 16.0396 11.4038 15.9059C10.5691 15.7723 9.79055 15.3798 9.17643 14.7822C8.56231 14.1846 8.14005 13.4116 7.9675 12.5714C7.79495 11.7311 7.88124 10.8601 8.21441 10.0768C8.54758 9.29348 9.11147 8.63661 9.8277 8.19504C10.5439 7.75348 11.3789 7.54897 12.22 7.6094C13.914 7.7303 15.269 9.0853 15.39 10.779C15.3976 10.978 15.4011 11.1774 15.4005 11.3768L16 11.37Z M17.5 6.5H17.51', viewbox: '0 0 24 24' },
-                  { name: 'Facebook', path: 'M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z', viewbox: '0 0 24 24' }
-                ].map((social, idx) => (
-                  <a 
-                    key={idx} 
-                    href="#" 
-                    className="w-12 h-12 rounded-full border border-gray-100 flex items-center justify-center text-black hover:bg-[#FC3D03] hover:border-[#FC3D03] hover:text-white transition-all duration-300"
-                  >
-                    <svg 
-                      xmlns="http://www.w3.org/2000/svg" 
-                      width="18" height="18" 
-                      viewBox={social.viewbox} 
-                      fill="none" stroke="currentColor" 
-                      strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+              {/* Menu Panel (Slim & Delicate) */}
+              <motion.div
+                initial={{ x: '100%', opacity: 0.5 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: '100%', opacity: 0 }}
+                transition={{ type: 'spring', damping: 35, stiffness: 400 }}
+                className="fixed top-0 right-0 w-[75%] sm:w-[45%] lg:w-[30%] bg-white z-[10000] flex flex-col pt-32 px-[clamp(2rem,6vw,4rem)] h-[100svh] shadow-[-20px_0_60px_rgba(0,0,0,0.08)] rounded-l-[40px] border-l border-gray-50"
+              >
+                {/* Language Switcher Mobile (Ultra Thin) */}
+                <div className="flex gap-8 mb-16 border-b border-gray-50 pb-8 uppercase tracking-[0.3em] font-black text-[9px] opacity-60">
+                  {['es', 'en', 'ar'].map((l) => (
+                    <button
+                      key={l}
+                      onClick={() => { switchLanguage(l as any); setIsMenuOpen(false); }}
+                      className={`transition-all duration-300 ${locale === l ? 'text-[#FC3D03] scale-110' : 'text-gray-400 hover:text-black'}`}
                     >
-                      <path d={social.path} />
-                    </svg>
-                  </a>
-                ))}
-              </div>
-            </motion.div>
+                      {l}
+                    </button>
+                  ))}
+                </div>
+
+                <div className="flex flex-col gap-10">
+                  {menuItems.map((item, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, x: 30 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.1 * i, ease: [0.16, 1, 0.3, 1] }}
+                    >
+                      <Link
+                        href={item.href}
+                        onClick={() => setIsMenuOpen(false)}
+                        className="text-[clamp(1.1rem,4vw,1.8rem)] font-bold text-black uppercase tracking-[0.05em] hover:text-[#FC3D03] transition-all duration-500 leading-none block hover:translate-x-2"
+                      >
+                        {item.name}
+                      </Link>
+                    </motion.div>
+                  ))}
+                </div>
+                
+                <div className="mt-auto pb-12 flex gap-5">
+                  {[
+                    { name: 'X', path: 'M4 4l11.733 16h4.267l-11.733 -16z M4 20l6.768 -6.746m2.464 -2.454l6.768 -6.8', viewbox: '0 0 24 24' },
+                    { name: 'LinkedIn', path: 'M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z M2 9h4v12h-4z M4 4m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0', viewbox: '0 0 24 24' },
+                    { name: 'Instagram', path: 'M17 2H7C4.23858 2 2 4.23858 2 7V17C2 19.7614 4.23858 22 7 22H17C19.7614 22 22 19.7614 22 17V7C22 4.23858 19.7614 2 17 2Z M16 11.37C16.1234 12.2022 15.9813 13.0522 15.5938 13.799C15.2063 14.5458 14.5931 15.1514 13.8416 15.5297C13.0901 15.9079 12.2384 16.0396 11.4038 15.9059C10.5691 15.7723 9.79055 15.3798 9.17643 14.7822C8.56231 14.1846 8.14005 13.4116 7.9675 12.5714C7.79495 11.7311 7.88124 10.8601 8.21441 10.0768C8.54758 9.29348 9.11147 8.63661 9.8277 8.19504C10.5439 7.75348 11.3789 7.54897 12.22 7.6094C13.914 7.7303 15.269 9.0853 15.39 10.779C15.3976 10.978 15.4011 11.1774 15.4005 11.3768L16 11.37Z M17.5 6.5H17.51', viewbox: '0 0 24 24' },
+                    { name: 'Facebook', path: 'M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z', viewbox: '0 0 24 24' }
+                  ].map((social, idx) => (
+                    <a 
+                      key={idx} 
+                      href="#" 
+                      className="w-9 h-9 rounded-full border border-gray-100 flex items-center justify-center text-gray-400 hover:bg-[#FC3D03] hover:border-[#FC3D03] hover:text-white transition-all duration-500"
+                    >
+                      <svg 
+                        xmlns="http://www.w3.org/2000/svg" 
+                        width="14" height="14" 
+                        viewBox={social.viewbox} 
+                        fill="none" stroke="currentColor" 
+                        strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                      >
+                        <path d={social.path} />
+                      </svg>
+                    </a>
+                  ))}
+                </div>
+              </motion.div>
+            </>
           )}
         </AnimatePresence>
 
@@ -275,7 +287,7 @@ export default function Header({ variant }: { variant?: 'transparent' | 'solid' 
               transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
-              className="absolute left-0 w-full px-8 md:px-16 lg:px-24 top-full pt-4 hidden lg:block"
+              className="absolute left-0 w-full px-[clamp(1.5rem,5vw,6rem)] top-full pt-4 hidden lg:block"
             >
               <div className="bg-white rounded-[32px] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.3)] overflow-hidden min-h-[420px] w-full border border-gray-100 flex relative z-[99999]">
                 
