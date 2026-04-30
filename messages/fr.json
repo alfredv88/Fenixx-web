@@ -1,0 +1,364 @@
+{
+  "Header": {
+    "nav": {
+      "home": "Accueil",
+      "about": "À Propos",
+      "services": "Services",
+      "portfolio": "Portfolio",
+      "contact": "Contact"
+    },
+    "megaMenu": {
+      "title": "Services",
+      "catalog": "Voir Catalogue",
+      "info": "+ Info",
+      "categories": {
+        "aduana": "Gestion Douanière",
+        "transporte": "Transport International",
+        "carga": "Fret Commercial",
+        "equipos": "Équipements Industriels",
+        "almacen": "Entrepôt et Stock"
+      }
+    }
+  },
+  "Hero": {
+    "title": {
+      "logistics": "Logistique",
+      "integral": "intégrale"
+    },
+    "subtitle": "Votre allié stratégique en gestion douanière, transport multimodal et fret spécialisé.",
+    "cta": "En savoir plus",
+    "labels": {
+      "brand": "Fenixx C.A",
+      "scroll": "Scroll"
+    }
+  },
+  "About": {
+    "badge": "Qui sommes-nous",
+    "headline": {
+      "part1": "Dans un marché global qui ne s'arrête jamais,",
+      "part2": "votre entreprise a besoin d'un",
+      "accent": "allié."
+    },
+    "description": "Dans un marché global en mouvement perpétuel, nous sommes l'allié qui gère la complexité logistique de l'origine à la destination finale.",
+    "cta": "En savoir plus"
+  },
+  "Services": {
+    "badge": "Portefeuille de Services",
+    "title": "Capacité Stratégique",
+    "description": "Nous couvrons toutes les modalités de transport avec l'infrastructure nécessaire à votre opération.",
+    "cta": "Plus de détails",
+    "items": {
+      "transporte": {
+        "title": "Transport Multimodal",
+        "description": "Couverture totale et coordination stratégique des liaisons maritimes, aériennes et terrestres."
+      },
+      "aduana": {
+        "title": "Gestion Douanière",
+        "description": "Nous accélérons les délais grâce à des conseils spécialisés et à une nationalisation efficace du fret."
+      },
+      "carga": {
+        "title": "Manutention de Fret",
+        "description": "Capacité technique et précision absolue pour tous types de marchandises. Opérations de levage spécialisées."
+      },
+      "equipos": {
+        "title": "Location d'Équipement",
+        "description": "Flotte moderne et outils spécialisés pour optimiser l'ensemble de vos opérations."
+      }
+    }
+  },
+  "Footer": {
+    "brand": {
+      "slogan": "Le pouls de votre cargaison, la force de votre succès."
+    },
+    "sections": {
+      "navigation": "Navigation",
+      "services": "Services",
+      "contact": "Contact"
+    },
+    "links": {
+      "home": "Accueil",
+      "services": "Services",
+      "about": "À Propos",
+      "portfolio": "Portfolio",
+      "contact": "Contact",
+      "services_list": {
+        "transporte": "Transport Multimodal",
+        "aduana": "Gestion Douanière",
+        "carga": "Manutention de Fret",
+        "equipos": "Location d'Équipement"
+      }
+    },
+    "contact": {
+      "address": "Av. Raúl Leoni avec Av. Real, Local Nro. S/N, Urb. Industria de Guanta, Guanta, Anzoátegui. Code Postal 6014."
+    },
+    "bottom": {
+      "rights": "Tous droits réservés.",
+      "tagline": "Logistique et Douanes de Haut Niveau",
+      "designed_by": "Conçu par"
+    }
+  },
+  "Nosotros": {
+    "Hero": {
+      "badge": "LE POULS DE VOTRE CARGAISON",
+      "title": "À Propos",
+      "scroll": "Scroll"
+    },
+    "Impact": {
+      "headline": "Dans un marché global qui ne s'arrête jamais, votre entreprise a besoin d'un allié qui <accent>maîtrise chaque étape</accent> de la chaîne d'approvisionnement."
+    },
+    "Manifesto": {
+      "badge": "01 / Qui sommes-nous",
+      "title": "Nous sommes votre Centre Intermodal, spécialisé dans la gestion de la complexité logistique pour que vous puissiez vous concentrer sur la croissance de votre entreprise.",
+      "description": "Notre parcours nous a permis de comprendre que la logistique ne consiste pas seulement à déplacer des cartons, mais à relier les points clés qui garantissent le succès de vos opérations. De l'origine à la destination finale, nous déplaçons vos marchandises par n'importe quelle voie avec une précision chirurgicale.",
+      "quote": "Le pouls de votre cargaison, la force de votre succès."
+    },
+    "Stats": {
+      "experience": {
+        "value": "15+",
+        "label": "Années d'expérience"
+      },
+      "security": {
+        "value": "100%",
+        "label": "Sécurité Juridique"
+      },
+      "projects": {
+        "value": "+500",
+        "label": "Projets Spéciaux"
+      },
+      "reach": {
+        "value": "Global",
+        "label": "Portée Intermodale"
+      }
+    },
+    "Promise": {
+      "badge": "02 / Notre Promesse de Valeur",
+      "title": "Nous connectons les frontières et simplifions les destinations.",
+      "items": {
+        "integral": {
+          "title": "Gestion Intégrale",
+          "description": "Nous synchronisons tous les acteurs de la chaîne pour éliminer les goulots d'étranglement et les surcoûts imprévus."
+        },
+        "security": {
+          "title": "Sécurité Absolue",
+          "description": "Nous garantissons l'intégrité de vos marchandises et le strict respect des réglementations dans chaque territoire."
+        },
+        "speed": {
+          "title": "Vitesse",
+          "description": "Réponse immédiate et alternatives d'itinéraires en temps réel pour ne pas interrompre vos lignes de production."
+        }
+      }
+    }
+  },
+  "ServiciosPage": {
+    "Hero": {
+      "badge": "LOGISTIQUE POUR LA CROISSANCE",
+      "title": "Services",
+      "scroll": "Explorer"
+    },
+    "Impact": {
+      "headline": "Une logistique <accent>rapide et fiable</accent> pour chaque cargaison, industrie et destination."
+    },
+    "Items": {
+      "label": "Service 0{index}",
+      "cta": "Consulter Service",
+      "transporte": {
+        "title": "Transport Multimodal",
+        "description": "Couverture totale dans toutes les modalités : maritime, fluviale, aérienne et terrestre. Coordination stratégique du fret international et national pour n'importe quelle destination.",
+        "bullets": ["Transport Maritime et Fluvial", "Fret Aérien Express", "Distribution Terrestre", "Gestion du Fret"]
+      },
+      "aduana": {
+        "title": "Gestion Douanière",
+        "description": "Conseils et représentation intégrale dans les procédures douanières. Nous simplifions la bureaucratie pour accélérer vos délais de livraison et garantir l'entrée légale de vos marchandises.",
+        "bullets": ["Conseils Douaniers", "Nationalisation du Fret", "Coordination à l'Origine", "Conformité Réglementaire"]
+      },
+      "manejo-carga": {
+        "title": "Manutention de Fret",
+        "description": "Capacité technique pour tout type de marchandise. Des colis individuels aux cargaisons de grandes dimensions, nous opérons avec précision et sécurité totale.",
+        "bullets": ["Fret en vrac et fractionné", "Gestion de Projets", "Contrôle des Stocks", "Logistique Intégrée"]
+      },
+      "equipos": {
+        "title": "Location d'Équipement",
+        "description": "Nous mettons à votre disposition une flotte moderne de machines et d'équipements spécialisés pour le support de tout type de cargaison, opération de levage et logistique industrielle.",
+        "bullets": ["Équipements de Levage", "Machines Industrielles", "Support pour tout type de fret", "Opérations Spéciales"]
+      }
+    },
+    "CTA": {
+      "badge": "Prêt pour le niveau suivant ?",
+      "title": "Propulsez votre Logistique Aujourd'hui.",
+      "accent": "Logistique",
+      "button": "Parler à un Expert"
+    }
+  },
+  "Portafolio": {
+    "Hero": {
+      "badge": "Notre Expérience",
+      "title": "Portfolio",
+      "scroll": "Voir Projets"
+    },
+    "Filters": {
+      "all": "Tous",
+      "transporte": "Transport",
+      "aduanas": "Douanes",
+      "especializados": "Spécialisés"
+    },
+    "Projects": {
+      "details": "Voir Détails",
+      "analysis": "Analyse Opérationnelle",
+      "items": {
+        "hubei": {
+          "title": "Approvisionnement Industriel Hubei - Valence",
+          "category": "Transport",
+          "tag": "Logistique Intégrale",
+          "stats": "Transit : 38 Jours | Charge : 240 Tons",
+          "description": "Gestion de l'approvisionnement en composants pour l'industrie lourde du centre de la Chine aux ports vénézuéliens."
+        },
+        "izada": {
+          "title": "Levage de Machines de Haute Précision",
+          "category": "Spécialisés",
+          "tag": "Charge de Levage",
+          "stats": "Précision : 100% | Équipement : Grue 120t",
+          "description": "Opération de levage et de positionnement de machines industrielles surdimensionnées à l'aide d'équipements de pointe."
+        },
+        "houston": {
+          "title": "Pont Logistique Houston - Latam",
+          "category": "Transport",
+          "tag": "Multimodal",
+          "stats": "Fréquence : Hebdomadaire | Type : Consolidé",
+          "description": "Consolidation et expédition multimodale depuis le hub de Houston pour les secteurs de la technologie et de l'énergie."
+        },
+        "aduanas_critica": {
+          "title": "Gestion Douanière et Nationalisation Critique",
+          "category": "Douanes",
+          "tag": "Douanes",
+          "stats": "Efficacité : 3 Jours | Conformité : 100%",
+          "description": "Nationalisation express de fournitures critiques pour le secteur des infrastructures avec un respect rigoureux de la réglementation."
+        }
+      }
+    },
+    "Empty": "Aucun projet disponible dans cette catégorie.",
+    "CTA": {
+      "badge": "Votre cargaison est le prochain défi",
+      "title": "Prêt à faire avancer votre succès avec nous ?",
+      "button": "Demander un Devis"
+    }
+  },
+  "Showcase": {
+    "words": {
+      "aduana": "DOUANE",
+      "transporte": "TRANSPORT",
+      "logistica": "LOGISTIQUE",
+      "carga": "FRET"
+    }
+  },
+  "Testimonials": {
+    "badge": "NOS CLIENTS",
+    "description": "Fenixx livre plus que du fret : notre équipe de spécialistes apporte la tranquillité d'esprit à chaque mouvement. Lisez ce que nos clients disent de notre dévouement et de notre efficacité.",
+    "items": [
+      {
+        "name": "David Nguyen",
+        "role": "Directeur de la Logistique",
+        "quote": "L'équipe dévouée de Fenixx maintient notre fret en mouvement à temps et sans complications. Leurs solutions rapides ont fait d'eux notre partenaire le plus fiable.",
+        "image": "https://randomuser.me/api/portraits/men/11.jpg"
+      },
+      {
+        "name": "Samantha Lee",
+        "role": "Opérations Commerciales",
+        "quote": "Le suivi en temps réel nous permet de planifier à l'avance et maintient notre inventaire à jour. Nous faisons confiance à Fenixx pour garder nos magasins approvisionnés toute l'année.",
+        "image": "https://randomuser.me/api/portraits/women/25.jpg"
+      },
+      {
+        "name": "Megan Turner",
+        "role": "Responsable de la chaîne d'approvisionnement",
+        "quote": "De l'enlèvement à la livraison, le service de Fenixx est de premier ordre. Leurs transporteurs arrivent toujours à l'heure et nos marchandises arrivent en toute sécurité à chaque expédition.",
+        "image": "https://randomuser.me/api/portraits/women/60.jpg"
+      },
+      {
+        "name": "Carlos Ruiz",
+        "role": "Directeur des Importations",
+        "quote": "Les procédures douanières gérées par Fenixx ont été traitées sans retard. Leur équipe est professionnelle et toujours disponible para résoudre tout doute instantanément.",
+        "image": "https://randomuser.me/api/portraits/men/54.jpg"
+      }
+    ]
+  },
+  "Partners": {
+    "label": "Nos Alliés Stratégiques"
+  },
+  "Process": {
+    "badge": "Promesse de Valeur",
+    "title": "Le pouls de votre cargaison, la force de votre succès",
+    "description": "Nous connectons les frontières et simplifions les destinations grâce à une gestion intégrale qui garantit sécurité, vitesse et efficacité à chaque mouvement.",
+    "button": "Parler à un Conseiller",
+    "steps": [
+      {
+        "label": "ÉTAPE 1",
+        "title": "Gestion douanière sans friction",
+        "description": "Nous traitons vos importations et exportations avec agilité et précision juridique."
+      },
+      {
+        "label": "ÉTAPE 2",
+        "title": "Transport porte à porte",
+        "description": "Nous déplaçons votre cargaison de l'origine à la destination avec un réseau mondial de partenaires fiables."
+      },
+      {
+        "label": "ÉTAPE 3",
+        "title": "Solutions logistiques sur mesure",
+        "description": "Nous concevons des stratégies personnalisées pour optimiser votre chaîne d'approvisionnement mondiale."
+      }
+    ]
+  },
+  "Gallery": {
+    "badge": "Portfolio",
+    "title": "Opérations à haut impact",
+    "description": "Notre capacité opérationnelle prouvée sur le terrain. Nous concevons de réelles solutions logistiques pour des défis commerciaux de haute complexité technique.",
+    "cta": "Voir tous les dossiers",
+    "items": [
+      {
+        "category": "Fret International",
+        "title": "Importation Shanghai → Caucedo"
+      },
+      {
+        "category": "Gestion Douanière",
+        "title": "Dédouanement Express 24h"
+      },
+      {
+        "category": "Transport Terrestre",
+        "title": "Distribution Nationale Multi-arrêts"
+      },
+      {
+        "category": "Cargaison de Projet",
+        "title": "Transfert de Machines Lourdes"
+      }
+    ]
+  },
+  "Contact": {
+    "badge": "Contact",
+    "title": "Lançons votre prochaine opération.",
+    "description": "Fenixx Logistics est prêt à optimiser votre chaîne d'approvisionnement. Notre équipe d'experts vous répondra en moins de 24 heures.",
+    "info": {
+      "directLine": "Ligne Directe",
+      "corporateEmail": "Email Corporatif",
+      "offices": "Bureaux Fenixx",
+      "address": "Av. Raúl Leoni avec Av. Real, Local Nro. S/N, Urb. Industria de Guanta, Guanta, Anzoátegui. Code Postal 6014.",
+      "phone": "+58 0412 967 1098",
+      "email": "info@fenixx.com.ve"
+    },
+    "form": {
+      "name": "Nom Complet",
+      "email": "Courrier Électronique",
+      "company": "Entreprise / Organisation",
+      "message": "Détails de l'Opération",
+      "submit": "Envoyer la Demande",
+      "privacy": "En envoyant, vous acceptez nos réglementations sur la confidentialité et la gestion des données B2B."
+    }
+  },
+  "Ticker": {
+    "logistics": "Logistique",
+    "transport": "Transport",
+    "cargo": "Fret",
+    "customs": "Douane"
+  },
+  "Common": {
+    "loading": "Chargement...",
+    "error": "Une erreur est survenue"
+  }
+}

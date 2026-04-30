@@ -2,7 +2,7 @@ import { createNavigation } from 'next-intl/navigation';
 
 export const routing = {
   // A list of all locales that are supported
-  locales: ['es', 'en', 'ar'],
+  locales: ['es', 'en', 'ar', 'fr'],
 
   // Used when no locale matches
   defaultLocale: 'es',
@@ -13,17 +13,20 @@ export const routing = {
     '/nosotros': {
       es: '/nosotros',
       en: '/about',
-      ar: '/about'
+      ar: '/about',
+      fr: '/nos-valeurs'
     },
     '/servicios': {
       es: '/servicios',
       en: '/services',
-      ar: '/services'
+      ar: '/services',
+      fr: '/nos-services'
     },
     '/portafolio': {
       es: '/portafolio',
       en: '/portfolio',
-      ar: '/portfolio'
+      ar: '/portfolio',
+      fr: '/notre-portfolio'
     }
   }
 } as const;

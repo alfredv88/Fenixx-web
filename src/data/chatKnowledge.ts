@@ -34,6 +34,54 @@ export const chatKnowledge = {
       keywords: ["الوقت", "ساعة", "عمل"],
       response: "مكاتبنا تعمل من **الاثنين إلى الجمعة (8:00 صباحاً - 5:00 مساءً)**. شبكتنا اللوجستية في الموانئ تعمل 24/7."
     }
+  ],
+  en: [
+    {
+      keywords: ["fleet", "trucks", "transport", "trailers", "units"],
+      response: "Our technical fleet includes **flatbed trailers**, low-boy trucks, and specialized units for oversized cargo, operating under strict industrial safety protocols."
+    },
+    {
+      keywords: ["guanta", "port", "anzoategui", "headquarters", "office"],
+      response: "Our main operations base is located at the **Port of Guanta, Anzoátegui**, allowing direct connection with the country's main industrial and oil zones."
+    },
+    {
+      keywords: ["houston", "usa", "miami"],
+      response: "We operate a logistics hub in **Houston, Texas**, facilitating the flow of industrial supplies and critical spare parts from the USA to Venezuela."
+    },
+    {
+      keywords: ["customs", "clearance", "taxes", "duties"],
+      response: "We manage the complete **customs clearance cycle**, optimizing release times and ensuring legal compliance with SENIAT and port authorities."
+    },
+    {
+      keywords: ["oil", "projects", "oversized", "machinery"],
+      response: "We are experts in **Project Cargo** for the energy industry; we move drills, pipes, and heavy machinery with specialized transport engineering."
+    }
+  ],
+  fr: [
+    {
+      keywords: ["flotte", "camions", "transport", "remorques", "unités"],
+      response: "Notre flotte technique comprend des **remorques à plateau**, des camions surbaissés et des unités spécialisées pour les cargaisons surdimensionnées, opérant selon des protocoles de sécurité industrielle."
+    },
+    {
+      keywords: ["guanta", "port", "anzoategui", "siège", "bureau"],
+      response: "Notre base opérationnelle principale est située au **Port de Guanta, Anzoátegui**, permettant une connexion directe con les principales zones industrielles et pétrolières du pays."
+    },
+    {
+      keywords: ["houston", "usa", "miami"],
+      response: "Nous exploitons un hub logistique à **Houston, Texas**, facilitant le flux de fournitures industrielles et de pièces de rechange critiques des États-Unis vers le Venezuela."
+    },
+    {
+      keywords: ["douane", "dédouanement", "taxes", "seniat"],
+      response: "Nous gérons le cycle complet de **dédouanement**, en optimisant les délais de mainlevée et en garantissant la conformité légale auprès du SENIAT et des autorités portuaires."
+    },
+    {
+      keywords: ["pétrole", "projets", "surdimensionné", "machines"],
+      response: "Nous sommes experts en **Project Cargo** pour l'industrie de l'énergie ; nous déplaçons des foreuses, des tuyaux et des machines lourdes avec une ingénierie de transport spécialisée."
+    },
+    {
+      keywords: ["contact", "agent", "appeler", "téléphone"],
+      response: "Pour une consultation technique directe, vous pouvez nous contacter via WhatsApp ou demander l'appel d'un **Conseiller de Comptes Corporatifs**."
+    }
   ]
 };
 

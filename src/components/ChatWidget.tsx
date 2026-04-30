@@ -15,7 +15,7 @@ interface Message {
 
 export default function ChatWidget() {
   const pathname = usePathname();
-  const lang = pathname?.startsWith('/ar') ? 'ar' : 'es';
+  const lang = pathname?.startsWith('/ar') ? 'ar' : pathname?.startsWith('/fr') ? 'fr' : 'es';
   
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
@@ -56,7 +56,18 @@ export default function ChatWidget() {
       intro: "تم إنشاء الاتصال. أنا **أليكس**، مستشارك الخبير في اللوجستيات والجمارك. ما هي العملية التي تريد إدارتها اليوم؟",
       placeholder: "استشر النظام الخبير...",
       initialSuggestions: ["ميناء غوانتا", "تتبع الشحنة", "إدارة الجمارك", "تحدث مع وكيل"],
-      error: "انقطع الاتصال. جاري إعادة المحاولة..."
+      error: "انقطع الاتصال. جاري إعادة المحاولة...",
+      status: "متصل",
+      label: "مستشار:"
+    },
+    fr: {
+      botName: "ALEX // FENIXX",
+      intro: "LIAISON ÉTABLIE. Je suis **ALEX**, votre conseiller expert en logistique et douanes. Quelle opération souhaitez-vous gérer aujourd'hui ?",
+      placeholder: "Consultez le système expert...",
+      initialSuggestions: ["Port de Guanta", "Suivi de Fret", "Gestion Douanière", "Parler à un Agent"],
+      error: "Connexion interrompue. Tentative de synchronisation...",
+      status: "En ligne",
+      label: "Conseil :"
     }
   };
 
@@ -169,10 +180,12 @@ export default function ChatWidget() {
     setSuggestions([]);
 
     // Plan A: Redirección a WhatsApp
-    if (text.toLowerCase().includes('hablar con agente') || text.toLowerCase().includes('تحدث مع وكيل')) {
+    if (text.toLowerCase().includes('hablar con agente') || text.toLowerCase().includes('تحدث مع وكيل') || text.toLowerCase().includes('agent')) {
       const whatsappNumber = "584129671098";
       const message = lang === 'ar' 
-        ? "مرحباً فينيكس، أريد التحدث con un asesor..." 
+        ? "مرحباً فينيكس، أريد التحدث مع مستشار..." 
+        : lang === 'fr'
+        ? "Bonjour Fenixx, je souhaite parler à un conseiller concernant mes opérations logistiques..."
         : "Hola Fenixx, deseo hablar con un asesor sobre mis operaciones logísticas...";
       
       const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
@@ -180,6 +193,8 @@ export default function ChatWidget() {
       setTimeout(() => {
         addMessage(lang === 'ar' 
           ? "جاري تحويلك إلى واتساب للحدث مع وكيل بشري..." 
+          : lang === 'fr'
+          ? "Entendu. **Redirection vers WhatsApp** pour contacter un agent humain..."
           : "Entendido. **Redirigiendo a WhatsApp** para conectar con un agente humano...", 'bot');
         
         setTimeout(() => {
@@ -411,8 +426,8 @@ export default function ChatWidget() {
           {/* Status Capsule (Visible on Hover in Desktop) */}
           <div className="bg-black/90 backdrop-blur-xl border border-white/10 px-5 py-2.5 rounded-full hidden lg:block shadow-2xl opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 pointer-events-none mb-2 whitespace-nowrap">
               <span className="text-white font-bold text-xs tracking-wider uppercase">
-                {lang === 'ar' ? 'مستشار: ' : 'Asesoría: '}
-                <span className="text-fenix-red-light animate-pulse">{lang === 'ar' ? 'متصل' : 'En línea'}</span>
+                {current.label || (lang === 'ar' ? 'مستشار: ' : 'Asesoría: ')}
+                <span className="text-fenix-red-light animate-pulse">{current.status || (lang === 'ar' ? 'متصل' : 'En línea')}</span>
               </span>
           </div>
         </motion.div>
