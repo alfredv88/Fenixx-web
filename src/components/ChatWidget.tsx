@@ -4,9 +4,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Send, MessageSquare, Sparkles, BrainCircuit } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { chatKnowledge } from '@/data/chatKnowledge';
+import { supabase } from '@/lib/supabase';
 
 interface Message {
-  id: number;
+  id: string | number;
   text: string;
   sender: 'bot' | 'user' | 'agent';
   timestamp: Date;
@@ -23,6 +24,7 @@ export default function ChatWidget() {
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [isVisible, setIsVisible] = useState(false);
   const [isLiveMode, setIsLiveMode] = useState(false);
+  const [sessionId, setSessionId] = useState<string | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   // Sensor de scroll para mostrar el chat después del Hero
@@ -130,17 +132,39 @@ export default function ChatWidget() {
       ));
     }
     
+    
     setSuggestions([current.initialSuggestions[3]]); 
+    
+    // Persistir respuesta final del bot
+    if (fullText && sessionId) {
+      await supabase.from('chat_messages').insert({
+        session_id: sessionId,
+        sender: 'bot',
+        content: fullText
+      });
+    }
   };
 
 
-  const addMessage = (text: string, sender: 'bot' | 'user' | 'agent') => {
-    setMessages(prev => [...prev, { id: Date.now() + Math.random(), text, sender, timestamp: new Date() }]);
+  const addMessage = async (text: string, sender: 'bot' | 'user' | 'agent', skipSave = false) => {
+    const newMessage: Message = { id: Date.now() + Math.random(), text, sender, timestamp: new Date() };
+    setMessages(prev => [...prev, newMessage]);
+
+    if (!skipSave && sessionId) {
+      await supabase.from('chat_messages').insert({
+        session_id: sessionId,
+        sender,
+        content: text
+      });
+    }
   };
 
-  const onSend = (text: string) => {
+  const onSend = async (text: string) => {
     if (!text.trim()) return;
+    
+    // Guardar mensaje del usuario
     addMessage(text, 'user');
+    
     setInputText("");
     setSuggestions([]);
 
@@ -169,14 +193,52 @@ export default function ChatWidget() {
     handleBotResponse(text);
   };
 
+  // Inicializar sesión y cargar historial
   useEffect(() => {
-    if (isOpen && messages.length === 0) {
-      setTimeout(() => {
-        addMessage(current.intro, 'bot');
-        setSuggestions(current.initialSuggestions);
-      }, 600);
+    const initSession = async () => {
+      let sId = localStorage.getItem('fenixx_chat_session_id');
+      
+      if (!sId) {
+        const { data, error } = await supabase
+          .from('chat_sessions')
+          .insert({ user_name: 'Visitante Web', status: 'bot' })
+          .select()
+          .single();
+        
+        if (data) {
+          sId = data.id;
+          localStorage.setItem('fenixx_chat_session_id', sId!);
+        }
+      }
+
+      if (sId) {
+        setSessionId(sId);
+        // Cargar mensajes previos
+        const { data: oldMessages } = await supabase
+          .from('chat_messages')
+          .order('created_at', { ascending: true })
+          .eq('session_id', sId);
+        
+        if (oldMessages && oldMessages.length > 0) {
+          const formatted = oldMessages.map(m => ({
+            id: m.id,
+            text: m.content,
+            sender: m.sender as 'bot' | 'user' | 'agent',
+            timestamp: new Date(m.created_at)
+          }));
+          setMessages(formatted);
+        } else {
+          // Si no hay mensajes, enviar intro inicial
+          addMessage(current.intro, 'bot');
+          setSuggestions(current.initialSuggestions);
+        }
+      }
+    };
+
+    if (isOpen && !sessionId) {
+      initSession();
     }
-  }, [isOpen]);
+  }, [isOpen, sessionId, current.intro]);
 
   useEffect(() => {
     if (scrollRef.current) {
