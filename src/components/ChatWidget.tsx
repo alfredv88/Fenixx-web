@@ -49,7 +49,9 @@ export default function ChatWidget() {
       intro: "ENLACE ESTABLECIDO. Soy **ALEX**, su asesor experto en logística y aduanas. ¿Qué operación desea gestionar hoy?",
       placeholder: "Consulte con el sistema experto...",
       initialSuggestions: ["Puerto de Guanta", "Rastrear Carga", "Gestión Aduanera", "Hablar con Agente"],
-      error: "Conexión interrumpida. Reintentando sincronización..."
+      error: "Conexión interrumpida. Reintentando sincronización...",
+      status: "En línea",
+      label: "Asesoría: "
     },
     ar: {
       botName: "أليكس // فينيكس",
