@@ -1,20 +1,21 @@
 import React from 'react';
+import Image from 'next/image';
 
 const projects = [
   {
     title: "International Sea Freight",
     category: "Multimodal Transport",
-    image: "/images/service-transporte.png"
+    image: "/images/service-transporte.webp"
   },
   {
     title: "Express Customs Clearance",
     category: "Customs Management",
-    image: "/images/service-aduanas.png"
+    image: "/images/service-aduanas.webp"
   },
   {
     title: "Heavy Equipment Lifting",
     category: "Cargo Handling",
-    image: "/images/service-carga.png"
+    image: "/images/service-carga.webp"
   }
 ];
 
@@ -38,11 +39,12 @@ export default function Portfolio() {
           {projects.map((project, index) => (
             <div key={index} className="group cursor-pointer">
               <div className="relative overflow-hidden rounded-[40px] aspect-[4/5] mb-8">
-                <img 
+                <Image 
                   src={project.image} 
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  loading="lazy"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </div>

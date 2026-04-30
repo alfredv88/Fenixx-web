@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState, useRef } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
 import { useTranslations, useLocale } from 'next-intl';
 import { Link, usePathname, useRouter } from '@/i18n/routing';
@@ -97,15 +98,19 @@ export default function Header({ variant }: { variant?: 'transparent' | 'solid' 
 
         <nav className="max-w-[1920px] mx-auto px-[clamp(1.5rem,5vw,6rem)] flex justify-between items-center">
           <div className="flex items-center gap-2 relative z-[10000]">
-            <Link href="/" className="block">
-              <img
-                src="/images/logo.png"
-                alt="Fenixx Logo"
-                className={`w-auto object-contain transition-all duration-500 logo-img ${(isScrolled || effectiveVariant === 'solid') ? 'h-8 md:h-9' : 'h-14 md:h-18'}`}
-                style={{ 
-                  filter: (isScrolled || effectiveVariant === 'solid') ? 'none' : 'brightness(1.1) saturate(1.1)'
-                }}
-              />
+            <Link href="/" className="block relative">
+              <div className={`relative transition-all duration-500 ${(isScrolled || effectiveVariant === 'solid') ? 'w-24 h-8 md:w-28 md:h-9' : 'w-36 h-14 md:w-48 md:h-18'}`}>
+                <Image
+                  src="/images/logo.webp"
+                  alt="Fenixx Logo"
+                  fill
+                  priority
+                  className="object-contain"
+                  style={{ 
+                    filter: (isScrolled || effectiveVariant === 'solid') ? 'none' : 'brightness(1.1) saturate(1.1)'
+                  }}
+                />
+              </div>
             </Link>
           </div>
 
@@ -337,11 +342,11 @@ export default function Header({ variant }: { variant?: 'transparent' | 'solid' 
                 <div className="flex-1 p-10 bg-[#F9FAFB]/30 font-outfit">
                   <div className="grid grid-cols-5 gap-5 h-full">
                     {[
-                      { name: t('megaMenu.categories.aduana'), img: '/images/menu-aduana.png', slug: 'aduana' },
-                      { name: t('megaMenu.categories.transporte'), img: '/images/menu-transporte.png', slug: 'transporte' },
-                      { name: t('megaMenu.categories.carga'), img: '/images/menu-carga.png', slug: 'manejo-carga' },
-                      { name: t('megaMenu.categories.equipos'), img: '/images/menu-heavylift.png', slug: 'equipos' },
-                      { name: t('megaMenu.categories.almacen'), img: '/images/menu-warehouse.png', slug: 'almacen' }
+                      { name: t('megaMenu.categories.aduana'), img: '/images/menu-aduana.webp', slug: 'aduana' },
+                      { name: t('megaMenu.categories.transporte'), img: '/images/menu-transporte.webp', slug: 'transporte' },
+                      { name: t('megaMenu.categories.carga'), img: '/images/menu-carga.webp', slug: 'manejo-carga' },
+                      { name: t('megaMenu.categories.equipos'), img: '/images/menu-heavylift.webp', slug: 'equipos' },
+                      { name: t('megaMenu.categories.almacen'), img: '/images/menu-warehouse.webp', slug: 'almacen' }
                     ].map((s, idx) => (
                       <motion.div 
                         initial={{ opacity: 0, scale: 0.9 }}
@@ -355,10 +360,12 @@ export default function Header({ variant }: { variant?: 'transparent' | 'solid' 
                           className="block"
                         >
                           <div className="aspect-square bg-white rounded-2xl overflow-hidden relative shadow-[0_10px_25px_-10px_rgba(0,0,0,0.1)] group-hover:shadow-[0_20px_40px_-10px_rgba(252,61,3,0.15)] transition-all duration-500">
-                            <img 
+                            <Image 
                               src={s.img} 
                               alt={s.name}
-                              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                              fill
+                              sizes="200px"
+                              className="object-cover transition-transform duration-1000 group-hover:scale-110"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                             <div className="absolute bottom-3 left-0 w-full text-center translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">

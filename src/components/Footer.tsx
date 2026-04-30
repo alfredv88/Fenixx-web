@@ -1,5 +1,6 @@
 "use client";
 import React from 'react';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
 
@@ -39,12 +40,15 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="lg:col-span-1 flex flex-col items-start">
-            <img 
-              src="/images/logoS.png" 
-              alt="Fenixx Logo" 
-              className="h-24 w-auto object-contain mb-2" 
-              style={{ filter: 'brightness(1.1) saturate(1.25)' }}
-            />
+            <div className="h-24 w-auto relative aspect-[2/1] mb-2">
+              <Image 
+                src="/images/logoS.webp" 
+                alt="Fenixx Logo" 
+                fill
+                className="object-contain" 
+                style={{ filter: 'brightness(1.1) saturate(1.25)' }}
+              />
+            </div>
             <p className="text-[#ebebeb]/70 text-[10px] uppercase tracking-widest mb-1 font-bold">
               IMPORT EXPORT C.A.
             </p>

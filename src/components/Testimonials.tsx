@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useTranslations, useLocale } from 'next-intl';
 
@@ -29,7 +30,7 @@ export default function Testimonials() {
             </span>
           </div>
           <div className="md:col-start-6 md:col-span-6 lg:col-start-6 lg:col-span-5">
-            <p className="text-fenix-dark-graphite text-[15px] xl:text-[16px] leading-[1.7]">
+            <p className="text-fenix-dark-graphite text-[15px] xl:text-[16px] leading-[1.7] ">
               {t('description')}
             </p>
           </div>
@@ -73,7 +74,15 @@ export default function Testimonials() {
                 </div>
                 <p className="text-fenix-dark-graphite text-[14px] md:text-[15px] leading-[1.6] mb-6 flex-grow italic">"{item.quote}"</p>
                 <div className="flex items-center gap-3 mt-auto border-t border-gray-100 pt-6">
-                  <img src={item.image} alt={item.name} className="w-10 h-10 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300" />
+                  <div className="relative w-10 h-10 overflow-hidden rounded-full">
+                    <Image 
+                      src={item.image} 
+                      alt={item.name} 
+                      width={40}
+                      height={40}
+                      className="object-cover grayscale group-hover:grayscale-0 transition-all duration-300" 
+                    />
+                  </div>
                   <div>
                     <p className="text-[14px] font-bold text-fenix-dark-graphite leading-tight">{item.name}</p>
                     <p className="text-[12px] text-[#FC3D03] font-medium">{item.role}</p>

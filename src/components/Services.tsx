@@ -1,8 +1,9 @@
 "use client";
 import React from 'react';
-import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
+import { motion } from 'framer-motion';
 
 export default function Services() {
   const t = useTranslations('Services');
@@ -10,22 +11,22 @@ export default function Services() {
   const services = [
     {
       key: 'transporte',
-      image: "/images/service-transporte.png",
+      image: "/images/service-transporte.webp",
       alt: "Transporte Multimodal"
     },
     {
       key: 'aduana',
-      image: "/images/service-aduanas.png",
+      image: "/images/service-aduanas.webp",
       alt: "Gestión Aduanera"
     },
     {
       key: 'carga',
-      image: "/images/service-carga.png",
+      image: "/images/service-carga.webp",
       alt: "Manejo de Carga"
     },
     {
       key: 'equipos',
-      image: "/images/service-maquinaria.png",
+      image: "/images/service-maquinaria.webp",
       alt: "Alquiler de Equipos"
     }
   ];
@@ -93,14 +94,19 @@ export default function Services() {
               className="flex flex-col px-4 xl:px-8 pt-[40px] pb-[80px] h-full justify-start transition-all duration-500 hover:bg-white group"
             >
               <div className="w-full aspect-[4/3] 2xl:aspect-square mb-8 overflow-hidden rounded-[20px] shadow-sm relative">
-                <motion.img 
+                <motion.div
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.6 }}
-                  src={service.image} 
-                  alt={service.alt}
-                  loading="lazy"
-                  className="w-full h-full object-cover"
-                />
+                  className="w-full h-full relative"
+                >
+                  <Image 
+                    src={service.image} 
+                    alt={service.alt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 20vw"
+                    className="object-cover"
+                  />
+                </motion.div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
               <h3 className="text-[22px] xl:text-[26px] font-bold text-fenix-dark-graphite mb-3 tracking-[-0.02em] font-outfit">

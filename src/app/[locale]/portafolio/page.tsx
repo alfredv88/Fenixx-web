@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useRef } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 
@@ -24,25 +25,25 @@ export default function PortafolioPage({ params }: { params: { locale: string } 
       id: 1,
       key: 'hubei',
       category: 'transporte',
-      img: "/images/case-shanghai.png",
+      img: "/images/case-shanghai.webp",
     },
     {
       id: 2,
       key: 'izada',
       category: 'especializados',
-      img: "/images/case-maquinaria.png",
+      img: "/images/case-maquinaria.webp",
     },
     {
       id: 3,
       key: 'houston',
       category: 'transporte',
-      img: "/images/case-transporte.png",
+      img: "/images/case-transporte.webp",
     },
     {
       id: 4,
       key: 'aduanas_critica',
       category: 'aduanas',
-      img: "/images/case-aduana.png",
+      img: "/images/case-aduana.webp",
     }
   ];
 
@@ -64,10 +65,12 @@ export default function PortafolioPage({ params }: { params: { locale: string } 
         {/* --- HERO SECTION --- */}
         <section className="bg-[#f7f7f7] pt-60 pb-32 px-8 overflow-hidden relative">
           <div className="absolute inset-0 z-0 pointer-events-none">
-            <img 
-              src="/images/hero-servicios.png"
+            <Image 
+              src="/images/hero-servicios.webp"
               alt={t('Hero.title')}
-              className="w-full h-full object-cover opacity-[0.75] grayscale-[0.2]"
+              fill
+              priority
+              className="object-cover opacity-[0.75] grayscale-[0.2]"
             />
             <div className="absolute inset-0 bg-white/15" />
           </div>
@@ -181,10 +184,12 @@ export default function PortafolioPage({ params }: { params: { locale: string } 
                         transition={{ duration: 1.2, ease: [0.23, 1, 0.32, 1] }}
                         className="w-full h-full relative"
                       >
-                        <img 
+                        <Image 
                           src={p.img} 
                           alt={t(`Projects.items.${p.key}.title`)} 
-                          className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 grayscale-[0.5] group-hover:grayscale-0 contrast-125" 
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                          className="object-cover transition-transform duration-1000 group-hover:scale-110 grayscale-[0.5] group-hover:grayscale-0 contrast-125" 
                         />
                         
                         {/* HUD Technical Borders */}

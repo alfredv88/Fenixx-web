@@ -1,5 +1,6 @@
 "use client";
 import React from 'react';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 
 export default function Gallery() {
@@ -7,22 +8,22 @@ export default function Gallery() {
 
   const projects = [
     {
-      image: "/images/case-shanghai.png",
+      image: "/images/case-shanghai.webp",
       category: t('items.0.category'),
       title: t('items.0.title'),
     },
     {
-      image: "/images/case-aduana.png",
+      image: "/images/case-aduana.webp",
       category: t('items.1.category'),
       title: t('items.1.title'),
     },
     {
-      image: "/images/case-transporte.png",
+      image: "/images/case-transporte.webp",
       category: t('items.2.category'),
       title: t('items.2.title'),
     },
     {
-      image: "/images/case-maquinaria.png",
+      image: "/images/case-maquinaria.webp",
       category: t('items.3.category'),
       title: t('items.3.title'),
     }
@@ -49,10 +50,10 @@ export default function Gallery() {
              </p>
              
              <div className="flex items-center gap-4">
-               <a href="#contacto" className="group inline-flex items-center justify-center w-14 h-14 rounded-full bg-black text-white hover:bg-[#FC3D03] transition-colors duration-300">
-                 <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-               </a>
-               <span className="text-[13px] font-bold text-fenix-dark-graphite uppercase tracking-[0.15em]">{t('cta')}</span>
+                <a href="#contacto" className="group inline-flex items-center justify-center w-14 h-14 rounded-full bg-black text-white hover:bg-[#FC3D03] transition-colors duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <span className="text-[13px] font-bold text-fenix-dark-graphite uppercase tracking-[0.15em]">{t('cta')}</span>
              </div>
           </div>
 
@@ -65,10 +66,12 @@ export default function Gallery() {
                 {[projects[0], projects[2]].map((p, i) => (
                    <a key={`col1-${i}`} href="#" className="group block">
                       <div className="relative overflow-hidden rounded-[32px] bg-gray-100 aspect-[4/5] mb-5 border border-black/5">
-                        <img 
+                        <Image 
                           src={p.image} 
                           alt={p.title} 
-                          className="w-full h-full object-cover transition-all duration-[1.5s] ease-out group-hover:scale-110 grayscale-[0.5] group-hover:grayscale-0 contrast-110" 
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 40vw, 30vw"
+                          className="object-cover transition-all duration-[1.5s] ease-out group-hover:scale-110 grayscale-[0.5] group-hover:grayscale-0 contrast-110" 
                         />
                       </div>
                       <div>
@@ -88,12 +91,15 @@ export default function Gallery() {
                 {[projects[1], projects[3]].map((p, i) => (
                    <a key={`col2-${i}`} href="#" className="group block">
                       <div className="relative overflow-hidden rounded-[32px] bg-gray-100 aspect-[4/5] mb-5 border border-black/5">
-                        <img 
+                        <Image 
                           src={p.image} 
                           alt={p.title} 
-                          className="w-full h-full object-cover transition-all duration-[1.5s] ease-out group-hover:scale-110 grayscale-[0.5] group-hover:grayscale-0 contrast-110" 
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 40vw, 30vw"
+                          className="object-cover transition-all duration-[1.5s] ease-out group-hover:scale-110 grayscale-[0.5] group-hover:grayscale-0 contrast-110" 
                         />
                       </div>
+
                       <div>
                         <span className="text-[#FC3D03] text-[11px] uppercase tracking-[0.2em] font-bold block mb-2 transition-transform duration-500 group-hover:translate-x-2">
                            {p.category}

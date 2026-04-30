@@ -1,4 +1,5 @@
 "use client";
+import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { useTranslations } from 'next-intl';
@@ -19,10 +20,10 @@ export default function ServiciosPage({ params }: { params: { locale: string } }
 
   const servicesKeys = ['transporte', 'aduana', 'manejo-carga', 'equipos'];
   const servicesImages: Record<string, string> = {
-    'transporte': '/images/service-transporte.png',
-    'aduana': '/images/service-aduanas.png',
-    'manejo-carga': '/images/service-carga.png',
-    'equipos': '/images/service-maquinaria.png'
+    'transporte': '/images/service-transporte.webp',
+    'aduana': '/images/service-aduanas.webp',
+    'manejo-carga': '/images/service-carga.webp',
+    'equipos': '/images/service-maquinaria.webp'
   };
 
   return (
@@ -31,10 +32,12 @@ export default function ServiciosPage({ params }: { params: { locale: string } }
         {/* --- HERO SECTION --- */}
         <section className="bg-[#f7f7f7] pt-60 pb-32 px-8 overflow-hidden relative">
           <div className="absolute inset-0 z-0 pointer-events-none">
-            <img 
-              src="/images/hero-servicios.png"
+            <Image 
+              src="/images/hero-servicios.webp"
               alt="Industrial Background"
-              className="w-full h-full object-cover opacity-[0.75] grayscale-[0.2]"
+              fill
+              priority
+              className="object-cover opacity-[0.75] grayscale-[0.2]"
             />
             <div className="absolute inset-0 bg-white/20" />
           </div>
@@ -159,12 +162,12 @@ export default function ServiciosPage({ params }: { params: { locale: string } }
                     transition={{ duration: 1.2, ease: [0.23, 1, 0.32, 1] }}
                     className="relative overflow-hidden shadow-[0_40px_100px_-20px_rgba(0,0,0,0.2)] aspect-[4/3] lg:aspect-square group"
                   >
-                    <motion.img 
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 1.5, ease: [0.23, 1, 0.32, 1] }}
+                    <Image 
                       src={servicesImages[key]} 
                       alt={t(`Items.${key}.title`)} 
-                      className="w-full h-full object-cover"
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 600px"
+                      className="object-cover transition-transform duration-1000 group-hover:scale-110"
                     />
                   </motion.div>
                 </div>

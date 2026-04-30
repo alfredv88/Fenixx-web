@@ -1,5 +1,6 @@
 "use client";
 import React, { useRef } from 'react';
+import Image from 'next/image';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { useTranslations, useLocale } from 'next-intl';
 
@@ -92,11 +93,14 @@ export default function Showcase() {
         <div className="flex flex-col items-center text-center relative z-[2]">
           
           {/* Container Hero Image */}
-          <div className="w-full max-w-[1000px] transform hover:scale-[1.02] transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]">
-            <img 
-              src="/images/showcase-main.png" 
+          <div className="w-full max-w-[1000px] aspect-[16/9] relative transform hover:scale-[1.02] transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]">
+            <Image 
+              src="/images/showcase-main.webp" 
               alt="Cargo Solutions" 
-              className="w-full h-auto drop-shadow-[0_35px_60px_rgba(0,0,0,0.15)] grayscale-[0.4] contrast-125 brightness-110"
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 1000px"
+              className="object-contain drop-shadow-[0_35px_60px_rgba(0,0,0,0.15)] grayscale-[0.4] contrast-125 brightness-110"
             />
           </div>
 

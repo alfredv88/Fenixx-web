@@ -1,4 +1,5 @@
 "use client";
+import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { useTranslations } from 'next-intl';
@@ -23,10 +24,12 @@ export default function NosotrosPage({ params }: { params: { locale: string } })
         {/* --- HERO SECTION --- */}
         <section className="bg-[#f7f7f7] pt-60 pb-32 px-8 overflow-hidden relative">
           <div className="absolute inset-0 z-0 pointer-events-none">
-            <img 
-              src="/images/hero-nosotros.png"
+            <Image 
+              src="/images/hero-nosotros.webp"
               alt={t('Hero.title')}
-              className="w-full h-full object-cover opacity-[0.75] grayscale-[0.2]"
+              fill
+              priority
+              className="object-cover opacity-[0.75] grayscale-[0.2]"
             />
             <div className="absolute inset-0 bg-white/15" />
           </div>
@@ -127,7 +130,13 @@ export default function NosotrosPage({ params }: { params: { locale: string } })
                   transition={{ duration: 1.2, ease: [0.23, 1, 0.32, 1] }}
                   className="relative w-full aspect-[4/3] overflow-hidden shadow-[0_40px_100px_-20px_rgba(0,0,0,0.15)] group"
                 >
-                  <img src="/images/case-aduana.png" alt="Centro de Operaciones" className="w-full h-full object-cover" />
+                  <Image 
+                    src="/images/case-aduana.webp" 
+                    alt="Centro de Operaciones" 
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 800px"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105" 
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                   <div className="absolute bottom-12 left-0 w-full px-8 flex justify-center text-center">
                     <p className="text-white font-bold text-[22px] md:text-[32px] max-w-2xl leading-tight">

@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     openGraph: {
       title: titles[locale] || titles.es,
       description: descriptions[locale] || descriptions.es,
-      images: ['/images/logo.png'],
+      images: ['/images/logo.webp'],
       type: 'website',
     },
     twitter: {
