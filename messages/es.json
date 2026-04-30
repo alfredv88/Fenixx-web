@@ -360,5 +360,10 @@
   "Common": {
     "loading": "Cargando...",
     "error": "Ha ocurrido un error"
+  },
+  "TrustVideo": {
+    "badge": "Excelencia Operativa",
+    "title": "Compromiso en cada <orange>Movimiento</orange>",
+    "description": "Nuestra infraestructura y equipo humano son la garantía de que su carga llegará a destino con la máxima seguridad y precisión."
   }
 }

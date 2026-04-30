@@ -360,5 +360,10 @@
   "Common": {
     "loading": "Loading...",
     "error": "An error has occurred"
+  },
+  "TrustVideo": {
+    "badge": "Operational Excellence",
+    "title": "Commitment in Every <orange>Move</orange>",
+    "description": "Our infrastructure and human team are the guarantee that your cargo will reach its destination with maximum security and precision."
   }
 }

@@ -3,6 +3,7 @@ import Hero from '@/components/Hero';
 import Services from '@/components/Services';
 import About from '@/components/About';
 import Showcase from '@/components/Showcase';
+import TrustVideo from '@/components/TrustVideo';
 import Contact from '@/components/Contact';
 import Testimonials from '@/components/Testimonials';
 import Partners from '@/components/Partners';
@@ -45,6 +46,7 @@ export default async function Home({
         <About />
         <Showcase />
         <Testimonials />
+        <TrustVideo />
         <Partners />
         <Process />
         <Gallery />
