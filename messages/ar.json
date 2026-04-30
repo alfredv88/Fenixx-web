@@ -89,7 +89,7 @@
       }
     },
     "contact": {
-      "address": "Av. Raúl Leoni con Av. Real, Local S/N Urb. Industria de Guanta, Anzoátegui."
+      "address": "Av. Raúl Leoni con Av. Real, Local Nro. S/N, Urb. Industria de Guanta, Guanta, Anzoátegui. Zona Postal 6014."
     },
     "bottom": {
       "rights": "جميع الحقوق محفوظة.",
@@ -314,7 +314,7 @@
     "items": [
       {
         "category": "شحن دولي",
-        "title": "استيراد من شنغهاي ← كاوسيدو"
+        "title": "استيراد شنغهاي ← كوسيدو"
       },
       {
         "category": "إدارة جمركية",
@@ -338,7 +338,9 @@
       "directLine": "الخط المباشر",
       "corporateEmail": "البريد الإلكتروني",
       "offices": "مكاتب فينكس",
-      "address": "Av. Francisco de Miranda, Torre Empresarial, Piso 8. Caracas, Venezuela."
+      "address": "Av. Raúl Leoni con Av. Real, Local Nro. S/N, Urb. Industria de Guanta, Guanta, Anzoátegui. Zona Postal 6014.",
+      "phone": "+58 0412 967 1098",
+      "email": "info@fenixx.com.ve"
     },
     "form": {
       "name": "الاسم الكامل",

@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 
 export default function Testimonials() {
   const t = useTranslations('Testimonials');
@@ -12,6 +12,9 @@ export default function Testimonials() {
   // Duplicamos el set de cartas para el scroll infinito suave
   const tickerCards = [...testimonials, ...testimonials];
 
+  const locale = useLocale();
+  const isRTL = locale === 'ar';
+
   return (
     <section 
       className="py-16 md:py-24 lg:py-64 bg-fenix-gray-industrial overflow-hidden"
@@ -19,7 +22,7 @@ export default function Testimonials() {
       <div className="w-full">
 
         {/* Header */}
-        <div className="px-6 md:px-12 lg:px-24 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 mb-10 md:mb-20">
+        <div className="px-6 md:px-12 lg:px-24 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 mb-10 md:mb-20 relative z-10">
           <div className="md:col-start-2 md:col-span-4 lg:col-start-3 lg:col-span-2">
             <span className="text-[14px] uppercase tracking-[0.2em] text-[#FC3D03] font-bold block pt-2">
               {t('badge')}
@@ -34,7 +37,7 @@ export default function Testimonials() {
 
         {/* Infinite Ticker Container */}
         <div 
-          className="relative flex overflow-hidden group"
+          className="relative flex overflow-hidden group z-10"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
@@ -44,7 +47,9 @@ export default function Testimonials() {
 
           <motion.div 
             className="flex gap-6 py-4"
-            animate={{ x: isPaused ? undefined : ["0%", "-50%"] }}
+            animate={{ 
+              x: isPaused ? undefined : ["0%", "-50%"] 
+            }}
             transition={{
               x: {
                 repeat: Infinity,

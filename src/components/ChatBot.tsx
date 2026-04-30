@@ -25,7 +25,7 @@ export default function ChatBot() {
       }`}
     >
       {/* Botón con gradiente corporativo (Naranja Claro a Naranja Oscuro) */}
-      <button className="bg-gradient-to-br from-fenix-red-light to-fenix-red-dark p-3.5 md:p-4 rounded-full text-white shadow-xl hover:scale-110 transition-transform active:scale-95 shadow-fenix-red-dark/30 relative pointer-events-auto">
+      <button className="bg-gradient-to-br from-fenix-red-light to-fenix-red-dark p-3.5 md:p-4 rounded-full text-white shadow-xl hover:scale-110 transition-transform active:scale-95 relative pointer-events-auto">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="md:w-6 md:h-6"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M13 8H7"/><path d="M17 12H7"/></svg>
       </button>
       

@@ -30,14 +30,14 @@
   }
   body {
     @apply bg-white text-fenix-dark-graphite antialiased;
-    font-family: 'Work Sans', sans-serif;
+    font-family: var(--font-inter);
     margin: 0;
     padding: 0;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-bold tracking-[-0.03em] leading-tight;
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-outfit);
   }
 }
 
@@ -93,4 +93,19 @@
 
 :root {
   scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-fenix-white-soft);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-fenix-red-light);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-fenix-red-dark);
 }

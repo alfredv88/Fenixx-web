@@ -9,11 +9,10 @@ Este documento sirve como la memoria técnica y de diseño para la construcción
 - **Objetivo Principal:** Generación de leads calificados y posicionamiento como autoridad en logística multimodal.
 
 ## 2. Definición Técnica (Tech Stack 2026)
-- **Frontend Framework:** Astro (Prioridad: Velocidad y SEO).
-- **Styling:** Tailwind CSS (Arquitectura de diseño atómica).
+- **Frontend Framework:** Next.js 16 (App Router) - Optimización de hidratación y SSR.
+- **Styling:** Tailwind CSS v4 (Arquitectura basada en @theme).
 - **Lenguaje:** TypeScript (Tipado fuerte para robustez).
-- **Inteligencia:** Ollama (Asistente IA local para asesoría aduanal y logística).
-- **Animaciones:** Framer Motion / View Transitions API (Suavidad industrial).
+- **Animaciones:** Framer Motion / View Transitions (Suavidad cinemática).
 
 ## 3. Sistema de Diseño (Design System)
 ### Paleta de Colores (Basada en Logo)
@@ -55,4 +54,4 @@ Basado en la referencia visual proporcionada, la Home seguirá esta secuencia ex
 4. **Implementación:** Generación de código limpio y responsive.
 
 ---
-**Estado Actual:** Fase 1 (Plan General) validada. Listos para entrar en **Fase 2 (Diseño Hero Section)**.
+**Estado Actual:** Fase 1 (Auditoría Técnica) completada. Alineación de Next.js 16 y Tailwind v4 ejecutada. Listos para entrar en **Fase 2 (Diseño Hero Section)**.

@@ -26,21 +26,21 @@ export default function Contact() {
             
             <div className="flex flex-col gap-10">
               <div className="group">
-                <span className="text-[11px] uppercase tracking-[0.15em] text-gray-400 font-bold block mb-2">{t('info.directLine')}</span>
-                <a href="tel:+5804129671098" className="text-[20px] xl:text-[24px] font-medium text-fenix-dark-graphite hover:text-[#FC3D03] transition-colors relative inline-flex items-center gap-2">
-                  +58 0412 967 1098
+                <span className="text-[11px] uppercase tracking-[0.15em] text-[#FC3D03] font-bold block mb-2">{t('info.directLine')}</span>
+                <a href={`tel:${t('info.phone').replace(/\s/g, '')}`} className="text-[20px] xl:text-[24px] font-medium text-fenix-dark-graphite hover:text-[#FC3D03] transition-colors relative inline-flex items-center gap-2">
+                  <span dir="ltr">{t('info.phone')}</span>
                 </a>
               </div>
               
               <div className="group">
-                <span className="text-[11px] uppercase tracking-[0.15em] text-gray-400 font-bold block mb-2">{t('info.corporateEmail')}</span>
-                <a href="mailto:info@fenixx.com" className="text-[20px] xl:text-[24px] font-medium text-fenix-dark-graphite hover:text-[#FC3D03] transition-colors relative inline-flex items-center gap-2">
-                  info@fenixx.com
+                <span className="text-[11px] uppercase tracking-[0.15em] text-[#FC3D03] font-bold block mb-2">{t('info.corporateEmail')}</span>
+                <a href={`mailto:${t('info.email')}`} className="text-[20px] xl:text-[24px] font-medium text-fenix-dark-graphite hover:text-[#FC3D03] transition-colors relative inline-flex items-center gap-2">
+                  {t('info.email')}
                 </a>
               </div>
 
               <div className="mt-4">
-                 <span className="text-[11px] uppercase tracking-[0.15em] text-gray-400 font-bold block mb-2">{t('info.offices')}</span>
+                 <span className="text-[11px] uppercase tracking-[0.15em] text-[#FC3D03] font-bold block mb-2">{t('info.offices')}</span>
                  <p className="text-[15px] xl:text-[16px] text-gray-600 leading-relaxed max-w-[280px]">
                    {t.rich('info.address', {
                      br: () => <br/>

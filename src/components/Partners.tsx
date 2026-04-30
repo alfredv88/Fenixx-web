@@ -24,6 +24,10 @@ const partners = [
     label: `<span style="font-family:'Arial Black',sans-serif;font-size:30px;font-weight:900;letter-spacing:2px;">MSC</span>`
   },
   {
+    name: "CMA CGM",
+    label: `<span style="font-family:'Arial Black',sans-serif;font-size:20px;font-weight:900;letter-spacing:1px;white-space:nowrap;display:block;">CMA CGM</span>`
+  },
+  {
     name: "DB Schenker",
     label: `<span style="font-family:Arial,sans-serif;font-size:15px;font-weight:800;letter-spacing:3px;line-height:1.3;text-align:center;display:block;">DB<br>SCHENKER</span>`
   },

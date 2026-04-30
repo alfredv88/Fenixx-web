@@ -1,0 +1,50 @@
+# Plan de Implementación: Chat Híbrido Fenixx (IA + Humano)
+
+## Objetivo
+Permitir que un agente humano responda mensajes de clientes directamente desde su teléfono móvil sin que el usuario abandone la web de Fenixx, manteniendo un costo de $0 USD en licencias.
+
+---
+
+## Fase 1: Infraestructura de Datos (Supabase)
+Utilizaremos el plan gratuito de Supabase para la sincronización en tiempo real.
+- **Base de Datos**: Tabla `chat_sessions` para gestionar quién está hablando.
+- **Tabla de Mensajes**: `chat_messages` (ID, session_id, sender, text, timestamp).
+- **Realtime**: Activación de "Broadcast" para que los mensajes aparezcan instantáneamente en ambos lados.
+
+## Fase 2: Actualización del `ChatWidget.tsx`
+Modificaremos el componente actual para que sea "consciente" del estado de la conversación.
+- **Intercepción**: Cuando `isLiveMode` sea true, las funciones de envío dejarán de llamar a la API de IA y empezarán a insertar filas en la tabla de Supabase.
+- **Listener**: El widget escuchará cambios en la base de datos para mostrar las respuestas que el agente escriba.
+
+## Fase 3: Panel de Control del Agente (`/agent-portal`)
+Crearemos una nueva ruta protegida o secreta en la aplicación Next.js.
+- **Interfaz Móvil**: Diseño ultra-limpio (estética Fenixx) con lista de chats activos.
+- **Funcionalidad**: El agente podrá ver el historial completo de lo que el bot ya habló con el cliente antes de intervenir.
+- **Dashboard**: Indicador de "Clientes en espera" y "Conversaciones activas".
+
+## Fase 4: Sistema de Notificaciones
+Para asegurar que el agente responda a tiempo:
+- **Web Push**: Notificaciones de sistema para Android y Desktop.
+- **PWA**: Configuración para que el agente pueda "instalar" el portal como una App en su iPhone (solución al bloqueo de Apple).
+- **Email Fallback**: Envío automático de un correo al agente cuando un nuevo cliente entra en modo "Live".
+
+---
+
+## Análisis de Riesgos y Mitigación
+1. **Riesgo**: Latencia en la conexión.
+   - **Solución**: Estados de "Enviando..." y optimismo en la UI para una sensación de fluidez instantánea.
+2. **Riesgo**: Pérdida de notificaciones en iOS.
+   - **Solución**: Instrucción clara al agente para añadir a "Pantalla de inicio".
+3. **Riesgo**: Seguridad de la página del agente.
+   - **Solución**: Acceso mediante una clave secreta simple o autenticación básica de Supabase.
+
+---
+
+## Cronograma Estimado
+- **Día 1**: Setup de Supabase y esquemas de tablas.
+- **Día 2**: Integración de lectura/escritura en `ChatWidget`.
+- **Día 3**: Construcción de la UI del Portal del Agente.
+- **Día 4**: Pruebas de notificaciones y pulido visual.
+
+---
+**¿Deseas que procedamos con el Día 1 ahora mismo?**

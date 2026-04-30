@@ -9,7 +9,6 @@ import Partners from '@/components/Partners';
 import Process from '@/components/Process';
 import Gallery from '@/components/Gallery';
 import Ticker from '@/components/Ticker';
-import ChatBot from '@/components/ChatBot';
 
 export default async function Home({
   params
@@ -35,7 +34,6 @@ export default async function Home({
         <Gallery />
         <Contact />
       </main>
-      <ChatBot />
     </>
   );
 }

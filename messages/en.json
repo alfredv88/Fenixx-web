@@ -89,7 +89,7 @@
       }
     },
     "contact": {
-      "address": "Raúl Leoni Ave. with Real Ave., Local S/N Urb. Industria de Guanta, Anzoátegui."
+      "address": "Raul Leoni Ave. with Real Ave., Local No. S/N, Urb. Industria de Guanta, Guanta, Anzoátegui. Zip Code 6014."
     },
     "bottom": {
       "rights": "All rights reserved.",
@@ -338,7 +338,9 @@
       "directLine": "Direct Line",
       "corporateEmail": "Corporate Email",
       "offices": "Fenixx Offices",
-      "address": "Francisco de Miranda Ave, Business Tower, 8th Floor. Caracas, Venezuela."
+      "address": "Raul Leoni Ave. with Real Ave., Local No. S/N, Urb. Industria de Guanta, Guanta, Anzoátegui. Zip Code 6014.",
+      "phone": "+58 0412 967 1098",
+      "email": "info@fenixx.com.ve"
     },
     "form": {
       "name": "Full Name",

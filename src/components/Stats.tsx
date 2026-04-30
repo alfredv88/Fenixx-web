@@ -19,7 +19,7 @@ export default function Stats() {
                 {stat.number}
               </span>
               <div className="w-12 h-[2px] bg-[#FC3D03] mb-6"></div>
-              <p className="text-[14px] uppercase tracking-[0.2em] text-[#6e6e6e] font-bold">
+              <p className="text-[14px] uppercase tracking-[0.2em] text-[#FC3D03] font-bold">
                 {stat.label}
               </p>
             </div>

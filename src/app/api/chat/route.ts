@@ -1,26 +1,35 @@
 import { NextResponse } from 'next/server';
 
+export const runtime = 'edge'; // Optimización para streaming en Vercel Edge
+
 export async function POST(req: Request) {
   try {
     const { messages, lang, knowledge } = await req.json();
 
+    const knowledgeContext = knowledge ? 
+      `CONOCIMIENTO ESPECÍFICO DE FENIXX PARA ESTA CONSULTA:
+       ${JSON.stringify(knowledge)}` : '';
+
     const systemPrompt = `
-      Eres Alex, Agente Táctico de Fenixx C.A.
+      Eres ALEX, el Agente de Inteligencia Aduanal de Fenixx C.A.
       
-      ESTILO DE RESPUESTA:
-      - Súper conciso. Máximo 2 párrafos cortos.
-      - NUNCA digas "Hola! Soy Alex..." si la conversación ya empezó.
-      - Prohibido repetir el horario o la flota si el usuario no lo pide específicamente.
-      - Eres un profesional eficiente. No eres un bot de marketing.
-      - SE PRECISO CONSIZO. no te extiendas en las respuestas. ahorra tokens
+      PERSONALIDAD:
+      - Eres un experto en logística internacional y aduanas venezolanas.
+      - Tu tono es "Lujo Industrial": serio, preciso, autoritario y altamente eficiente.
+      - Evitas el lenguaje excesivamente comercial; hablas con datos y soluciones técnicas.
       
-      REPUESAS A GREETINGS:
-      - Si te dicen "hola", solo responde: "Hola de nuevo, ¿en que puedo ayudarle, necesita alguna gestion de envio?" o similar.
+      REGLAS DE RESPUESTA:
+      - Sé extremadamente conciso. Máximo 2 párrafos.
+      - Usa terminología técnica (incoterms, nacionalización, HUB logístico).
+      - Si el usuario saluda, responde con una invitación directa a la gestión técnica.
+      - NUNCA menciones que eres una IA.
       
-      BASE DE DATOS FENIXX:
-      - Sede: Guanta, Anzoátegui.
-      - Servicios: Aduana, Transporte Pesado, Proyectos Petroleros.
-      - Flota: Propia con GPS.
+      ${knowledgeContext}
+      
+      DATOS CRÍTICOS:
+      - Sede principal: Puerto de Guanta, Venezuela.
+      - Hubs: Houston (USA) y Panamá.
+      - Especialidad: Project Cargo y Proyectos Energéticos.
     `;
 
     const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
@@ -28,32 +37,39 @@ export async function POST(req: Request) {
       headers: {
         "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
         "Content-Type": "application/json",
-        "HTTP-Referer": "http://localhost:3000",
-        "X-Title": "Fenixx Tactic Chat",
+        "HTTP-Referer": "https://fenixx.com.ve",
+        "X-Title": "Fenixx Link",
       },
       body: JSON.stringify({
-        model: "openai/gpt-4o-mini", // Sigue siendo el mejor, bajamos los tokens
+        model: "openai/gpt-4o-mini", 
         messages: [
           { role: "system", content: systemPrompt },
           ...messages
         ],
-        temperature: 0.3,
-        max_tokens: 500, // Limite para no agotar tu saldo y que la API acepte la petición
+        temperature: 0.2,
+        max_tokens: 400,
+        stream: true
       }),
     });
 
-    const data = await response.json();
-
-    if (data.error) {
-      console.error("OpenRouter API Error:", data.error);
-      return NextResponse.json({ error: data.error.message || "Error de la API" }, { status: 500 });
+    if (!response.ok) {
+      const errorData = await response.json();
+      console.error("OpenRouter Error:", errorData);
+      return NextResponse.json({ error: "Falla en el enlace neural." }, { status: 500 });
     }
 
-    const botReply = data.choices[0]?.message?.content || "No pude generar una respuesta.";
+    // Retornamos el stream directamente al cliente
+    return new Response(response.body, {
+      headers: {
+        'Content-Type': 'text/event-stream',
+        'Cache-Control': 'no-cache',
+        'Connection': 'keep-alive',
+      },
+    });
 
-    return NextResponse.json({ reply: botReply });
   } catch (error: any) {
     console.error("Critical Route Error:", error);
-    return NextResponse.json({ error: error.message || "Error en la conexión neural" }, { status: 500 });
+    return NextResponse.json({ error: "Error de sincronización neural." }, { status: 500 });
   }
 }
+

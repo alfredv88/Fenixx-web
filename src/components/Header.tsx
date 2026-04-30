@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
 import { useTranslations, useLocale } from 'next-intl';
 import { Link, usePathname, useRouter } from '@/i18n/routing';
 
@@ -18,6 +18,14 @@ export default function Header({ variant }: { variant?: 'transparent' | 'solid' 
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const { scrollYProgress } = useScroll();
+  const scaleY = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -67,6 +75,12 @@ export default function Header({ variant }: { variant?: 'transparent' | 'solid' 
 
   return (
     <>
+      {/* Indicador de Progreso de Scroll Vertical (Línea Fina Izquierda) */}
+      <motion.div
+        className="fixed top-0 left-0 w-[2px] h-screen bg-[#FC3D03] z-[10002] origin-top pointer-events-none"
+        style={{ scaleY }}
+      />
+      
       <header
         id="main-header"
         className={`top-0 left-0 w-full z-[9999] transition-all duration-700 font-outfit ${
@@ -142,10 +156,12 @@ export default function Header({ variant }: { variant?: 'transparent' | 'solid' 
                   <button
                     key={l}
                     onClick={() => switchLanguage(l as any)}
-                    className={`text-[clamp(10px,0.7vw,11px)] font-black uppercase tracking-widest transition-all duration-300 relative py-1 ${
+                    className={`text-[clamp(13px,1vw,15px)] font-black uppercase tracking-widest transition-all duration-300 relative py-1 ${
                       locale === l 
-                        ? (isScrolled || effectiveVariant === 'solid' ? 'text-black' : 'text-white')
-                        : 'text-gray-400/60 hover:text-[#FC3D03]'
+                        ? (isScrolled || effectiveVariant === 'solid' ? 'text-black' : 'text-white drop-shadow-md')
+                        : (isScrolled || effectiveVariant === 'solid' 
+                            ? 'text-gray-500 hover:text-[#FC3D03]' 
+                            : 'text-white/80 hover:text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]')
                     }`}
                   >
                     {l}
@@ -217,12 +233,12 @@ export default function Header({ variant }: { variant?: 'transparent' | 'solid' 
                 className="fixed top-0 right-0 w-[75%] sm:w-[45%] lg:w-[30%] bg-white z-[10000] flex flex-col pt-32 px-[clamp(2rem,6vw,4rem)] h-[100svh] shadow-[-20px_0_60px_rgba(0,0,0,0.08)] rounded-l-[40px] border-l border-gray-50"
               >
                 {/* Language Switcher Mobile (Ultra Thin) */}
-                <div className="flex gap-8 mb-16 border-b border-gray-100 pb-8 uppercase tracking-[0.3em] font-black text-[10px]">
+                <div className="flex gap-10 mb-16 border-b border-gray-100 pb-8 uppercase tracking-[0.3em] font-black text-[15px]">
                   {['es', 'en', 'ar'].map((l) => (
                     <button
                       key={l}
                       onClick={() => { switchLanguage(l as any); setIsMenuOpen(false); }}
-                      className={`transition-all duration-300 ${locale === l ? 'text-[#FC3D03] scale-110' : 'text-gray-900/60 hover:text-black'}`}
+                      className={`transition-all duration-300 ${locale === l ? 'text-[#FC3D03] scale-110' : 'text-gray-900/80 hover:text-black'}`}
                     >
                       {l}
                     </button>

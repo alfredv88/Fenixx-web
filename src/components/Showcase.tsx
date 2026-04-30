@@ -1,7 +1,7 @@
 "use client";
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 
 const makeContainer = (delay = 0.1) => ({
   hidden: {},
@@ -20,12 +20,15 @@ const letterVariants = {
   },
 };
 
-function MonumentalWord({ letters, fontSize, delay, className = '' }: {
-  letters: string[];
+function MonumentalWord({ word, fontSize, delay, className = '', isArabic = false }: {
+  word: string;
   fontSize: string;
   delay: number;
   className?: string;
+  isArabic?: boolean;
 }) {
+  const letters = isArabic ? [word] : word.split("");
+  
   return (
     <motion.div
       className={`flex leading-none justify-center ${className}`}
@@ -39,7 +42,7 @@ function MonumentalWord({ letters, fontSize, delay, className = '' }: {
         <motion.span
           key={i}
           variants={letterVariants}
-          className="font-black text-white inline-block tracking-tight md:tracking-wider text-shadow-sm"
+          className="font-black text-white inline-block tracking-tight md:tracking-wider"
         >
           {letter === " " ? "\u00A0" : letter}
         </motion.span>
@@ -57,33 +60,36 @@ export default function Showcase() {
     offset: ['start end', 'end start'],
   });
 
-  const rawY = useTransform(scrollYProgress, [0, 1], [1000, -100]);
+  // Parallax más profundo: empieza mucho más abajo (1500) y termina en -400
+  const rawY = useTransform(scrollYProgress, [0, 1], [1500, -400]);
   const parallaxY = useSpring(rawY, { stiffness: 50, damping: 25, restDelta: 0.001 });
 
-  // Dynamically generate letter arrays
-  const aduanaLetters = t('words.aduana').split("");
-  const transporteLetters = t('words.transporte').split("");
-  const logisticaLetters = t('words.logistica').split("");
-  const cargaLetters = t('words.carga').split("");
+  const locale = useLocale();
+  const isArabic = locale === 'ar';
+
+  const aduanaWord = t('words.aduana');
+  const transporteWord = t('words.transporte');
+  const logisticaWord = t('words.logistica');
+  const cargaWord = t('words.carga');
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 lg:py-48 bg-[#ebebeb] relative overflow-hidden -mt-[1px]">
+    <section ref={sectionRef} className="py-16 md:py-24 lg:py-48 bg-[#ebebeb] relative -mt-[1px]">
       
       <div className="w-full max-w-[1320px] mx-auto px-6 relative">
         
         {/* Monumental Words Stack */}
-        <div className="absolute bottom-0 left-0 w-full flex flex-col items-center justify-end select-none pointer-events-none z-0">
+        <div className="absolute bottom-0 left-0 w-full flex flex-col items-center justify-end select-none pointer-events-none z-[1]">
           <motion.div style={{ y: parallaxY }} className="w-full flex flex-col items-center gap-0">
 
-            <MonumentalWord letters={aduanaLetters}     fontSize="clamp(45px, 12vw, 19vw)" delay={0.1} />
-            <MonumentalWord letters={transporteLetters} fontSize="clamp(24px, 7vw, 10vw)"  delay={0.35} />
-            <MonumentalWord letters={logisticaLetters}  fontSize="clamp(22px, 5.5vw, 7vw)" delay={0.55} />
-            <MonumentalWord letters={cargaLetters}      fontSize="clamp(18px, 4vw, 5vw)"   delay={0.75} />
+            <MonumentalWord word={aduanaWord}     fontSize="clamp(45px, 12vw, 19vw)" delay={0.1} isArabic={isArabic} />
+            <MonumentalWord word={transporteWord} fontSize="clamp(24px, 7vw, 10vw)"  delay={0.35} isArabic={isArabic} />
+            <MonumentalWord word={logisticaWord}  fontSize="clamp(22px, 5.5vw, 7vw)" delay={0.55} isArabic={isArabic} />
+            <MonumentalWord word={cargaWord}      fontSize="clamp(18px, 4vw, 5vw)"   delay={0.75} isArabic={isArabic} />
 
           </motion.div>
         </div>
 
-        <div className="flex flex-col items-center text-center relative z-10">
+        <div className="flex flex-col items-center text-center relative z-[2]">
           
           {/* Container Hero Image */}
           <div className="w-full max-w-[1000px] transform hover:scale-[1.02] transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]">

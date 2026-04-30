@@ -69,8 +69,8 @@ export default function Process() {
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              style={{ color: 'rgba(26,26,46,0.4)', letterSpacing: '0.28em' }}
-              className="text-[11px] uppercase font-bold block mb-5"
+              style={{ letterSpacing: '0.28em' }}
+              className="text-[11px] uppercase font-bold block mb-5 text-[#FC3D03]"
             >
               {t('badge')}
             </motion.span>

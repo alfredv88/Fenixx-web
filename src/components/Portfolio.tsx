@@ -25,7 +25,7 @@ export default function Portfolio() {
         
         {/* Header */}
         <div className="mb-20">
-          <span className="text-[14px] uppercase tracking-[0.2em] text-[#6e6e6e] font-bold block mb-6">
+          <span className="text-[14px] uppercase tracking-[0.2em] text-[#FC3D03] font-bold block mb-6">
             Latest Projects
           </span>
           <h2 className="text-[56px] leading-[1.1] font-semibold text-fenix-dark-graphite tracking-tight max-w-[700px]">
@@ -47,7 +47,7 @@ export default function Portfolio() {
                 <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </div>
               <div>
-                <span className="text-[14px] uppercase tracking-[0.2em] text-[#6e6e6e] font-bold block mb-2">
+                <span className="text-[14px] uppercase tracking-[0.2em] text-[#FC3D03] font-bold block mb-2">
                   {project.category}
                 </span>
                 <h3 className="text-[28px] font-semibold text-fenix-dark-graphite group-hover:text-[#FC3D03] transition-colors duration-300">
