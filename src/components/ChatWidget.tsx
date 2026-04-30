@@ -85,6 +85,8 @@ export default function ChatWidget() {
     const botMessageId = Date.now() + Math.random();
     setMessages(prev => [...prev, { id: botMessageId, text: "", sender: 'bot', timestamp: new Date() }]);
 
+    let fullText = "";
+
     try {
       const response = await fetch('/api/chat', {
         method: 'POST',
@@ -100,7 +102,6 @@ export default function ChatWidget() {
 
       const reader = response.body.getReader();
       const decoder = new TextDecoder();
-      let fullText = "";
 
       setIsTyping(false);
 
