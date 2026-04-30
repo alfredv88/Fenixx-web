@@ -9,11 +9,47 @@ import ChatWidget from '@/components/ChatWidget';
 import "./globals.css";
 import { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: "Fenixx Import Export",
-  description: "Fenixx Import Export C.A - Centro Intermodal y Operador Logístico Integral. Expertos en gestión aduanera, transporte multimodal y logística de carga especializada.",
-  keywords: "logistica, aduanas, transporte multimodal, fenixx import, centro intermodal, carga especializada, importacion exportacion",
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  
+  const titles: Record<string, string> = {
+    es: "Fenixx Import Export | Logística y Gestión Aduanera Integral",
+    en: "Fenixx Import Export | Integral Logistics & Customs Management",
+    ar: "فينيكس للاستيراد والتصدير | الخدمات اللوجستية المتكاملة وإدارة الجمارك",
+    fr: "Fenixx Import Export | Logistique Intégrale et Gestion Douanière"
+  };
+
+  const descriptions: Record<string, string> = {
+    es: "Fenixx Import Export C.A - Centro Intermodal y Operador Logístico Integral en Venezuela. Expertos en transporte multimodal y carga especializada.",
+    en: "Fenixx Import Export C.A - Intermodal Center and Integral Logistics Operator. Experts in multimodal transport and specialized cargo.",
+    ar: "فينيكس للاستيراد والتصدير - مركز متعدد الوسائط ومشغل لوجستي متكامل. خبراء في النقل متعدد الوسائط والشحنات المتخصصة.",
+    fr: "Fenixx Import Export C.A - Centre Intermodal et Opérateur Logistique Intégral. Experts en transport multimodal et fret spécialisé."
+  };
+
+  return {
+    title: titles[locale] || titles.es,
+    description: descriptions[locale] || descriptions.es,
+    openGraph: {
+      title: titles[locale] || titles.es,
+      description: descriptions[locale] || descriptions.es,
+      images: ['/images/logo.png'],
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: titles[locale] || titles.es,
+      description: descriptions[locale] || descriptions.es,
+    },
+    alternates: {
+      languages: {
+        'es-VE': '/es',
+        'en-US': '/en',
+        'ar-SA': '/ar',
+        'fr-FR': '/fr',
+      },
+    },
+  };
+}
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
