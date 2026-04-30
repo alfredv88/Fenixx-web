@@ -232,8 +232,9 @@ export default function ChatWidget() {
         // Cargar mensajes previos
         const { data: oldMessages } = await supabase
           .from('chat_messages')
-          .order('created_at', { ascending: true })
-          .eq('session_id', sId);
+          .select('*')
+          .eq('session_id', sId)
+          .order('created_at', { ascending: true });
         
         if (oldMessages && oldMessages.length > 0) {
           const formatted = oldMessages.map(m => ({
