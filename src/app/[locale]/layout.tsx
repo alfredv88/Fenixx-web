@@ -26,19 +26,37 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     fr: "Fenixx Import Export C.A - Centre Intermodal et Opérateur Logistique Intégral. Experts en transport multimodal et fret spécialisé."
   };
 
+  const keywords: Record<string, string> = {
+    es: "logística, aduanas, transporte multimodal, carga pesada, fenixx, venezuela, puerto de guanta, gestión aduanera",
+    en: "logistics, customs, multimodal transport, heavy cargo, fenixx, venezuela, port of guanta, customs management",
+    ar: "الخدمات اللوجستية، الجمارك، النقل متعدد الوسائط، الشحنات الثقيلة، فينيكس، فنزويلا، ميناء غوانتا، إدارة الجمارك",
+    fr: "logistique, douanes, transport multimodal, charge lourde, fenixx, venezuela, port de guanta, gestion douanière"
+  };
+
   return {
     title: titles[locale] || titles.es,
     description: descriptions[locale] || descriptions.es,
+    keywords: keywords[locale] || keywords.es,
     openGraph: {
       title: titles[locale] || titles.es,
       description: descriptions[locale] || descriptions.es,
-      images: ['/images/logo.webp'],
+      images: [
+        {
+          url: '/images/industrial-monument.webp',
+          width: 1200,
+          height: 630,
+          alt: 'Fenixx Import Export - Logistics Excellence'
+        }
+      ],
+      locale: locale,
       type: 'website',
+      siteName: 'Fenixx Import Export',
     },
     twitter: {
       card: 'summary_large_image',
       title: titles[locale] || titles.es,
       description: descriptions[locale] || descriptions.es,
+      images: ['/images/industrial-monument.webp'],
     },
     alternates: {
       languages: {
@@ -46,6 +64,17 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         'en-US': '/en',
         'ar-SA': '/ar',
         'fr-FR': '/fr',
+      },
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
       },
     },
   };

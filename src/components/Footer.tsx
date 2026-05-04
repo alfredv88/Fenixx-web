@@ -124,14 +124,16 @@ export default function Footer() {
           {/* Social Links */}
           <div className="flex items-center gap-5">
             {[ 
-              { icon: 'x', href: '#' },
+              { icon: 'instagram', href: 'https://www.instagram.com/fenixximportca/' },
+              { icon: 'facebook', href: 'https://www.facebook.com/profile.php?id=61589081220363' },
               { icon: 'linkedin', href: '#' },
-              { icon: 'instagram', href: '#' },
-              { icon: 'facebook', href: '#' }
+              { icon: 'x', href: '#' }
             ].map((social, i) => (
               <a 
                 key={i} 
                 href={social.href}
+                target={social.href !== '#' ? "_blank" : undefined}
+                rel={social.href !== '#' ? "noopener noreferrer" : undefined}
                 className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-[#ebebeb]/50 hover:bg-fenix-red-light hover:text-white transition-all duration-300 group"
               >
                 {social.icon === 'x' && <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"/><path d="M4 20l6.768 -6.746m2.464 -2.454l6.768 -6.8"/></svg>}
@@ -143,7 +145,7 @@ export default function Footer() {
           </div>
 
           <p className="text-[#ebebeb]/40 text-[11px]">
-            {t('bottom.designed_by')} <a href="#" className="text-[#ebebeb]/60 hover:text-fenix-red-light transition-colors font-semibold">AMS Desarrollos</a>
+            {t('bottom.designed_by')} <a href="https://www.instagram.com/amsdesarrollos/" target="_blank" rel="noopener noreferrer" className="text-[#ebebeb]/60 hover:text-fenix-red-light transition-colors font-semibold">AMS Desarrollos</a>
           </p>
         </div>
 

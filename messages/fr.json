@@ -365,5 +365,11 @@
     "badge": "Excellence Opérationnelle",
     "title": "Engagement dans chaque <orange>Mouvement</orange>",
     "description": "Notre infrastructure et notre équipe humaine sont la garantie que votre cargaison arrivera à destination avec une sécurité et une précision maximales."
+  },
+  "NotFound": {
+    "title": "404",
+    "headline": "Route hors radar",
+    "description": "La page que vous recherchez ne figure pas dans notre feuille de route actuelle. Laissez-nous vous rediriger vers un port sûr.",
+    "cta": "Retour à l'accueil"
   }
 }

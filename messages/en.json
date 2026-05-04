@@ -365,5 +365,11 @@
     "badge": "Operational Excellence",
     "title": "Commitment in Every <orange>Move</orange>",
     "description": "Our infrastructure and human team are the guarantee that your cargo will reach its destination with maximum security and precision."
+  },
+  "NotFound": {
+    "title": "404",
+    "headline": "Route off-radar",
+    "description": "The page you are looking for is not in our current roadmap. Let us redirect you to a safe harbor.",
+    "cta": "Back to Home"
   }
 }
