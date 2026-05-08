@@ -29,10 +29,10 @@ export const chatKnowledge = {
       response: "Para una consulta técnica directa, puede contactarnos vía WhatsApp o solicitar la llamada de un **Asesor de Cuentas Corporativas**."
     }
   ],
-  ar: [
+  tr: [
     {
-      keywords: ["الوقت", "ساعة", "عمل"],
-      response: "مكاتبنا تعمل من **الاثنين إلى الجمعة (8:00 صباحاً - 5:00 مساءً)**. شبكتنا اللوجستية في الموانئ تعمل 24/7."
+      keywords: ["zaman", "saat", "çalışma", "mesai"],
+      response: "Ofislerimiz **Pazartesi'den Cuma'ya (08:00 - 17:00)** hizmet vermektedir. Limanlardaki lojistik ağımız 7/24 çalışmaktadır."
     }
   ],
   en: [

@@ -37,17 +37,14 @@ export default function Hero() {
 
   const videoList = isMobile ? ['/videos/hero-mobile.mp4'] : ['/videos/hero-1.mp4', '/videos/hero-3.mp4'];
 
-  const locale = useLocale();
-  const isArabic = locale === 'ar';
-
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"]
   });
 
   const monumentalY = useTransform(scrollYProgress, [0, 1], [0, -300]);
-  const importX = useTransform(scrollYProgress, [0, 0.5], [0, isArabic ? 200 : -200]);
-  const exportX = useTransform(scrollYProgress, [0, 0.5], [0, isArabic ? -200 : 200]);
+  const importX = useTransform(scrollYProgress, [0, 0.5], [0, -200]);
+  const exportX = useTransform(scrollYProgress, [0, 0.5], [0, 200]);
   const contentY = useTransform(scrollYProgress, [0, 1], [0, 100]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
   const monumentalOpacity = useTransform(scrollYProgress, [0, 0.4], [0.6, 0.05]);

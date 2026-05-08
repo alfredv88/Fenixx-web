@@ -15,7 +15,7 @@ interface Message {
 
 export default function ChatWidget() {
   const pathname = usePathname();
-  const lang = pathname?.startsWith('/ar') ? 'ar' : pathname?.startsWith('/fr') ? 'fr' : 'es';
+  const lang = pathname?.startsWith('/tr') ? 'tr' : pathname?.startsWith('/fr') ? 'fr' : 'es';
   
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
@@ -53,14 +53,14 @@ export default function ChatWidget() {
       status: "En línea",
       label: "Asesoría: "
     },
-    ar: {
-      botName: "أليكس // فينيكس",
-      intro: "تم إنشاء الاتصال. أنا **أليكس**، مستشارك الخبير في اللوجستيات والجمارك. ما هي العملية التي تريد إدارتها اليوم؟",
-      placeholder: "استشر النظام الخبير...",
-      initialSuggestions: ["ميناء غوانتا", "تتبع الشحنة", "إدارة الجمارك", "تحدث مع وكيل"],
-      error: "انقطع الاتصال. جاري إعادة المحاولة...",
-      status: "متصل",
-      label: "مستشار:"
+    tr: {
+      botName: "ALEX // FENIXX",
+      intro: "BAĞLANTI KURULDU. Ben **ALEX**, lojistik ve gümrük uzmanınız. Bugün hangi işlemi yönetmek istersiniz?",
+      placeholder: "Uzman sisteme danışın...",
+      initialSuggestions: ["Guanta Limanı", "Kargo Takibi", "Gümrük Yönetimi", "Temsilciyle Görüş"],
+      error: "Bağlantı kesildi. Yeniden senkronize ediliyor...",
+      status: "Çevrimiçi",
+      label: "Danışman: "
     },
     fr: {
       botName: "ALEX // FENIXX",
@@ -183,10 +183,10 @@ export default function ChatWidget() {
     setSuggestions([]);
 
     // Plan A: Redirección a WhatsApp
-    if (text.toLowerCase().includes('hablar con agente') || text.toLowerCase().includes('تحدث مع وكيل') || text.toLowerCase().includes('agent')) {
+    if (text.toLowerCase().includes('hablar con agente') || text.toLowerCase().includes('temsilciyle görüş') || text.toLowerCase().includes('agent')) {
       const whatsappNumber = "584129671098";
-      const message = lang === 'ar' 
-        ? "مرحباً فينيكس، أريد التحدث مع مستشار..." 
+      const message = lang === 'tr' 
+        ? "Merhaba Fenixx, bir danışmanla görüşmek istiyorum..." 
         : lang === 'fr'
         ? "Bonjour Fenixx, je souhaite parler à un conseiller concernant mes opérations logistiques..."
         : "Hola Fenixx, deseo hablar con un asesor sobre mis operaciones logísticas...";
@@ -194,8 +194,8 @@ export default function ChatWidget() {
       const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
       
       setTimeout(() => {
-        addMessage(lang === 'ar' 
-          ? "جاري تحويلك إلى واتساب للحدث مع وكيل بشري..." 
+        addMessage(lang === 'tr' 
+          ? "İnsan bir temsilciye bağlanmak için WhatsApp'a yönlendiriliyorsunuz..." 
           : lang === 'fr'
           ? "Entendu. **Redirection vers WhatsApp** pour contacter un agent humain..."
           : "Entendido. **Redirigiendo a WhatsApp** para conectar con un agente humano...", 'bot');
@@ -270,7 +270,7 @@ export default function ChatWidget() {
       isVisible || isOpen 
         ? 'opacity-100 translate-y-0 scale-100 pointer-events-auto' 
         : 'opacity-0 translate-y-10 scale-90 pointer-events-none'
-    }`} dir={lang === 'ar' ? 'rtl' : 'ltr'}>
+    }`} dir="ltr">
       <style jsx global>{`
         .scrollbar-hide::-webkit-scrollbar { display: none; }
         @keyframes scanline { 0% { transform: translateY(-100%); } 100% { transform: translateY(100vh); } }
@@ -430,8 +430,8 @@ export default function ChatWidget() {
           {/* Status Capsule (Visible on Hover in Desktop) */}
           <div className="bg-black/90 backdrop-blur-xl border border-white/10 px-5 py-2.5 rounded-full hidden lg:block shadow-2xl opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 pointer-events-none mb-2 whitespace-nowrap">
               <span className="text-white font-bold text-xs tracking-wider uppercase">
-                {current.label || (lang === 'ar' ? 'مستشار: ' : 'Asesoría: ')}
-                <span className="text-fenix-red-light animate-pulse">{current.status || (lang === 'ar' ? 'متصل' : 'En línea')}</span>
+                {current.label || (lang === 'tr' ? 'Danışman: ' : 'Asesoría: ')}
+                <span className="text-fenix-red-light animate-pulse">{current.status || (lang === 'tr' ? 'Çevrimiçi' : 'En línea')}</span>
               </span>
           </div>
         </motion.div>

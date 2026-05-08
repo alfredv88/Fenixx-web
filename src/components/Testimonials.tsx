@@ -13,8 +13,7 @@ export default function Testimonials() {
   // Duplicamos el set de cartas para el scroll infinito suave
   const tickerCards = [...testimonials, ...testimonials];
 
-  const locale = useLocale();
-  const isRTL = locale === 'ar';
+
 
   return (
     <section 

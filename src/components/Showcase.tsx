@@ -21,14 +21,13 @@ const letterVariants = {
   },
 };
 
-function MonumentalWord({ word, fontSize, delay, className = '', isArabic = false }: {
+function MonumentalWord({ word, fontSize, delay, className = '' }: {
   word: string;
   fontSize: string;
   delay: number;
   className?: string;
-  isArabic?: boolean;
 }) {
-  const letters = isArabic ? [word] : word.split("");
+  const letters = word.split("");
   
   return (
     <motion.div
@@ -65,8 +64,7 @@ export default function Showcase() {
   const rawY = useTransform(scrollYProgress, [0, 1], [1500, -400]);
   const parallaxY = useSpring(rawY, { stiffness: 50, damping: 25, restDelta: 0.001 });
 
-  const locale = useLocale();
-  const isArabic = locale === 'ar';
+
 
   const aduanaWord = t('words.aduana');
   const transporteWord = t('words.transporte');
@@ -82,10 +80,10 @@ export default function Showcase() {
         <div className="absolute bottom-0 left-0 w-full flex flex-col items-center justify-end select-none pointer-events-none z-[1]">
           <motion.div style={{ y: parallaxY }} className="w-full flex flex-col items-center gap-0">
 
-            <MonumentalWord word={aduanaWord}     fontSize="clamp(45px, 12vw, 19vw)" delay={0.1} isArabic={isArabic} />
-            <MonumentalWord word={transporteWord} fontSize="clamp(24px, 7vw, 10vw)"  delay={0.35} isArabic={isArabic} />
-            <MonumentalWord word={logisticaWord}  fontSize="clamp(22px, 5.5vw, 7vw)" delay={0.55} isArabic={isArabic} />
-            <MonumentalWord word={cargaWord}      fontSize="clamp(18px, 4vw, 5vw)"   delay={0.75} isArabic={isArabic} />
+            <MonumentalWord word={aduanaWord}     fontSize="clamp(45px, 12vw, 19vw)" delay={0.1} />
+            <MonumentalWord word={transporteWord} fontSize="clamp(24px, 7vw, 10vw)"  delay={0.35} />
+            <MonumentalWord word={logisticaWord}  fontSize="clamp(22px, 5.5vw, 7vw)" delay={0.55} />
+            <MonumentalWord word={cargaWord}      fontSize="clamp(18px, 4vw, 5vw)"   delay={0.75} />
 
           </motion.div>
         </div>

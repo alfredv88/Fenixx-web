@@ -15,21 +15,21 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const titles: Record<string, string> = {
     es: "Fenixx Import Export | Logística y Gestión Aduanera Integral",
     en: "Fenixx Import Export | Integral Logistics & Customs Management",
-    ar: "فينيكس للاستيراد والتصدير | الخدمات اللوجستية المتكاملة وإدارة الجمارك",
+    tr: "Fenixx Import Export | Entegre Lojistik ve Gümrük Yönetimi",
     fr: "Fenixx Import Export | Logistique Intégrale et Gestion Douanière"
   };
 
   const descriptions: Record<string, string> = {
     es: "Fenixx Import Export C.A - Centro Intermodal y Operador Logístico Integral en Venezuela. Expertos en transporte multimodal y carga especializada.",
     en: "Fenixx Import Export C.A - Intermodal Center and Integral Logistics Operator. Experts in multimodal transport and specialized cargo.",
-    ar: "فينيكس للاستيراد والتصدير - مركز متعدد الوسائط ومشغل لوجستي متكامل. خبراء في النقل متعدد الوسائط والشحنات المتخصصة.",
+    tr: "Fenixx Import Export C.A - Venezuela'da İntermodal Merkez ve Entegre Lojistik Operatörü. Çoklu taşımacılık ve özel kargoda uzmanlar.",
     fr: "Fenixx Import Export C.A - Centre Intermodal et Opérateur Logistique Intégral. Experts en transport multimodal et fret spécialisé."
   };
 
   const keywords: Record<string, string> = {
     es: "logística, aduanas, transporte multimodal, carga pesada, fenixx, venezuela, puerto de guanta, gestión aduanera",
     en: "logistics, customs, multimodal transport, heavy cargo, fenixx, venezuela, port of guanta, customs management",
-    ar: "الخدمات اللوجستية، الجمارك، النقل متعدد الوسائط، الشحنات الثقيلة، فينيكس، فنزويلا، ميناء غوانتا، إدارة الجمارك",
+    tr: "lojistik, gümrük, çoklu taşımacılık, ağır kargo, fenixx, venezuela, guanta limanı, gümrük yönetimi",
     fr: "logistique, douanes, transport multimodal, charge lourde, fenixx, venezuela, port de guanta, gestion douanière"
   };
 
@@ -62,7 +62,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       languages: {
         'es-VE': '/es',
         'en-US': '/en',
-        'ar-SA': '/ar',
+        'tr-TR': '/tr',
         'fr-FR': '/fr',
       },
     },
@@ -106,7 +106,7 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} suppressHydrationWarning>
+    <html lang={locale} dir="ltr" suppressHydrationWarning>
       <head>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         {/* Google Fonts: Work Sans */}
@@ -114,9 +114,8 @@ export default async function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
       </head>
-      <body className={locale === 'ar' ? "font-['Cairo',sans-serif]" : "font-inter"}>
+      <body className="font-inter">
         <NextIntlClientProvider messages={messages}>
           <Preloader />
           <Header />

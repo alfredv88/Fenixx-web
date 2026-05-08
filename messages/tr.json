@@ -1,0 +1,375 @@
+{
+  "Header": {
+    "nav": {
+      "home": "Ana Sayfa",
+      "about": "Hakkımızda",
+      "services": "Hizmetler",
+      "portfolio": "Portföy",
+      "contact": "İletişim"
+    },
+    "megaMenu": {
+      "title": "Hizmetler",
+      "catalog": "Kataloğu Gör",
+      "info": "+ Bilgi",
+      "categories": {
+        "aduana": "Gümrük Yönetimi",
+        "transporte": "Uluslararası Taşımacılık",
+        "carga": "Ticari Kargo",
+        "equipos": "Endüstriyel Ekipman",
+        "almacen": "Depolama ve Stok"
+      }
+    }
+  },
+  "Hero": {
+    "title": {
+      "logistics": "Entegre",
+      "integral": "Lojistik"
+    },
+    "subtitle": "Gümrük yönetimi, çoklu taşımacılık ve özel kargo alanında stratejik ortağınız.",
+    "cta": "Daha Fazla Bilgi",
+    "labels": {
+      "brand": "Fenixx C.A",
+      "scroll": "Kaydır"
+    }
+  },
+  "About": {
+    "badge": "Hakkımızda",
+    "headline": {
+      "part1": "Durmaksızın ilerleyen küresel pazarda,",
+      "part2": "şirketinizin güvenilir bir",
+      "accent": "ortağa ihtiyacı var."
+    },
+    "description": "Durmaksızın ilerleyen küresel pazarda, başlangıç noktasından nihai hedefe kadar lojistik karmaşıklığını yöneten ortağınız biziz.",
+    "cta": "Daha Fazla Bilgi"
+  },
+  "Services": {
+    "badge": "Hizmet Portföyü",
+    "title": "Stratejik Kapasite",
+    "description": "Operasyonunuz için gerekli altyapı ile tüm taşımacılık yöntemlerini kapsıyoruz.",
+    "cta": "Daha Fazla Detay",
+    "items": {
+      "transporte": {
+        "title": "Çok Modlu Taşımacılık",
+        "description": "Deniz, hava ve kara bağlantılarında tam kapsam ve stratejik koordinasyon."
+      },
+      "aduana": {
+        "title": "Gümrük Yönetimi",
+        "description": "Uzman danışmanlık ve kargonun verimli millileştirilmesi ile süreçleri hızlandırıyoruz."
+      },
+      "carga": {
+        "title": "Kargo Yönetimi",
+        "description": "Her türlü mal için teknik kapasite ve mutlak hassasiyet. Özel kaldırma operasyonları."
+      },
+      "equipos": {
+        "title": "Ekipman Kiralama",
+        "description": "Tüm operasyonunuzu optimize etmek için modern filo ve uzman araçlar."
+      }
+    }
+  },
+  "Footer": {
+    "brand": {
+      "slogan": "Kargonuzun nabzı, başarınızın gücü."
+    },
+    "sections": {
+      "navigation": "Navigasyon",
+      "services": "Hizmetler",
+      "contact": "İletişim"
+    },
+    "links": {
+      "home": "Ana Sayfa",
+      "services": "Hizmetler",
+      "about": "Hakkımızda",
+      "portfolio": "Portföy",
+      "contact": "İletişim",
+      "services_list": {
+        "transporte": "Çok Modlu Taşımacılık",
+        "aduana": "Gümrük Yönetimi",
+        "carga": "Kargo Yönetimi",
+        "equipos": "Ekipman Kiralama"
+      }
+    },
+    "contact": {
+      "address": "Av. Raúl Leoni con Av. Real, Local Nro. S/N, Urb. Industria de Guanta, Guanta, Anzoátegui. Zona Postal 6014."
+    },
+    "bottom": {
+      "rights": "Tüm hakları saklıdır.",
+      "tagline": "Üst Düzey Lojistik ve Gümrük",
+      "designed_by": "Tasarım:"
+    }
+  },
+  "Nosotros": {
+    "Hero": {
+      "badge": "KARGONUZUN NABZI",
+      "title": "Hakkımızda",
+      "scroll": "Kaydır"
+    },
+    "Impact": {
+      "headline": "Durmaksızın ilerleyen küresel pazarda, şirketinizin tedarik zincirinin <accent>her aşamasına hakim olan</accent> bir ortağa ihtiyacı var."
+    },
+    "Manifesto": {
+      "badge": "01 / Biz Kimiz",
+      "title": "Siz işinizi büyütmeye odaklanırken, biz lojistik karmaşıklığını yöneten İntermodal Merkeziniziz.",
+      "description": "Geçmişimiz bize lojistiğin sadece kutuları taşımak olmadığını, operasyonlarınızın başarısını garanti eden kilit noktaları birbirine bağlamak olduğunu anlamamızı sağladı. Başlangıç noktasından nihai hedefe kadar, mallarınızı her yolla cerrahi bir hassasiyetle taşıyoruz.",
+      "quote": "Kargonuzun nabzı, başarınızın gücü."
+    },
+    "Stats": {
+      "experience": {
+        "value": "15+",
+        "label": "Yıllık Deneyim"
+      },
+      "security": {
+        "value": "100%",
+        "label": "Hukuki Güvenlik"
+      },
+      "projects": {
+        "value": "+500",
+        "label": "Özel Projeler"
+      },
+      "reach": {
+        "value": "Küresel",
+        "label": "İntermodal Erişim"
+      }
+    },
+    "Promise": {
+      "badge": "02 / Değer Vaadimiz",
+      "title": "Sınırları birleştiriyor ve hedefleri basitleştiriyoruz.",
+      "items": {
+        "integral": {
+          "title": "Kapsamlı Yönetim",
+          "description": "Darboğazları ve beklenmeyen maliyetleri ortadan kaldırmak için zincirdeki tüm aktörleri senkronize ediyoruz."
+        },
+        "security": {
+          "title": "Mutlak Güvenlik",
+          "description": "Mallarınızın bütünlüğünü ve her bölgede mevzuata tam uyumu garanti ediyoruz."
+        },
+        "speed": {
+          "title": "Hız",
+          "description": "Üretim hatlarınızı durdurmamak için anında yanıt ve gerçek zamanlı rota alternatifleri."
+        }
+      }
+    }
+  },
+  "ServiciosPage": {
+    "Hero": {
+      "badge": "BÜYÜME İÇİN LOJİSTİK",
+      "title": "Hizmetler",
+      "scroll": "Keşfet"
+    },
+    "Impact": {
+      "headline": "Her yük, endüstri ve varış noktası için <accent>hızlı ve güvenilir</accent> lojistik."
+    },
+    "Items": {
+      "label": "Hizmet 0{index}",
+      "cta": "Hizmeti Sor",
+      "transporte": {
+        "title": "Çok Modlu Taşımacılık",
+        "description": "Tüm modlarda tam kapsama: deniz, nehir, hava ve kara. Her varış noktası için uluslararası ve ulusal navlunların stratejik koordinasyonu.",
+        "bullets": ["Deniz ve Nehir Taşımacılığı", "Ekspres Hava Kargo", "Ulusal Kara Dağıtımı", "Navlun Yönetimi"]
+      },
+      "aduana": {
+        "title": "Gümrük Yönetimi",
+        "description": "Gümrük işlemlerinde kapsamlı danışmanlık ve temsil. Teslimat sürelerinizi hızlandırmak ve mallarınızın yasal girişini garanti altına almak için bürokrasiyi basitleştiriyoruz.",
+        "bullets": ["Gümrük Danışmanlığı", "Kargonun Millileştirilmesi", "Menşede Koordinasyon", "Mevzuata Uyum"]
+      },
+      "manejo-carga": {
+        "title": "Kargo Yönetimi",
+        "description": "Her türlü mal için teknik kapasite. Tekli paketlerden büyük boyutlu yüklere kadar, hassasiyet ve tam güvenlikle çalışıyoruz.",
+        "bullets": ["Dökme ve Parsiyel Kargo", "Proje Yönetimi", "Envanter Kontrolü", "Entegre Lojistik"]
+      },
+      "equipos": {
+        "title": "Ekipman Kiralama",
+        "description": "Her türlü yükün, kaldırma operasyonunun ve endüstriyel lojistiğin desteklenmesi için modern makine ve uzman ekipman filosunu hizmetinize sunuyoruz.",
+        "bullets": ["Kaldırma Ekipmanları", "Endüstriyel Makineler", "Her Türlü Yük İçin Destek", "Özel Operasyonlar"]
+      }
+    },
+    "CTA": {
+      "badge": "Bir sonraki seviyeye hazır mısınız?",
+      "title": "Lojistiğinizi Bugün Hızlandırın.",
+      "accent": "Lojistik",
+      "button": "Bir Uzmanla Konuşun"
+    }
+  },
+  "Portafolio": {
+    "Hero": {
+      "badge": "Deneyimimiz",
+      "title": "Portföy",
+      "scroll": "Projeleri Gör"
+    },
+    "Filters": {
+      "all": "Tümü",
+      "transporte": "Taşımacılık",
+      "aduanas": "Gümrük",
+      "especializados": "Özel Operasyonlar"
+    },
+    "Projects": {
+      "details": "Detayları Gör",
+      "analysis": "Operasyonel Analiz",
+      "items": {
+        "hubei": {
+          "title": "Hubei Endüstriyel Tedarik - Valencia",
+          "category": "Taşımacılık",
+          "tag": "Entegre Lojistik",
+          "stats": "Transit: 38 Gün | Kargo: 240 Ton",
+          "description": "Orta Çin'den Venezuela limanlarına ağır sanayi için bileşen tedarikinin yönetimi."
+        },
+        "izada": {
+          "title": "Yüksek Hassasiyetli Makine Kaldırma",
+          "category": "Özel Operasyonlar",
+          "tag": "Kaldırma Yükü",
+          "stats": "Hassasiyet: 100% | Kargo: Vinç 120t",
+          "description": "Son nesil ekipmanlar kullanılarak büyük boyutlu endüstriyel makinelerin kaldırılması ve konumlandırılması."
+        },
+        "houston": {
+          "title": "Houston Lojistik Köprüsü - Latam",
+          "category": "Taşımacılık",
+          "tag": "Çok Modlu",
+          "stats": "Sıklık: Haftalık | Tip: Konsolide",
+          "description": "Teknoloji ve enerji sektörleri için Houston merkezinden çok modlu konsolidasyon ve sevkiyat."
+        },
+        "aduanas_critica": {
+          "title": "Gümrük Yönetimi ve Kritik Millileştirme",
+          "category": "Gümrük",
+          "tag": "Gümrük",
+          "stats": "Verimlilik: 3 Gün | Uyum: 100%",
+          "description": "Sıkı mevzuata uygunluk ile altyapı sektörü için kritik malzemelerin ekspres millileştirilmesi."
+        }
+      }
+    },
+    "Empty": "Bu kategoride proje bulunmamaktadır.",
+    "CTA": {
+      "badge": "Kargonuz bir sonraki zorluğumuz",
+      "title": "Başarınızı bizimle taşımaya hazır mısınız?",
+      "button": "Fiyat Teklifi Al"
+    }
+  },
+  "Showcase": {
+    "words": {
+      "aduana": "GÜMRÜK",
+      "transporte": "TAŞIMACILIK",
+      "logistica": "LOJİSTİK",
+      "carga": "KARGO"
+    }
+  },
+  "Testimonials": {
+    "badge": "MÜŞTERİLERİMİZ",
+    "description": "Fenixx kargodan fazlasını sunar: uzman ekibimiz her harekette huzur sağlar. Müşterilerimizin özverimiz ve verimliliğimiz hakkında ne düşündüklerini okuyun.",
+    "items": [
+      {
+        "name": "David Nguyen",
+        "role": "Lojistik Direktörü",
+        "quote": "Fenixx'in özverili ekibi, kargomuzu zamanında ve sorunsuz bir şekilde hareket halinde tutuyor. Hızlı çözümleri onları en güvenilir ortağımız yaptı.",
+        "image": "https://randomuser.me/api/portraits/men/11.jpg"
+      },
+      {
+        "name": "Samantha Lee",
+        "role": "Ticari Operasyonlar",
+        "quote": "Gerçek zamanlı takip, önceden plan yapmamızı sağlıyor ve envanterimizi güncel tutuyor. Mağazalarımızın tüm yıl boyunca stoklanması için Fenixx'e güveniyoruz.",
+        "image": "https://randomuser.me/api/portraits/women/25.jpg"
+      },
+      {
+        "name": "Megan Turner",
+        "role": "Tedarik Zinciri Lideri",
+        "quote": "Teslim almadan teslimata kadar Fenixx hizmeti birinci sınıftır. Taşıyıcıları her zaman zamanında gelir ve mallarımız her sevkiyatta güvenli bir şekilde ulaşır.",
+        "image": "https://randomuser.me/api/portraits/women/60.jpg"
+      },
+      {
+        "name": "Carlos Ruiz",
+        "role": "İthalat Müdürü",
+        "quote": "Fenixx'in yürüttüğü gümrük prosedürleri gecikmeden işlendi. Ekipleri profesyonel ve her türlü soruyu anında çözmek için her zaman hazırdır.",
+        "image": "https://randomuser.me/api/portraits/men/54.jpg"
+      }
+    ]
+  },
+  "Partners": {
+    "label": "Stratejik Müttefiklerimiz"
+  },
+  "Process": {
+    "badge": "Değer Vaadi",
+    "title": "Kargonuzun nabzı, başarınızın gücü",
+    "description": "Her harekette güvenliği, hızı ve verimliliği garanti eden kapsamlı yönetim yoluyla sınırları birleştiriyor ve hedefleri basitleştiriyoruz.",
+    "button": "Bir Danışmanla Konuşun",
+    "steps": [
+      {
+        "label": "ADIM 1",
+        "title": "Sorunsuz gümrük yönetimi",
+        "description": "İthalat ve ihracat işlemlerinizi çeviklik ve yasal hassasiyetle işliyoruz."
+      },
+      {
+        "label": "ADIM 2",
+        "title": "Kapıdan kapıya taşıma",
+        "description": "Küresel güvenilir iş ortakları ağımızla kargonuzu menşeden varış noktasına taşıyoruz."
+      },
+      {
+        "label": "ADIM 3",
+        "title": "Özelleştirilmiş lojistik çözümler",
+        "description": "Küresel tedarik zincirinizi optimize etmek için kişiselleştirilmiş stratejiler tasarlıyoruz."
+      }
+    ]
+  },
+  "Gallery": {
+    "badge": "Portföy",
+    "title": "Yüksek etkili operasyonlar",
+    "description": "Sahada kanıtlanmış operasyonel kapasitemiz. Yüksek teknik karmaşıklığa sahip ticari zorluklar için gerçek lojistik çözümler tasarlıyoruz.",
+    "cta": "Tüm Vakaları Gör",
+    "items": [
+      {
+        "category": "Uluslararası Kargo",
+        "title": "İthalat Şanghay → Caucedo"
+      },
+      {
+        "category": "Gümrük Yönetimi",
+        "title": "24s Ekspres Sevkiyat"
+      },
+      {
+        "category": "Kara Taşımacılığı",
+        "title": "Çok Duraklı Ulusal Dağıtım"
+      },
+      {
+        "category": "Proje Kargosu",
+        "title": "Ağır Makine Transferi"
+      }
+    ]
+  },
+  "Contact": {
+    "badge": "İletişim",
+    "title": "Bir sonraki operasyonunuzu başlatalım.",
+    "description": "Fénixx Logistics tedarik zincirinizi optimize etmeye hazır. Uzman ekibimiz 24 saatten kısa sürede size geri dönüş yapacaktır.",
+    "info": {
+      "directLine": "Doğrudan Hat",
+      "corporateEmail": "Kurumsal E-posta",
+      "offices": "Fénixx Ofisleri",
+      "address": "Av. Raúl Leoni con Av. Real, Local Nro. S/N, Urb. Industria de Guanta, Guanta, Anzoátegui. Posta Kodu 6014.",
+      "phone": "+58 0412 967 1098",
+      "email": "info@fenixx.com.ve"
+    },
+    "form": {
+      "name": "Tam Adı",
+      "email": "E-posta",
+      "company": "Şirket / Organizasyon",
+      "message": "Operasyon Detayları",
+      "submit": "Talebi Gönder",
+      "privacy": "Göndererek gizlilik ve B2B veri işleme düzenlemelerimizi kabul etmiş olursunuz."
+    }
+  },
+  "Ticker": {
+    "logistics": "Lojistik",
+    "transport": "Taşımacılık",
+    "cargo": "Kargo",
+    "customs": "Gümrük"
+  },
+  "Common": {
+    "loading": "Yükleniyor...",
+    "error": "Bir hata oluştu"
+  },
+  "TrustVideo": {
+    "badge": "Operasyonel Mükemmellik",
+    "title": "Her <orange>Harekette</orange> Taahhüt",
+    "description": "Altyapımız ve insan ekibimiz, kargonuzun maksimum güvenlik ve hassasiyetle hedefine ulaşacağının garantisidir."
+  },
+  "NotFound": {
+    "title": "404",
+    "headline": "Rota dışı",
+    "description": "Aradığınız sayfa şu anki yol haritamızda yok. Sizi güvenli bir limana yönlendirmemize izin verin.",
+    "cta": "Ana Sayfaya Dön"
+  }
+}

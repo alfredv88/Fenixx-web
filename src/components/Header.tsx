@@ -54,7 +54,7 @@ export default function Header({ variant }: { variant?: 'transparent' | 'solid' 
     }, 300);
   };
 
-  const switchLanguage = (newLocale: 'en' | 'es' | 'ar' | 'fr') => {
+  const switchLanguage = (newLocale: 'en' | 'es' | 'tr' | 'fr') => {
     router.replace(currentPathname, { locale: newLocale });
   };
 
@@ -157,7 +157,7 @@ export default function Header({ variant }: { variant?: 'transparent' | 'solid' 
               
               {/* Language Switcher Component */}
               <div className="flex items-center gap-3 mr-4">
-                {['es', 'en', 'ar', 'fr'].map((l) => (
+                {['es', 'en', 'tr', 'fr'].map((l) => (
                   <button
                     key={l}
                     onClick={() => switchLanguage(l as any)}
@@ -241,7 +241,7 @@ export default function Header({ variant }: { variant?: 'transparent' | 'solid' 
               >
                 {/* Language Switcher Mobile (Ultra Thin) */}
                 <div className="flex gap-10 mb-16 border-b border-gray-100 pb-8 uppercase tracking-[0.3em] font-black text-[15px]">
-                  {['es', 'en', 'ar', 'fr'].map((l) => (
+                  {['es', 'en', 'tr', 'fr'].map((l) => (
                     <button
                       key={l}
                       onClick={() => { switchLanguage(l as any); setIsMenuOpen(false); }}
